@@ -1,0 +1,1167 @@
+1-Check Number>0||Number<0||Number=0
+
+#include <iostream>
+#include "Input_Lib.h"
+using namespace std;
+int main()
+{
+	int Number =Input_Lib::Read_Number();
+	(Number==0)? cout<<"Number is :0": (Number > 0) ? cout << "Positive" : cout << "Negativ";
+
+
+
+}
+*************************************************************************
+2-Default Parameter (important)
+
+#include<iostream>
+using namespace std;
+
+int add(int  , int , int c =0 , int d =0);
+int main()
+{
+	cout << add(10, 20) << endl;
+	cout << add(10, 20,30) << endl;
+	cout << add(10, 20,30,40) << endl;
+	return 0;
+}
+int add(int a, int b, int c ,  int d) {
+	return a + b + c + d;
+}
+*************************************************************************
+3- Over Load Function 
+
+#include<iostream>
+using namespace std;
+
+int add(int  , int );
+int add(int, int, int);
+int add(int , int  , int , float , double );
+int main()
+{
+	cout << add(10, 20, 30)<<endl;
+	cout << add(10, 20)<<endl;
+	cout << add(10, 20,30,40.1,50.6)<<endl;
+}
+int add(int a, int b) {
+	return a + b ;
+}
+int add(int a, int b, int c) {
+	return a + b + c;
+}
+int add(int a, int  b, int c, float f, double d) {
+
+	return a + b + c + f + d;
+}
+*************************************************************************
+4-Call Stack 
+
+#include<iostream>
+using namespace std;
+void Function4() {
+	cout << "Hi Iam Function4:-)";
+}
+void Function3() {
+	Function4();
+}
+void Function2() {
+	Function3();
+}
+void Functoin1() {
+	Function2();
+}
+int main()
+{
+	Functoin1();
+}
+*************************************************************************
+5- from n to m 
+#include<iostream>
+using namespace std;
+void Print_Number(int n, int m) {
+	if (n <= m) {
+		cout << "Number[" << n << "]:" << n<<endl;
+		Print_Number(n + 1, m);
+	}
+
+}
+int main()
+{
+	Print_Number(1, 20);
+}
+
+*************************************************************************
+6- Print Number From M To N
+
+
+#include<iostream>
+using namespace std;
+void Print_Number(int n, int m) {
+	if (m>=n ) {
+		cout << "Number[" << m<< "]:" <<m<<endl;
+		Print_Number(n , m-1);
+	}
+
+}
+int main()
+{
+	Print_Number(1, 20);
+}
+
+*************************************************************************
+7- Power N^M
+
+#include<iostream>
+using namespace std;
+int Power_Number(int Base, int Power) {
+	if (Power == 0) {
+		return 1;
+	}
+	else {
+		return Base * Power_Number(Base, Power - 1);
+	}
+
+}
+int main()
+{
+	cout<<Power_Number(2, 1);
+}
+
+*************************************************************************
+8- Printf Format Integar 
+
+#include<iostream>
+#include <cstdio>
+using namespace std;
+
+int main()
+{  
+	int Page = 1, Total_Pages = 10;
+	printf("Number of Page :%d\n", Total_Pages);
+	printf("Page %d of %d\n", Page, Total_Pages);
+	printf("Page Number :%0*d\n", 2, Page);
+	printf("Page Number :%0*d\n", 3, Page);
+	printf("Page Number :%0*d\n", 4, Page);
+	printf("Page Number :%0*d\n", 5, Page);
+	printf("Page Number :%0*d\n", 6, Page);
+
+}
+*************************************************************************
+9- Printf Format Float 
+
+#include<iostream>
+#include <cstdio>
+using namespace std;
+
+int main()
+{  
+	float Number = 10.12345;
+	printf("Number is :%0.1f\n", Number);
+	float Number1 = 7;
+	float Number2 = 9;
+	printf("%0.3f/%0.3f=%0.3f\n", Number1, Number2, Number1 / Number2);
+	printf("%0.3f/%0.3f=%0.3f\n", Number1, Number2, Number1 / Number2);
+}
+
+*************************************************************************
+10-printf Format String and char 
+
+#include<iostream>
+#include <cstdio>
+using namespace std;
+
+int main()
+{   
+
+	char Name[] = "Mohamed ALi";
+	printf("my Name is %s\n", Name);
+	char c='S';
+	for (int i = 1; i < 10; i++) {
+	
+		printf("%*c\n", i, c);
+	
+	}
+
+}
+
+*************************************************************************
+11-Setw Manipulation 
+
+#include<iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{   
+	cout << "---------|---------------------------------|--------|\n";
+	cout << "  Code   |              Name               |  Mark  |\n";
+	cout << "---------|---------------------------------|--------|\n";
+	cout << setw(9) << "C101" << "|" << setw(33) << "Introduction In Cpp" << "|" << setw(8) << "90" << "|"<<endl;
+	cout << setw(9) << "C102" << "|" << setw(33) << "EMP In C" << "|" << setw(8) << "80" << "|"<<endl;
+	cout << setw(9) << "C103" << "|" << setw(33) << "Programing In Java" << "|" << setw(8) << "40" << "|"<<endl;
+	cout << setw(9) << "C104" << "|" << setw(33) << "Intro Of IOT" << "|" << setw(8) << "100" << "|"<<endl;
+	cout << "---------|---------------------------------|--------|\n";
+
+}
+*************************************************************************
+12-2D Array
+
+#include<iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{   
+	int arr[3][4] = { {1,2,3,4},{5,6,7,8},{9,10,11,12} };
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4;j++) {
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+}
+
+*************************************************************************
+13- Multipilcation arr[10][10]
+
+#include<iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{   
+	int arr[10][10];
+	for (int i = 0; i < 10; i++) {
+
+		for (int j = 0; j < 10; j++) {
+
+			arr[i][j] = (i + 1) * (j + 1);
+		}
+	}
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10;j++) {
+			printf("%0*d ", 2, arr[i][j]);
+		}
+		cout << endl;
+	}
+
+}
+
+*************************************************************************
+14- Vector 
+
+#include<iostream>
+#include <vector>
+using namespace std;
+int main()
+{   
+	vector <int> vNumbers = { 10,20,30,40,50 };
+	for (int &Numbers : vNumbers) {
+		cout << Numbers << " ";
+	}
+	cout << endl;
+}
+*************************************************************************
+15- Add Elements In Vector in Run Time 
+
+#include<iostream>
+#include <vector>
+using namespace std;
+int main()
+{   
+	vector <int> vNumbers;
+	vNumbers.push_back(10);
+	vNumbers.push_back(20);
+	vNumbers.push_back(30);
+	vNumbers.push_back(40);
+	vNumbers.push_back(50);
+	vNumbers.push_back(60);
+	cout << "Vector Numbers=";
+	for (int& Number : vNumbers) {
+		cout << Number<<" ";
+	}
+}
+
+*************************************************************************
+16-Structur of Vector
+
+#include<iostream>
+#include <vector>
+using namespace std;
+struct st_Employee {
+	string Frist_Name;
+	string Last_Name;
+	int Salary;
+};
+int main()
+{  
+	vector <st_Employee> vEmployee;
+
+	st_Employee teamEmployee;
+
+	teamEmployee.Frist_Name ="Mohamed";
+	teamEmployee.Last_Name ="Ali";
+	teamEmployee.Salary =2000;
+
+	vEmployee.push_back(teamEmployee);
+
+	teamEmployee.Frist_Name = "Ali";
+	teamEmployee.Last_Name = "Ahmed";
+	teamEmployee.Salary = 3000;
+
+	vEmployee.push_back(teamEmployee);
+
+	teamEmployee.Frist_Name = "Mohamed";
+	teamEmployee.Last_Name = "Hassan";
+	teamEmployee.Salary = 4000;
+
+	vEmployee.push_back(teamEmployee);
+	for (st_Employee& Employee : vEmployee) {
+		cout << "FristName:" << Employee.Frist_Name<<endl;
+		cout << "LastName:" << Employee.Last_Name<<endl;
+		cout << "Salary:" << Employee.Salary<<endl;
+		cout << endl;
+	}
+	cout << endl;
+}
+*************************************************************************
+17-Pop From Vector (Important)
+
+#include<iostream>
+#include <vector>
+using namespace std;
+int main()
+{  
+	vector <int> vNumbers;
+	vNumbers.push_back(10);
+	vNumbers.push_back(20);
+	vNumbers.push_back(30);
+	vNumbers.push_back(40);
+	vNumbers.push_back(50);
+
+	vNumbers.pop_back();
+	vNumbers.pop_back();
+	vNumbers.pop_back();
+	vNumbers.pop_back();
+	vNumbers.pop_back();
+	 //or vNumber.clear();
+	// vNumber.empty()-> retrun true if Stack Empty and False if Stack is Not Empty  
+	// vNumber.size()-> retrun Size of Vector  
+	cout << "Vector Elements:" << endl;
+	for (int Number : vNumbers) {
+		cout << Number<<endl;
+	}
+}
+*************************************************************************
+18- Vector Functions (Important)
+#include<iostream>
+#include <vector>
+using namespace std;
+int main()
+{  
+	vector <int> vNumbers;
+	vNumbers.push_back(10);
+	vNumbers.push_back(20);
+	vNumbers.push_back(30);
+	vNumbers.push_back(40);
+	vNumbers.push_back(50);
+	if (!vNumbers.empty()) {
+		cout << "Frist Element:" << vNumbers.front() << endl;
+		cout << "Last Element:" << vNumbers.back() << endl;
+		cout << "Number Of element:" << vNumbers.size() << endl;
+		cout << "Size Of Vector:" << vNumbers.capacity() << endl;
+		cout << "Empty:" << vNumbers.empty() << endl;
+		vNumbers.clear();
+
+	
+	
+	}
+}
+size() → عدد العناصر الفعلية اللي موجودة جوه الـ vector.
+
+capacity() → عدد العناصر اللي ممكن تتخزن قبل ما الـ vector يضطر يعمل إعادة تخصيص (reallocation) للذاكرة.
+*************************************************************************
+19- Call By Value 
+
+void Func(int x) {
+	x++;
+}
+int main()
+{  
+	int a = 10;
+	Func(a);
+	cout << a << endl;
+	cout << &a;
+}
+
+*************************************************************************
+20-Call By Reference
+
+#include<iostream>
+#include <vector>
+using namespace std;
+void Func(int &x) {
+	x++;
+}
+int main()
+{  
+	int a = 10;
+	Func(a);
+	cout << a << endl;
+	cout << &a;
+}
+*************************************************************************
+21-Welcom Pointer 
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{  
+	int a = 10;
+	cout << "Value Of a:" << a<<endl;
+	cout << "Addres Of a:" << &a<<endl;
+	int* P;
+	P = &a;
+	cout <<"Pointer Value :" << P << endl;
+
+	
+}
+*************************************************************************
+22- Dereferencing Pointer 
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{  
+	int a = 10;
+	int* P;
+	P = &a;
+	cout << "\nValue Of a:" << a<<endl;
+	cout << "\nAddres Of a:" << &a<<endl;
+	cout <<"\nPointer Value :" << P << endl;
+	cout <<"\nValue Of Adderss Thet Pointer Pointe It Is  :" <<*P<<endl;
+	*P = 20;
+	cout <<"\n" << a << endl;
+	cout << *P << endl;
+	a = 30;
+	cout << a << endl;
+	cout << *P << endl;
+
+
+	
+}
+*************************************************************************
+23-References Vs Pointer
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{  
+	int a = 10,b=20;
+	int& x = a;
+	int* ptr = &a;
+	cout << &a << endl;
+	cout << &x << endl;
+
+	cout << a << endl;
+	cout << x << endl;
+
+	cout << ptr << endl;
+	cout << *ptr << endl;
+	
+	ptr = &b;
+
+	cout << ptr << endl;
+	cout << *ptr << endl;
+
+}
+*************************************************************************
+24- Swaping Using Pointers
+
+#include<iostream>
+#include <vector>
+using namespace std;
+void Swap(int* a, int* b) {
+	int Temp = *a;
+	*a = *b;
+	*b = Temp;
+}
+int main()
+{ 
+	int a = 10, b = 20;
+	cout << "Befor Swaping :\n";
+	cout << "a=" << a << endl;
+	cout << "b=" << b << endl;
+	Swap(&a, &b);
+	cout << "After Swaping :\n";
+	cout << "a=" << a<<endl;
+	cout << "b=" << b<<endl;
+}
+*************************************************************************
+25-Pointers And Array 
+
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{ 
+	int arr[4] = { 10 ,20 , 30 , 40 };
+	int* ptr = arr;
+	for (int i = 0;i < 4; i++) {
+		cout << ptr+i << endl;
+	}
+	cout << "\n\n";
+	for (int i = 0; i < 4;i++) {
+		cout << *(ptr+i) << endl;
+	}
+}
+*************************************************************************
+26-Pointer With Structures
+
+#include<iostream>
+#include <vector>
+using namespace std;
+struct st_Employee {
+	string Name;
+	float Salary;
+};
+int main()
+{ 
+	st_Employee Employee1, * ptr;
+	Employee1.Name = "Mohamed ali";
+	Employee1.Salary = 5000;
+	cout <<"Name:" << Employee1.Name << endl;
+	cout <<"Salary:" << Employee1.Salary << endl;
+	ptr = &Employee1;
+	cout << "\nUsing Pointers :\n\n";
+	cout << "Name:" <<ptr->Name << endl;
+	cout << "Salary:" <<ptr->Salary<< endl;
+}
+*************************************************************************
+27-Pointer To Void 
+
+#include<iostream>
+#include <vector>
+using namespace std;
+int main()
+{ 
+	void* ptr;
+	int x = 10;
+	float v = 10.5;
+	ptr = &x;
+	cout << ptr << endl;
+	cout << *(static_cast<int*>(ptr))<<endl;
+	ptr = &v;
+	cout << ptr << endl;
+	cout << *(static_cast<float*>(ptr))<<endl;
+
+
+}
+*************************************************************************
+28-Dynamic Memory Allocation (Management And Delete )
+
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+
+	int* ptrX;
+	float *ptrY;
+
+	ptrX = new int;
+	ptrY = new float;
+
+	*ptrX = 40;
+	*ptrY = 20.34;
+	cout << *ptrX << endl;
+	cout << *ptrY << endl;
+	
+	delete ptrX;
+	delete ptrY;
+	
+
+}
+
+--------------- Another Solution With Void Pointer----------------------- 
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+
+	void * ptr;
+	
+	ptr = new int;
+     *(static_cast<int*>(ptr)) = 20;
+	 cout << *(static_cast<int*>(ptr))<<endl;
+	 ptr = new float;
+	 *(static_cast<float*>(ptr)) = 20.5;
+	 cout << *(static_cast<float*>(ptr)) << endl;
+
+	 delete ptr;
+
+}
+
+
+*************************************************************************
+29-Dymanic Array 
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+
+	int* ptr;
+	int Number;
+	cout << "Enter the Number of students ?\n";
+	cin >> Number;
+
+	ptr = new int[Number];
+	cout << "Enter the Grades:\n";
+	for (int i = 0;i < Number;i++) {
+		cout << "Studente [" << i + 1 << "]:";
+		cin >> *(ptr + i);
+	}
+	cout << "\n\n";
+
+	for (int i = 0; i < Number;i++) {
+		cout << "Studente [" << i + 1 << "]:" << *(ptr + i) << endl;
+
+	}
+}
+
+*************************************************************************
+30- Vector Access Element 
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector<int> Num{ 1,2,3,4,5 };
+	cout << "Number 1:" << Num.at(0)<<endl;
+	cout << "Number 2:" << Num.at(2)<<endl;
+	cout << "Number 3:" << Num.at(4)<<endl;
+	cout << endl;
+
+	cout << "Number 1:" << Num[0] << endl;
+	cout << "Number 2:" << Num[2] << endl;
+	cout << "Number 3:" << Num[4] << endl;
+}
+*************************************************************************31- Chang Element In Vector 
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector<int> Num{ 1, 2, 3, 4, 5 };
+	  
+	for (const int& i : Num)
+		cout << i << " ";
+
+	cout << endl;
+	for (int& i : Num) {
+		i = 20;
+		cout << i << " ";
+	}
+	cout << endl;
+
+	Num.at(0) = 50;
+	Num[1] = 60;
+	Num.at(2) = 70;
+
+	for (const int& i : Num)
+		cout << i << " ";
+
+}
+*************************************************************************
+32- Vector Iterator 
+ 
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector<int> Num{ 1, 2, 3, 4, 5 };
+	vector<int>::iterator iter;
+	for (iter = Num.begin();iter != Num.end();iter++) {
+		cout << *iter << " ";
+	}
+	
+
+}
+
+*************************************************************************
+33- Exception Handling (try catch)
+
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector<int> Num{ 1, 2, 3, 4, 5 };
+	try {
+		cout << Num.at(5);
+	}
+	catch (...) {
+	
+		cout << "Not Found \n";
+	}
+	
+
+}
+
+*************************************************************************
+34- String Functions 
+
+#include<iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	//important Ex 
+	string S1 = "My Name is Mohammed Abu-Hadhoud, I Love Programming:";
+	cout << S1.length() << endl;
+	cout << S1.at(3) << endl;
+	cout << S1.append(" @programing Advicse")<<endl;
+	cout << S1.insert(7, "Ali") << endl;
+	cout << S1.substr(16, 8) << endl;
+	S1.push_back('X');
+	cout << S1 << endl;
+	S1.pop_back();
+	cout << S1<<endl;
+	cout << S1.find("Ali") << endl;
+	cout << S1.find("ali") << endl;
+	if (S1.find("ali") == S1.npos)
+	{
+		cout << "ali is Not Found :";
+	}
+	S1.clear();
+
+}
+*************************************************************************
+35- cctype Functions 
+
+#include<iostream>
+#include <cctype>
+using namespace std;
+
+int main()
+{
+	//important 
+	char x;
+	char w;
+	x = toupper('a');//output A
+	w = tolower('A');//output a
+	cout << " The Upper Case Of a is :" << x<<endl;
+	cout << " The Lower Case Of A is :" << w<<endl;
+	cout << "A is Upper :" << isupper('A') << endl;//return Zero if not , and non Zero of Yes 
+	cout << "a is Lower :" << islower('a') << endl;//return Zero if not , and non Zero of Yes
+	cout << " 9 is Digit :" << isdigit('9') << endl;//return Zero if not , and non Zero of Yes
+	cout << "; is Punctuation :" << ispunct(';')<<endl;//return Zero if not , and non Zero of Yes
+
+}
+*************************************************************************
+36- File Writ Mode
+
+#include<iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	fstream MyFile;
+	MyFile.open("MyFile.txt", ios::out);//Wirt Mode
+	if (MyFile.is_open()) {
+		MyFile << "Mohamed ali \n";
+		MyFile << "Ahmed  ali \n";
+		MyFile << "ali ali \n";
+		MyFile.close();
+	}
+}
+*************************************************************************37- File Append Mode 
+
+#include<iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	fstream MyFile;
+	MyFile.open("MyFile.txt",ios:: out |ios::app);//Creat  a File And Append New Data on old Data 
+	if (MyFile.is_open()) {
+		MyFile << "Mohamed Ali \n";
+		MyFile << "Mohamed Adel \n";
+		MyFile << "Mohamed Sameh  \n";
+		MyFile.close();
+	}
+}
+*************************************************************************38-Read Mode (How To Read Data From File)
+
+#include<iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void PrintFileContant(string FileName) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+	
+		string Line;
+		while (getline(MyFile, Line)) {
+
+			cout << Line << endl;
+		}
+		MyFile.close();
+
+	}
+
+
+
+}
+int main()
+{
+	PrintFileContant("MyFile.txt");
+
+}
+*************************************************************************
+39-Load Data From File To Vector
+
+#include<iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+using namespace std;
+
+void LoadDataFromFileToVector(string FileName,vector<string>&vFileContant) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+
+		string Line;
+		while (getline(MyFile, Line)){
+			vFileContant.push_back(Line);
+		}
+		MyFile.close();
+
+	}
+
+
+
+}
+int main()
+{
+	vector<string> vFileContant;
+
+	LoadDataFromFileToVector("MyFile.txt", vFileContant);
+
+	vFileContant[0] = "Mohamed Hassan";
+
+
+	for (string &Line : vFileContant) {
+		cout << Line << endl;
+	}
+
+
+}
+*************************************************************************40-Save Vector To File 
+
+#include<iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+using namespace std;
+
+void SaveVectorToFile(string FileName,vector<string>&vFileContant) {
+	fstream MyFile;
+	MyFile.open(FileName,ios::out);
+	if (MyFile.is_open()) {
+		
+		for (string& Line : vFileContant) {
+			if (Line != "") {
+				MyFile << Line << endl;
+			}
+		}
+
+		MyFile.close();
+
+	}
+
+
+
+}
+int main()
+{
+	vector<string> vFileContant{ "Mohamed Ali","Ali Hassan","Ali Said" };
+
+	SaveVectorToFile("MyFile.txt", vFileContant);
+	
+
+
+}
+*************************************************************************
+41-Deleted Record From File 
+
+#include<iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+using namespace std;
+//Importatn
+void SaveVectorToFile(string FileName, vector<string>& vFileContant) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::out);
+	if (MyFile.is_open()) {
+
+		for (string& Line : vFileContant) {
+			if (Line != "") {
+				MyFile << Line << endl;
+			}
+		}
+
+		MyFile.close();
+
+	}
+
+
+
+}
+void LoadDataFromFileToVector(string FileName, vector<string>& vFileContant) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+
+		string Line;
+		while (getline(MyFile, Line)) {
+			vFileContant.push_back(Line);
+		}
+		MyFile.close();
+
+	}
+
+
+
+}
+void DeleteRecordFromFile(string FileName, string Record) {
+	vector<string> vFileContant;
+	LoadDataFromFileToVector(FileName, vFileContant);
+
+	for(string &Line :vFileContant){
+		if (Line == Record) {
+			Line = "";
+		}
+	}
+	SaveVectorToFile(FileName, vFileContant);
+}
+void PrintFileContant(string FileName) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+
+		string Line;
+		while (getline(MyFile, Line)) {
+
+			cout << Line << endl;
+		}
+		MyFile.close();
+
+	}
+
+
+
+}
+int main()
+{
+
+	cout << "File Befor Delete :\n\n";
+	PrintFileContant("MyFile.txt");
+	DeleteRecordFromFile("MyFile.txt", "Ali Said");
+
+	cout << "File After Delete :\n\n";
+	PrintFileContant("MyFile.txt");
+
+
+
+	
+
+
+}
+*************************************************************************
+42-UpDate Record In File
+
+#include<iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+using namespace std;
+//Importatn
+void SaveVectorToFile(string FileName, vector<string>& vFileContant) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::out);
+	if (MyFile.is_open()) {
+
+		for (string& Line : vFileContant) {
+			if (Line != "") {
+				MyFile << Line << endl;
+			}
+		}
+
+		MyFile.close();
+
+	}
+
+
+
+}
+void LoadDataFromFileToVector(string FileName, vector<string>& vFileContant) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+
+		string Line;
+		while (getline(MyFile, Line)) {
+			vFileContant.push_back(Line);
+		}
+		MyFile.close();
+
+	}
+
+
+
+}
+void UpDateRecordInFile(string FileName, string Record,string UpDate) {
+	vector<string> vFileContant;
+	LoadDataFromFileToVector(FileName, vFileContant);
+
+	for(string &Line :vFileContant){
+		if (Line == Record) {
+			Line = UpDate;
+		}
+	}
+	SaveVectorToFile(FileName, vFileContant);
+}
+void PrintFileContant(string FileName) {
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+
+		string Line;
+		while (getline(MyFile, Line)) {
+
+			cout << Line << endl;
+		}
+		MyFile.close();
+
+	}
+
+
+
+}
+int main()
+{
+
+	cout << "File Befor UpDate :\n";
+	PrintFileContant("MyFile.txt");
+	UpDateRecordInFile("MyFile.txt", "Mohamed Ali","Mohamed");
+
+	cout << "\nFile After UpDate :\n";
+	PrintFileContant("MyFile.txt");
+
+
+
+	
+
+
+}
+*************************************************************************
+43-Local/UCT Time 
+//Important Code
+#pragma warning(disable : 4996 )//Important
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	time_t t = time(0);// Get Time Now 
+	char* dt = ctime(&t);//Convert in  String Form
+	cout << "Local Time is : " << dt << endl;
+	
+	tm* gmtm = gmtime(&t);//Convert To UTC Time  gmtm is A structuer 
+	dt = asctime(gmtm);//Convert dt in String Form 
+	cout << "\nThe Global Time :" << dt << endl;
+	
+
+
+}
+*************************************************************************
+44-Detetime Structure 
+
+#pragma warning(disable : 4996 )//Important
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	time_t t = time(0);// Get Time Now 
+	tm* Now = localtime(&t);
+	cout << "Year:" << Now->tm_year + 1900 << endl;
+	cout << "Month:" << Now->tm_mon +1 << endl;
+	cout << "Day:" << Now->tm_mday << endl;
+	cout << "Houer:" << Now->tm_hour << endl;
+	cout << "Min:" << Now->tm_min << endl;
+	cout << "Sacound:" << Now->tm_sec << endl;
+	cout << "Week Day (Days since sunday): " << Now->tm_wday << endl;
+	cout << "Year Day (Days since Jan 1st): " << Now->tm_yday << endl;
+	cout << "hours of daylight savings:" << Now->tm_isdst << endl;
+
+	
+
+
+}
+*************************************************************************
+45-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

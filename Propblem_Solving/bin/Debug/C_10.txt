@@ -1,0 +1,1671 @@
+1- Class Person 
+
+
+
+#include <iostream>
+using namespace std;
+class clsPerson 
+{
+public:
+    string FristName;
+    string LastName;
+
+    string FullName() 
+    {
+        return FristName + " " + LastName;
+    }
+};
+int main()
+{
+    clsPerson Person1;
+
+    Person1.FristName = "Mohamed";
+
+    Person1.LastName = "Ali";
+
+    cout << Person1.FullName()<<endl;
+
+}
+
+*************************************************************************
+2- Get and Set 
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsPerson
+{
+private:
+	string _FirstName;
+	string _LastName;
+public:
+	void SetFirstName(string FirstName) 
+	{
+		_FirstName = FirstName;
+	}
+	void SetLastName(string LastName) 
+	{
+		_LastName = LastName;
+	}
+	string GetFristName() 
+	{
+		return _FirstName;
+	}
+	string GetLastName() 
+	{
+		return _LastName;
+	}
+	string Fullname() 
+	{
+		return _FirstName + " " + _LastName;
+	}
+	
+
+};
+
+int main()
+{
+	clsPerson Person1;
+	Person1.SetFirstName("Mohamed");
+	Person1.SetLastName("Ali");
+	cout << "FirstName:" << Person1.GetFristName()<<endl;
+	cout << "LastName:" << Person1.GetLastName()<<endl;
+	cout << "FullName:" << Person1.Fullname()<<endl;
+	
+	return 0;
+}
+*************************************************************************
+3-Read Only
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsPerson
+{
+private:
+	int _Id = 10;
+	string _FirstName;
+	string _LastName;
+public:
+	//Read Propartiy
+	int  ID()
+	{
+	  return _Id;
+	}
+
+	//Set FirstName
+	void SetFirstName(string FirstName)
+	{
+		_FirstName = FirstName;
+	}
+
+	//Set LastName
+	void SetLastName(string LastName)
+	{
+		_LastName = LastName;
+	}
+
+	//Get FirstName
+	string FristName()
+	{
+		return _FirstName;
+	}
+
+	//Get LastName
+	string LastName()
+	{
+		return _LastName;
+	}
+
+	//Get FullName
+	string Fullname()
+	{
+		return _FirstName + " " + _LastName;
+	}
+
+};
+
+int main()
+{
+	clsPerson Person1;
+	Person1.SetFirstName("Mohamed");
+	Person1.SetLastName("Ali");
+	cout << "ID:" << Person1.ID() << endl;
+	cout << "FirstName:" << Person1.FristName() << endl;
+	cout << "LastName:" << Person1.LastName() << endl;
+	cout << "FullName:" << Person1.Fullname() << endl;
+
+	return 0;
+}
+*************************************************************************
+4- Properties Set and Get through "="
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsPerson
+{
+private:
+	string _FirstName;
+public:
+	void SetFirstName(string FirstName)
+	{
+		_FirstName = FirstName;
+	}
+	string GetFristName()
+	{
+		return _FirstName;
+	}
+	
+	__declspec(property(get = GetFristName, put = SetFirstName)) string FirstName;
+
+};
+
+int main()
+{
+	clsPerson Person1;
+	Person1.SetFirstName("Mohamed");
+	cout << "FirstName:" << Person1.GetFristName() << endl;
+
+	Person1.FirstName = "Mohamed Ali";
+	cout << "FirstName:" << Person1.FirstName << endl;
+
+	return 0;
+}
+*************************************************************************
+5-Constractor
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsAddress
+{
+private:
+	string _AddressLin1;
+	string _AddressLin2;
+	string _PObox;
+	string _Email;
+public:
+	clsAddress(string AddressLine1, string AddressLine2,string PObox,string Email)
+	{
+		 _AddressLin1=AddressLine1;
+		 _AddressLin2=AddressLine2;
+		 _PObox=PObox;
+		 _Email=Email;
+	}
+	void SetAddressLine1(string AddressLin1) 
+	{
+		_AddressLin1 = AddressLin1;
+	}
+	void SetAddressLine2(string AddressLin2)
+	{
+		_AddressLin2 = AddressLin2;
+	}
+	void SetPObox(string PObox)
+	{
+		_PObox = PObox;
+	}
+	void SetEmail(string Email)
+	{
+		_Email = Email;
+	}
+	string GetAddressLine1() 
+	{
+		return _AddressLin1;
+	}
+
+	string GetAddressLine2()
+	{
+		return _AddressLin2;
+	}
+
+	string GetPObox()
+	{
+		return _PObox;
+	}
+	string GetEmail()
+	{
+		return _Email;
+	}
+
+	void PrintResult() 
+	{
+		cout << "--------------------------------------\n";
+		cout << "Address Line1:" << GetAddressLine1() << endl;
+		cout << "Address Line2:" << GetAddressLine2() << endl;
+		cout << "PObox:" << GetPObox() << endl;
+		cout << "Email:" << GetEmail() << endl;
+		cout << "--------------------------------------\n";
+
+	}
+
+};
+
+int main()
+{
+	clsAddress Address1 ("aaa","bbbb","cc","nn");
+	Address1.SetEmail("hh");
+	Address1.PrintResult();
+
+
+	return 0;
+}
+*************************************************************************
+6-Copy Constractor 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class clsAddress
+{
+private:
+	string _AddressLin1;
+	string _AddressLin2;
+	string _PObox;
+	string _Email;
+public:
+	clsAddress(string AddressLine1, string AddressLine2, string PObox, string Email)
+	{
+		_AddressLin1 = AddressLine1;
+		_AddressLin2 = AddressLine2;
+		_PObox = PObox;
+		_Email = Email;
+	}
+	clsAddress(clsAddress& old_object) 
+	{
+		_AddressLin1 = old_object.GetAddressLine1();
+		_AddressLin2 = old_object.GetAddressLine2();
+		_PObox = old_object.GetPObox();
+		_Email = old_object.GetEmail();
+	}
+	void SetAddressLine1(string AddressLin1)
+	{
+		_AddressLin1 = AddressLin1;
+	}
+	void SetAddressLine2(string AddressLin2)
+	{
+		_AddressLin2 = AddressLin2;
+	}
+	void SetPObox(string PObox)
+	{
+		_PObox = PObox;
+	}
+	void SetEmail(string Email)
+	{
+		_Email = Email;
+	}
+	string GetAddressLine1()
+	{
+		return _AddressLin1;
+	}
+
+	string GetAddressLine2()
+	{
+		return _AddressLin2;
+	}
+
+	string GetPObox()
+	{
+		return _PObox;
+	}
+	string GetEmail()
+	{
+		return _Email;
+	}
+
+	void PrintResult()
+	{
+		cout << "--------------------------------------\n";
+		cout << "Address Line1:" << GetAddressLine1() << endl;
+		cout << "Address Line2:" << GetAddressLine2() << endl;
+		cout << "PObox:" << GetPObox() << endl;
+		cout << "Email:" << GetEmail() << endl;
+		cout << "--------------------------------------\n";
+
+	}
+
+};
+
+int main()
+{
+	clsAddress Address1("aaa", "bbbb", "cc", "nn");
+	Address1.PrintResult();
+	clsAddress Address2 = Address1;
+	Address2.PrintResult();
+
+
+	return 0;
+}
+*************************************************************************
+7-Destructor
+
+#include <iostream>
+#include <string>
+using namespace std;
+class clsPerson
+{
+public :
+	clsPerson() 
+	{
+		cout << "\nHi,Iam Constrcutor";
+	}
+	~clsPerson() 
+	{
+		cout << "\nHi,Iam Destructor";
+	}
+
+
+};
+void Fun1() 
+{
+	clsPerson Person;
+}
+void Fun2()
+{
+	clsPerson* ptr = new clsPerson;
+	delete ptr;
+}
+int main()
+{
+	Fun1();
+	Fun2();
+	system("pause>0");
+	return 0;
+}
+
+
+*************************************************************************
+8-Static Members
+
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+class clsA
+{
+public:
+	int Var=0;
+	static int Counter;
+	clsA() 
+	{
+		Counter++;
+	}
+	void Print() 
+	{
+		cout << "\nVar =" << Var<<endl;
+		cout << "Counter =" << Counter<<endl;
+	}
+	
+};
+
+int clsA::Counter = 0;
+
+int main()
+{
+	clsA A1, A2, A3;
+	A1.Var = 10;
+	A2.Var = 20;
+	A3.Var = 30;
+
+	A1.Print();
+	A2.Print();
+	A3.Print();
+
+	A1.Counter = 500;
+
+	A1.Print();
+	A2.Print();
+	A3.Print();
+	return 0;
+}
+*************************************************************************
+9-Static Methods 
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+class clsA
+{
+public:
+	static int Function1() 
+	{
+		return 10;
+	}
+	int Finction2() 
+	{
+		return 20;
+	}
+	
+};
+
+
+int main()
+{
+	clsA A1;
+	cout << clsA::Function1() << endl;
+	cout << A1.Finction2() << endl;
+
+	return 0;
+}
+
+*************************************************************************
+10-Inhiretance 
+
+#include <iostream>
+using namespace std;
+
+class clsPerson
+{
+private:
+    int _ID;
+    string _FristName;
+    string _LastName;
+    string _Email;
+    string _Phone;
+public:
+    clsPerson() 
+    {
+    }
+    clsPerson(int ID, string FristName, string LastName, string Email, string Phone)
+    {
+        _ID = ID;
+        _FristName = FristName;
+        _LastName = LastName;
+        _Email = Email;
+        _Phone = Phone;
+    }
+
+    void SetFristName(string FristName)
+    {
+        _FristName = FristName;
+    }
+
+    void SetLastName(string LastName)
+    {
+        _LastName = LastName;
+
+    }
+
+    void SetEmail(string Email)
+    {
+        _Email = Email;
+
+    }
+
+    void SetPhone(string Phone)
+    {
+        _Phone = Phone;
+    }
+
+    int GetID()
+    {
+        return _ID;
+    }
+
+    string GetFristName()
+    {
+        return _FristName;
+    }
+
+    string GetLastName()
+    {
+        return _LastName;
+    }
+
+    string GetEmail()
+    {
+        return _Email;
+    }
+
+    string GetPhone()
+    {
+        return _Phone;
+    }
+
+    string GetFullName()
+    {
+        return _FristName + " " + _LastName;
+    }
+
+    void Print()
+    {
+        cout << "Info.\n";
+        cout << "______________________\n";
+        cout << "ID        :" << _ID << endl;
+        cout << "FristName :" << _FristName << endl;
+        cout << "LastName  :" << _LastName << endl;
+        cout << "FullName  :" << GetFullName() << endl;
+        cout << "Email     :" << _Email << endl;
+        cout << "Phone     :" << _Phone << endl;
+        cout << "______________________\n";
+    }
+
+    void SendEmail(string Suject, string Body)
+    {
+        cout << "\n\nSucssfly Send Email:" << _Email << endl;
+        cout << "Subject:" << Suject << endl;
+        cout << "Body:" << Body << endl;
+    }
+
+    void SendSMS(string SMS)
+    {
+        cout << "\n\nSucssfly Send Phone:" << _Phone << endl;
+        cout << SMS << endl;
+    }
+
+};
+
+class clsEmp :public clsPerson 
+{
+private:
+    int _Salary;
+    string _Department;
+    string _Title;
+public:
+    void SetTitle(string Title)
+    {
+        _Title = Title;
+    }
+
+    void SetSalary(int Salary)
+    {
+        _Salary = Salary;
+    }
+
+    void SetDepartMent(string Department)
+    {
+        _Department = Department;
+    }
+
+    int GetSalary()
+    {
+        return _Salary;
+    }
+
+    string GetTilte()
+    {
+        return _Title;
+    }
+
+    string GetDepartment()
+    {
+        return _Department;
+    }
+};
+
+int main()
+{
+
+    clsEmp Emp1;
+    Emp1.SetFristName("Mohamed");
+    Emp1.SetLastName("Ali");
+    Emp1.SetEmail("A@SSS.com");
+    Emp1.SetPhone("1201312312");
+    Emp1.Print();
+    Emp1.SetSalary(100000);
+    cout << Emp1.GetSalary();
+    /*
+    clsPerson Person1(10, "Mohamed", "Ali", "EEE@gmail.com", "01020675083");
+    Person1.Print();
+    Person1.SendEmail("Hi", "How Are You?");
+    Person1.SendSMS("How Are You?");
+    */
+}
+*************************************************************************
+11-Parameterized Constructor of the Base Class (Important)
+
+#include <iostream>
+using namespace std;
+
+class clsPerson
+{
+private:
+    int _ID;
+    string _FristName;
+    string _LastName;
+    string _Email;
+    string _Phone;
+public:
+    clsPerson(int ID, string FristName, string LastName, string Email, string Phone)
+    {
+        _ID = ID;
+        _FristName = FristName;
+        _LastName = LastName;
+        _Email = Email;
+        _Phone = Phone;
+    }
+
+    void SetFristName(string FristName)
+    {
+        _FristName = FristName;
+    }
+
+    void SetLastName(string LastName)
+    {
+        _LastName = LastName;
+
+    }
+
+    void SetEmail(string Email)
+    {
+        _Email = Email;
+
+    }
+
+    void SetPhone(string Phone)
+    {
+        _Phone = Phone;
+    }
+
+    int GetID()
+    {
+        return _ID;
+    }
+
+    string GetFristName()
+    {
+        return _FristName;
+    }
+
+    string GetLastName()
+    {
+        return _LastName;
+    }
+
+    string GetEmail()
+    {
+        return _Email;
+    }
+
+    string GetPhone()
+    {
+        return _Phone;
+    }
+
+    string GetFullName()
+    {
+        return _FristName + " " + _LastName;
+    }
+
+    void Print()
+    {
+        cout << "Info.\n";
+        cout << "______________________\n";
+        cout << "ID        :" << _ID << endl;
+        cout << "FristName :" << _FristName << endl;
+        cout << "LastName  :" << _LastName << endl;
+        cout << "FullName  :" << GetFullName() << endl;
+        cout << "Email     :" << _Email << endl;
+        cout << "Phone     :" << _Phone << endl;
+        cout << "______________________\n";
+    }
+
+    void SendEmail(string Suject, string Body)
+    {
+        cout << "\n\nSucssfly Send Email:" << _Email << endl;
+        cout << "Subject:" << Suject << endl;
+        cout << "Body:" << Body << endl;
+    }
+
+    void SendSMS(string SMS)
+    {
+        cout << "\n\nSucssfly Send Phone:" << _Phone << endl;
+        cout << SMS << endl;
+    }
+
+};
+
+class clsEmp :public clsPerson 
+{
+private:
+    int _Salary;
+    string _Department;
+    string _Title;
+public:
+    clsEmp(int ID, string FristName, string LastName, string Email, string Phone,string Title,string Department,int Salary)
+        :clsPerson(ID, FristName, LastName, Email, Phone) 
+    {
+        _Salary = Salary;
+        _Title = Title;
+        _Department = Department;
+    }
+    void SetTitle(string Title)
+    {
+        _Title = Title;
+    }
+
+    void SetSalary(int Salary)
+    {
+        _Salary = Salary;
+    }
+
+    void SetDepartMent(string Department)
+    {
+        _Department = Department;
+    }
+
+    int GetSalary()
+    {
+        return _Salary;
+    }
+
+    string GetTilte()
+    {
+        return _Title;
+    }
+
+    string GetDepartment()
+    {
+        return _Department;
+    }
+};
+
+int main()
+{
+
+    clsEmp Emp1(10,"Mohamed","Ali","AA@NN.com","209178","DDD","Commnumcation",30000000);
+    Emp1.Print();
+    cout <<"\n" << Emp1.GetTilte() << endl;
+    cout <<"\n" << Emp1.GetSalary() << endl;
+    cout <<"\n" << Emp1.GetDepartment() << endl;
+    /*
+    clsPerson Person1(10, "Mohamed", "Ali", "EEE@gmail.com", "01020675083");
+    Person1.Print();
+    Person1.SendEmail("Hi", "How Are You?");
+    Person1.SendSMS("How Are You?");
+    */
+}
+*************************************************************************
+12-Function Overriding (Important)
+
+#include <iostream>
+using namespace std;
+
+class clsPerson
+{
+private:
+    int _ID;
+    string _FristName;
+    string _LastName;
+    string _Email;
+    string _Phone;
+public:
+    clsPerson(int ID, string FristName, string LastName, string Email, string Phone)
+    {
+        _ID = ID;
+        _FristName = FristName;
+        _LastName = LastName;
+        _Email = Email;
+        _Phone = Phone;
+    }
+
+    void SetFristName(string FristName)
+    {
+        _FristName = FristName;
+    }
+
+    void SetLastName(string LastName)
+    {
+        _LastName = LastName;
+
+    }
+
+    void SetEmail(string Email)
+    {
+        _Email = Email;
+
+    }
+
+    void SetPhone(string Phone)
+    {
+        _Phone = Phone;
+    }
+
+    int GetID()
+    {
+        return _ID;
+    }
+
+    string GetFristName()
+    {
+        return _FristName;
+    }
+
+    string GetLastName()
+    {
+        return _LastName;
+    }
+
+    string GetEmail()
+    {
+        return _Email;
+    }
+
+    string GetPhone()
+    {
+        return _Phone;
+    }
+
+    string GetFullName()
+    {
+        return _FristName + " " + _LastName;
+    }
+
+    void Print()
+    {
+        cout << "Info.\n";
+        cout << "______________________\n";
+        cout << "ID        :" << _ID << endl;
+        cout << "FristName :" << _FristName << endl;
+        cout << "LastName  :" << _LastName << endl;
+        cout << "FullName  :" << GetFullName() << endl;
+        cout << "Email     :" << _Email << endl;
+        cout << "Phone     :" << _Phone << endl;
+        cout << "______________________\n";
+    }
+
+    void SendEmail(string Suject, string Body)
+    {
+        cout << "\n\nSucssfly Send Email:" << _Email << endl;
+        cout << "Subject:" << Suject << endl;
+        cout << "Body:" << Body << endl;
+    }
+
+    void SendSMS(string SMS)
+    {
+        cout << "\n\nSucssfly Send Phone:" << _Phone << endl;
+        cout << SMS << endl;
+    }
+
+};
+
+class clsEmp :public clsPerson 
+{
+private:
+    int _Salary;
+    string _Department;
+    string _Title;
+public:
+    clsEmp(int ID, string FristName, string LastName, string Email, string Phone,string Title,string Department,int Salary)
+        :clsPerson(ID, FristName, LastName, Email, Phone) 
+    {
+        _Salary = Salary;
+        _Title = Title;
+        _Department = Department;
+    }
+
+    void SetTitle(string Title)
+    {
+        _Title = Title;
+    }
+
+    void SetSalary(int Salary)
+    {
+        _Salary = Salary;
+    }
+
+    void SetDepartMent(string Department)
+    {
+        _Department = Department;
+    }
+
+    int GetSalary()
+    {
+        return _Salary;
+    }
+
+    string GetTilte()
+    {
+        return _Title;
+    }
+
+    string GetDepartment()
+    {
+        return _Department;
+    }
+    //Overriding Function
+    void Print() 
+    {
+        /* Not Allow To Call Print Direct Frist (clsPreson::Print)*/
+        cout << "Info.\n";
+        cout << "______________________\n";
+        cout << "ID        :" <<GetID() << endl;// or clsPerson::GetID()
+        cout << "FristName :" <<GetFristName() << endl;// or clsPerson::GetFristName()
+        cout << "LastName  :" <<GetLastName() << endl;// or clsPerson::GetLastName()
+        cout << "FullName  :" <<GetFullName() << endl;// or clsPerson::GetFullName()
+        cout << "Email     :" <<GetEmail() << endl;// or clsPerson::GetEmail()
+        cout << "Phone     :" <<GetPhone() << endl;// or clsPerson::GetPhone()
+        cout << "Title     :" << _Title<<endl;// or GetTitle
+        cout << "Department:" << _Department << endl;// or GetDepartment()
+        cout << "Salary    :" << _Salary << endl;// or GetSalary()
+        cout << "______________________\n";
+     
+    }
+};
+
+int main()
+{
+
+    clsEmp Emp1(10,"Mohamed","Ali","AA@NN.com","209178","DDD","Commnumcation",30000000);
+    Emp1.Print();
+
+    /*
+    clsPerson Person1(10, "Mohamed", "Ali", "EEE@gmail.com", "01020675083");
+    Person1.Print();
+    Person1.SendEmail("Hi", "How Are You?");
+    Person1.SendSMS("How Are You?");
+    */
+}
+*************************************************************************
+13- Access Modifier 
+
+#include <iostream>
+using namespace std;
+
+class clsA
+{
+private:
+	int _Var1;
+	void _Fun1()
+	{
+		cout << "Function 1";
+	}
+protected:
+	int _Var2;
+	void _Fun2()
+	{
+		cout << "Function 2";
+	}
+public:
+	int _Var3;
+	void _Fun3()
+	{
+		cout << "Function 3";
+	}
+	int Fun4() 
+	{
+		return 10;
+	}
+
+};
+
+
+class clsB :public clsA 
+{
+public:
+	void Fun() 
+	{
+		clsA::_Fun2();
+	}
+};
+int main()
+{
+	clsB B;
+	B.Fun();
+}
+*************************************************************************
+14-Up Custing Down Custing
+
+#include <iostream>
+using namespace std;
+
+class clsPerson 
+{
+public:
+	string FullName = "Mohamed ali";
+};
+class clsEmp :public clsPerson
+{
+public:
+	string SubName = "Mo ALi";
+};
+int main()
+{
+	clsEmp Emp1;
+	cout << Emp1.FullName<<endl;
+	//Up Custring
+	clsPerson* Person1 = &Emp1;
+	cout << Person1->FullName<<endl;
+	//Down Custing
+	/*
+	clsPerson Person2;
+	clsEmp* Emp2 = &Person2;//Error
+	*/
+	system("pause>0");
+}
+*************************************************************************
+15- Virtual Function  (ِشرح)
+
+تمام يا محمد، خليني أشرحلك الموضوع بالتفصيل علشان يبقى عندك صورة كاملة وتحتفظ بيها 👇  
+
+---
+
+## 🧩 الفكرة الأساسية
+- عندك **Base Class** فيه دوال وخصائص مشتركة بين كل الكائنات (زي الصفحات في برنامج).  
+- لو فيه دالة معينة عايزها تختلف من كلاس للتاني → تعملها **virtual** في الـ Base Class.  
+- كل كلاس مشتق يعمل **Override** للدالة دي ويكتب التنفيذ الخاص بيه.  
+- لما تستخدم **Pointer من نوع Base Class** (`Base*`) وتشاور على أي كائن مشتق، هتقدر تنادي نفس الدالة، لكن التنفيذ هيختلف حسب النوع الحقيقي للكائن.  
+
+---
+
+## ⚙️ إزاي بيشتغل؟
+1. **الدوال العادية (مش virtual)**:  
+   - بتنادي نسخة الـ Base Class دايمًا، حتى لو الكائن مشتق.  
+2. **الدوال virtual**:  
+   - وقت التنفيذ (runtime)، الـ system بيشوف نوع الكائن الحقيقي اللي الـ pointer بيشاور عليه.  
+   - لو فيه Override في الكلاس المشتق → ينفذ النسخة الجديدة.  
+   - لو مفيش Override → يرجع ينفذ نسخة الـ Base Class.  
+
+---
+
+## 📖 مثال عملي (برنامج صفحات)
+```cpp
+class Page {
+public:
+    void Header() { cout << "Common Header\n"; }
+    void Footer() { cout << "Common Footer\n"; }
+    virtual void Render() { cout << "Base Render\n"; }
+};
+
+class HomePage : public Page {
+public:
+    void Render() override { cout << "Render Home Page\n"; }
+};
+
+class ContactPage : public Page {
+public:
+    void Render() override { cout << "Render Contact Page\n"; }
+};
+
+class AboutPage : public Page {
+public:
+    void Render() override { cout << "Render About Page\n"; }
+};
+```
+
+```cpp
+int main() {
+    HomePage home;
+    ContactPage contact;
+    AboutPage about;
+
+    Page* pages[] = { &home, &contact, &about };
+
+    for (Page* p : pages) {
+        p->Header();   // ثابت من الـ Base Class
+        p->Render();   // مختلف حسب نوع الصفحة
+        p->Footer();   // ثابت من الـ Base Class
+        cout << "-----------------\n";
+    }
+}
+```
+
+---
+
+## 🖼️ النتيجة
+- كل الصفحات عندها **Header** و **Footer** ثابتين (من الـ Base Class).  
+- لكن دالة **Render** بتختلف حسب الصفحة لأننا عملناها `virtual` وكل كلاس مشتق غيّرها بطريقته.  
+
+---
+
+## 🎯 الخلاصة
+- الـ **virtual functions** بتخليك تكتب كود عام موحّد، لكن التنفيذ يختلف حسب الكلاس المشتق.  
+- ده بيدي مرونة رهيبة في البرامج الكبيرة: نفس الواجهة، لكن التفاصيل تتغير حسب الحاجة.  
+- الفكرة دي هي أساس الـ Polymorphism في الـ OOP.  
+
+---
+
+تحب أديك مثال تاني لكن ببرنامج **Menu System** (Home, Settings, Profile) علشان تشوف إزاي كل صفحة بتنفذ نفس الدالة بشكل مختلف؟
+
+*************************************************************************
+15- Virtaul Function
+
+#include <iostream>
+using namespace std;
+
+class clsPerson 
+{
+public:
+	/*virtual*/ void Print() { cout << "Hi, Iam Person!\n"; } //Without Virtual 
+	virtual void Print1() { cout << "Hi, Iam Person!\n"; }
+};
+
+class clsEmp :public clsPerson 
+{
+public:
+	void Print1() { cout << "Hi, Iam Employee!\n";}
+};
+
+class clsStudent :public clsPerson
+{
+public:
+	void Print1() { cout << "Hi, Iam Student!\n"; }
+};
+
+int main()
+{
+	//Way1
+	/*
+	clsPerson* Person1 = new clsEmp;
+	clsPerson* Person2 = new clsStudent;
+	Person1->Print1();
+	Person2->Print1();
+	delete Person1, Person2;*/
+	//Another Way
+	clsEmp Emp;
+	clsStudent S;
+	Emp.Print1();
+	S.Print1();
+
+	clsPerson* Person1 = &Emp;
+	clsPerson* Person2 = &S;
+	Person1->Print1();
+	Person2->Print1();
+
+	Person1->Print();
+	Person2->Print();
+
+	system("pause>0");
+}
+*************************************************************************
+16- Static / Early Binding , Dynamic / Late Binding
+
+
+#include <iostream>
+using namespace std;
+
+class clsPerson 
+{
+public:
+	/*virtual*/ void Print() { cout << "Hi, Iam Person!\n"; } //Without Virtual 
+	virtual void Print1() { cout << "Hi, Iam Person!\n"; }
+};
+
+class clsEmp :public clsPerson 
+{
+public:
+	void Print1() { cout << "Hi, Iam Employee!\n";}
+};
+
+class clsStudent :public clsPerson
+{
+public:
+	void Print1() { cout << "Hi, Iam Student!\n"; }
+};
+
+int main()
+{
+	//Way1
+	/*
+	clsPerson* Person1 = new clsEmp;
+	clsPerson* Person2 = new clsStudent;
+	Person1->Print1();
+	Person2->Print1();
+	delete Person1, Person2;*/
+	//Another Way
+        //Eraly/Static Binding
+	clsEmp Emp;
+	clsStudent S;
+	Emp.Print1();
+	S.Print1();
+        // Late/Dynamic Binding
+	clsPerson* Person1 = &Emp;
+	clsPerson* Person2 = &S;
+	Person1->Print1();
+	Person2->Print1();
+
+	Person1->Print();
+	Person2->Print();
+
+	system("pause>0");
+}
+*************************************************************************
+17-Pure Virtual Functions and Abstract Classes
+
+#include <iostream>
+using namespace std;
+
+
+
+class clsMobile
+{
+	virtual void Dial(string PhoneNumber) = 0;
+	virtual void SendSMS(string PhoneNumber, string Text) = 0;
+	virtual void TakePictuer() = 0;
+};
+
+class clsiPhone :public clsMobile 
+{
+public:
+	void Dial(string PhoneNumber) 
+	{
+
+	}
+	void SendSMS(string PhoneNumber, string Text) 
+	{
+
+	}
+	void TakePictuer()
+	{
+
+	}
+};
+
+class clsSamsung :public clsMobile
+{
+public:
+	void Dial(string PhoneNumber)
+	{
+
+	}
+	void SendSMS(string PhoneNumber, string Text)
+	{
+
+	}
+	void TakePictuer()
+	{
+
+	}
+};
+
+int main()
+{
+
+	clsiPhone iPhone;
+	clsSamsung S1;
+
+	system("pause>0");
+}
+*************************************************************************
+18-Friend Class
+
+#include <iostream>
+using namespace std;
+
+class clsA 
+{
+private :
+	int _Var1;
+	int _Var3;
+public:
+	int Var2;
+	clsA() 
+	{
+		 _Var1 = 10;
+		  Var2 = 20;
+		 _Var3 = 30;
+
+	}
+	friend class clsB;//Friennd Class
+
+};
+
+class clsB 
+{
+public:
+
+	void DisPlay(clsA A1)
+	{
+		cout << "Value Var2:" << A1.Var2<<endl;
+		cout << "Value Var1:" << A1._Var1<<endl;
+		cout << "Value Var3:" << A1._Var3<<endl;
+	}
+};
+
+int main()
+{
+	clsB B1;
+	clsA A1;
+	B1.DisPlay(A1);
+	
+	system("pause>0");
+}
+
+*************************************************************************
+19-Friend Function 
+
+
+#include <iostream>
+using namespace std;
+
+class clsA 
+{
+private :
+	int _Var1;
+protected:
+	int _Var2;
+public:
+	int Var3;
+	clsA() 
+	{
+		_Var1 = 10;
+		_Var2 = 20;
+		 Var3 = 30;
+	}
+
+	friend int MySum(clsA A1);//Friend Function
+
+};
+
+int MySum(clsA A1) 
+{
+	return A1._Var1 + A1._Var2 + A1.Var3;
+}
+int main()
+{
+	clsA A1;
+
+	cout << "Sum Of Members :" << MySum(A1);
+
+	system("pause>0");
+}
+
+*************************************************************************
+20-Structure Inside Class
+
+#include <iostream>
+using namespace std;
+
+class clsAddress 
+{
+private:
+	struct stAddress
+	{
+		string AddressLine1;
+		string AddressLine2;
+		string City;
+		string Country;
+	};
+
+public:
+	string FullName;
+	stAddress Address;
+
+	clsAddress() 
+	{
+		FullName = "Moahemd ali";
+		Address.AddressLine1 = "dds";
+		Address.AddressLine2 = "add";
+		Address.City = "Giza";
+		Address.Country = "Eygpt";
+	}
+
+	void PrintAddress() 
+	{
+		cout << "Address\n";
+		cout << "AddressLine1 :" << Address.AddressLine1<<endl;
+		cout << "AddressLine2 :" << Address.AddressLine2 << endl;
+		cout << "City         :" << Address.City << endl;
+		cout << "Country      :" << Address.Country << endl;
+	}
+};
+int main()
+{
+	
+	clsAddress AD1;
+	AD1.PrintAddress();
+	system("pause>0");
+}
+*************************************************************************
+21-Nested Classes
+
+#include <iostream>
+using namespace std;
+
+class clsPerson
+{
+	class clsAddress
+	{
+	private:
+		string _AddressLine1;
+		string _AddressLine2;
+		string _City;
+		string _Country;
+	public:
+		clsAddress(string AddressLine1, string AddressLine2, string City, string Country)
+		{
+
+			_AddressLine1 = AddressLine1;
+			_AddressLine2 = AddressLine2;
+			_City = City;
+			_Country = Country;
+		}
+
+		void  Print() 
+		{
+			cout << "Address\n";
+			cout << "___________________\n";
+			cout << "Address Line1 :" << _AddressLine1<<endl;
+			cout << "Address Line2 :" << _AddressLine2<<endl;
+			cout << "City          :" << _City<<endl;
+			cout << "Country       :" << _Country<<endl;
+		}
+	};
+public:
+	clsAddress Addres1=clsAddress("","","","");
+	clsPerson(string AddressLine1, string AddressLine2, string City, string Country)
+        {
+		Addres1=clsAddress(AddressLine1, AddressLine2,  City,  Country);
+	}
+};
+
+int main()
+{
+	clsPerson Person1("sasa", "sas", "sdads", "asdsad");
+	Person1.Addres1.Print();
+	system("pause>0");
+}
+*************************************************************************22-This Pointer
+
+#include <iostream>
+using namespace std;
+
+class clsA
+{
+public:
+	int ID;
+	string Name;
+	string Phone;
+	//Case 1
+	clsA(int ID, string Name, string Phone) 
+	{
+		this->ID = ID;
+		this->Name = Name;
+		this->Phone = Phone;
+	}
+	void Print() 
+	{
+		cout << "ID:" << ID <<endl;
+		cout << "Name:" << Name <<endl;
+		cout << "Phone:" << Phone <<endl;
+	}
+	//Case 2
+	static void Func1(clsA A1) 
+	{
+		A1.Print();
+	}
+	void Func2() 
+	{
+		Func1(*this);
+	}
+};
+
+int main()
+{
+	clsA A1(13911,"mohamed","8127390");
+	A1.Print();
+	A1.Func2();
+	system("pause>0");
+}
+*************************************************************************
+23-Passing Objects to Functions (ByRef/ByVal)
+
+#include <iostream>
+using namespace std;
+class clsA 
+{
+public:
+	int _X;
+	clsA(int Value) 
+	{
+		_X = Value;
+	}
+
+
+	void Print() 
+	{
+		cout << "Value Now:" << _X << endl;
+	}
+
+
+
+};
+void Func1(clsA A1)
+{
+	A1._X = 100;
+}
+void Func2(clsA &A2)
+{
+	A2._X = 500;
+}
+int main()
+{
+	clsA A1(50);
+	A1.Print();
+	Func1(A1);
+	A1.Print();
+	Func2(A1);
+	A1.Print();
+	
+	system("pause>0");
+}
+
+
+*************************************************************************
+24-Adding Objects to Vector
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class clsA 
+{
+private:
+	int _X;
+public:
+	clsA(int Value) 
+	{
+		_X = Value;
+	}
+	void Print() 
+	{
+		cout << "\nValue Of X:" << _X << endl;
+	}
+};
+int main()
+{
+vector<clsA> V1;
+for (int i = 0; i < 5;i++) 
+{
+	V1.push_back(clsA(i));
+}
+
+
+for (int i = 0; i < 5;i++)
+{
+	V1[i].Print();
+}
+
+	
+	system("pause>0");
+}
+*************************************************************************
+25-Objects and Dynamic Array
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+class clsA 
+{
+private:
+	int _X;
+public:
+	
+	clsA() {};
+	clsA(int Value)
+	{
+		_X = Value;
+	};
+	void Print()
+	{
+		cout << "\nThe Value Of X :" << _X<<endl;
+	};
+
+};
+ 
+int main()
+{
+	clsA *arrA = new clsA[5];
+	for (int i = 0; i < 5;i++) 
+	{
+		arrA[i] = clsA(i);
+	}
+	for (int i = 0;i < 5;i++) 
+	{
+		arrA[i].Print();
+	}
+	
+	system("pause>0");
+}
+
+*************************************************************************
+26-Objects with Parameterized Constructor and Array
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+class clsA 
+{
+private:
+	int _X;
+public:
+	clsA(int Value)
+	{
+		_X = Value;
+	}
+	void Print()
+	{
+		cout << "\nValue of X:" << _X << endl;
+	}
+};
+
+int main()
+{
+	clsA Obj[] = { clsA(10),clsA(20),clsA(30) };
+	for (int i = 0;i < 3;i++) 
+	{
+		Obj[i].Print();
+
+	}
+	
+	system("pause>0");
+}
+
+
+
+
+
+
+

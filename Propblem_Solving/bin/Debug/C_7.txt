@@ -1,0 +1,2816 @@
+1-Fill 2D Array With Random Numbers
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1, 100);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout << setw(3) << arr[i][j] << "   ";
+		}
+		cout << endl;
+	}
+}
+
+int main()
+{
+	int arr[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(arr, 3, 3);
+	cout << "\n the follwing is a 3x3 Matrix From Randome Numbers:\n";
+	PrintMatrix(arr, 3, 3);
+}
+************************************************************************
+2-Sum Each Row In Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1, 100);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout << setw(3) << arr[i][j] << "   ";
+		}
+		cout << endl;
+	}
+}
+int SumRow(int arr[3][3],short RowNumber, short Col) {
+	int Sum = 0;
+	for (int j = 0; j <Col ;j++) {
+		Sum += arr[RowNumber][j];
+	}
+	return Sum;
+}
+void PrintSumRow(int arr[3][3], short Row,short Col) {
+	cout << "\nthe follwing are Sum of Each Row In Matrix:";
+	for (int i = 0; i < Row; i++) {
+		cout << "\nRow " << i + 1 <<" Sum" << "=" << SumRow(arr,i,Col) ;
+	}
+
+
+}
+
+int main()
+{
+	int arr[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(arr, 3, 3);
+	cout << "\nthe follwing is a 3x3 Matrix From Randome Numbers:\n";
+	PrintMatrix(arr, 3, 3);
+	PrintSumRow(arr, 3, 3);
+	system("pause>0");//Wait To Press  a Key To Continue 
+}
+************************************************************************
+3-Sum Each Row In Matrix But Stor in 1D Array And Print it  
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1, 100);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout << setw(3) << arr[i][j] << "   ";
+		}
+		cout << endl;
+	}
+}
+int SumRow(int arr[3][3],short RowNumber, short Col) {
+	int Sum = 0;
+	for (int j = 0; j <Col ;j++) {
+		Sum += arr[RowNumber][j];
+	}
+	return Sum;
+}
+void Fill1DArrayWithResults(int arr[3][3],int arrsum[3], short Row,short Col ) {
+	for (int i = 0; i < Row; i++){
+		arrsum[i] = SumRow(arr, i, Col);
+	}
+}
+void PrintSumArray(int arrsum[3],short Row){
+	cout << "\nthe follwing are Sum of Each Row In Matrix:";
+	for (int i = 0; i <Row;i++) {
+		cout << "\nRow " << i + 1 << " Sum" << "=" << arrsum[i];
+	}
+
+}
+
+
+
+int main()
+{
+	int arr[3][3];
+	int arrsum[3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(arr, 3, 3);
+	cout << "\nthe follwing is a 3x3 Matrix From Randome Numbers:\n";
+	PrintMatrix(arr, 3, 3);
+	Fill1DArrayWithResults(arr,arrsum, 3, 3);
+	PrintSumArray(arrsum,3);
+	system("pause>0");//Wait To Press  a Key To Continue 
+}
+************************************************************************
+4-Sum Each Col In Matrix 
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1, 100);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout << setw(3) << arr[i][j] << "   ";
+		}
+		cout << endl;
+	}
+}
+int SumCol(int arr[3][3],short Row ,short ColNumber) {
+	int Sum = 0;
+	for (int j = 0; j <Row ;j++) {
+		Sum += arr[j][ColNumber];
+	}
+	return Sum;
+}
+void PrintEachColSum(int arr[3][3], short Row,short Col){
+	for (int i = 0; i < Col; i++){
+		cout << "\nRow " << i + 1 << "=" << SumCol(arr, Row,i);
+	}
+}
+
+
+
+
+int main()
+{
+	int arr[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(arr, 3, 3);
+	cout << "\nthe follwing is a 3x3 Matrix From Randome Numbers:\n";
+	PrintMatrix(arr, 3, 3);
+	PrintEachColSum(arr, 3, 3);
+	system("pause>0");//Wait To Press  a Key To Continue 
+}
+
+************************************************************************
+5-Sum Each Col In Matrix But Stor in 1D Array And Print it
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1, 100);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout << setw(3) << arr[i][j] << "   ";
+		}
+		cout << endl;
+	}
+}
+int SumCol(int arr[3][3],short Row ,short ColNumber) {
+	int Sum = 0;
+	for (int j = 0; j <Row ;j++) {
+		Sum += arr[j][ColNumber];
+	}
+	return Sum;
+}
+
+void FillSumColin1DArray(int arr[3][3], int arrsum[3], short Row, short Col) {
+	for (int i = 0; i < Col; i++) {
+		arrsum[i] = SumCol(arr,Row,i);
+	}
+}
+void PrintSumArray(int arrsum[3], short Row) {
+	cout << "\nthe follwing are Sum of Each Row In Matrix:";
+	for (int i = 0; i < Row;i++) {
+		cout << "\nCol " << i + 1 << " Sum" << "=" << arrsum[i];
+	}
+
+}
+
+
+
+int main()
+{
+	int arr[3][3];
+	int arrsum[3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(arr, 3, 3);
+	cout << "\nthe follwing is a 3x3 Matrix From Randome Numbers:\n";
+	PrintMatrix(arr, 3, 3);
+	FillSumColin1DArray(arr, arrsum, 3, 3);
+	PrintSumArray(arrsum, 3);
+	system("pause>0");//Wait To Press  a Key To Continue 
+}
+************************************************************************
+6- 3x3 Ordered Numbers
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void Fill3x3OrderedNumbers(int arr[3][3], short Row, short Col) {
+	int Counter = 1;
+	for (int i = 0; i < Row; i++){
+		for (int j = 0; j < Col; j++) {
+			arr[i][j] = Counter;
+			Counter++;
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			cout << setw(2) << arr[i][j] << "   ";
+		}
+		cout << endl;
+	}
+
+}
+
+
+
+int main()
+{
+	int arr[3][3];
+	Fill3x3OrderedNumbers(arr,3, 3);
+	PrintMatrix(arr, 3, 3);
+	
+}
+************************************************************************
+7-Traspose Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void Fill3x3OrderedNumbers(int arr[3][3], short Row, short Col) {
+	int Counter = 1;
+	for (int i = 0; i < Row; i++){
+		for (int j = 0; j < Col; j++) {
+			arr[i][j] = Counter;
+			Counter++;
+		}
+	}
+}
+void TransposMatrix(int arr[3][3],int arrTransposed[3][3], short Row, short Col) {
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			arrTransposed[i][j] = arr[j][i];
+		}
+
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			cout << setw(2) << arr[i][j] << "   ";
+		}
+		cout << endl;
+	}
+
+}
+
+
+
+int main()
+{
+	int arr[3][3];
+	int arrTransposed[3][3];
+	Fill3x3OrderedNumbers(arr,3, 3);
+	cout << "\n the follwing is a Orderd Matrix 3x3:\n";
+	PrintMatrix(arr, 3, 3);
+	cout << "\n the follwing is a Transpos Matrix 3x3:\n";
+	TransposMatrix(arr,arrTransposed, 3, 3);
+
+	PrintMatrix(arrTransposed, 3, 3);
+
+
+	
+}
+************************************************************************
+8-Multiply Two Matrices 
+
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1,10);
+		}
+	}
+}
+void MultiplyMatrices(int Matrix1[3][3], int Matrix2[3][3], int  MatrixResult[3][3], short Row, short Col) {
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < 3; j++) {
+			MatrixResult[i][j] =Matrix1[i][j] * Matrix2[i][j];
+		}
+	}
+}
+
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+		printf("%0*d",2,arr[i][j]);
+		printf("   ");
+		}
+		cout << endl;
+	}
+}
+
+
+int main()
+{
+	int Matrix1[3][3];
+	int Matrix2[3][3];
+	int MatrixResult[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(Matrix1, 3, 3);
+	cout << "\nMatrix 1 is :\n";
+	PrintMatrix(Matrix1, 3, 3);
+
+	FillMatrixWithRandomeNumbers(Matrix2, 3, 3);
+
+	cout << "\nMatrix 2 is :\n";
+	PrintMatrix(Matrix2, 3, 3);
+
+	MultiplyMatrices(Matrix1, Matrix2, MatrixResult, 3, 3);
+
+	cout << "\nMultiply Two Matrrices is :\n";
+	PrintMatrix(MatrixResult, 3, 3);
+
+	system("pause>0");
+
+	
+}
+
+************************************************************************
+9- Print Middle Row And Col Of Matrix 
+
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1,10);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+		printf("%0*d",2,arr[i][j]);
+		printf("   ");
+		}
+		cout << endl;
+	}
+}
+void PrintMiddleRow(int arr[3][3], short Row, short Col) {
+	int MiddleRow = Row / 2;
+	for (int j = 0;j <Col;j++){
+			printf("%0*d  ", 2, arr[MiddleRow][j]);
+		}
+	cout << endl;
+
+}
+void PrintMiddleCol(int arr[3][3], short Row, short Col) {
+	int MiddleCol = Col / 2;
+	for (int i = 0;i < Row ;i++){
+			printf("%0*d ", 2, arr[i][MiddleCol]);
+	}
+	cout << endl;
+
+}
+
+
+int main()
+{
+	int arr[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(arr, 3, 3);
+	cout << "\nMatrix is :\n";
+	PrintMatrix(arr, 3, 3);
+	cout << "\nThe Meddil Row is :\n";
+	PrintMiddleRow(arr, 3, 3);
+
+	cout << "\nThe Meddil Col is :\n";
+	PrintMiddleCol(arr, 3, 3);
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+10-Sum Of Matrix 
+
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1,10);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+		printf("%0*d",2,arr[i][j]);
+		printf("   ");
+		}
+		cout << endl;
+	}
+}
+int SumMatrix(int arr[3][3], short Row, short Col) {
+	int Sum = 0 ;
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			Sum += arr[i][j];
+		}
+
+	}
+	return Sum;
+}
+
+
+int main()
+{
+	int arr[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(arr, 3, 3);
+	cout << "\nMatrix is :\n";
+	PrintMatrix(arr, 3, 3);
+	cout << "\nSum Of Elements is:" << SumMatrix(arr, 3, 3);
+	system("pause>0");
+
+	
+}
+************************************************************************
+11-Check the Matrix is Equal
+
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1,10);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+		printf("%0*d",2,arr[i][j]);
+		printf("   ");
+		}
+		cout << endl;
+	}
+}
+int SumMatrix(int arr[3][3], short Row, short Col) {
+	int Sum = 0 ;
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			Sum += arr[i][j];
+		}
+
+	}
+	return Sum;
+}
+bool ChackEqual(int Matrix1[3][3], int Matrix2[3][3], int Row, int Col){
+	return (SumMatrix(Matrix1, Row, Col) == SumMatrix(Matrix2, Row, Col));
+
+}
+
+int main()
+{
+	int Matrix1[3][3];
+	int Matrix2[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(Matrix1, 3, 3);
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix1, 3, 3);
+	FillMatrixWithRandomeNumbers(Matrix2, 3, 3);
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix2, 3, 3);
+	if (ChackEqual(Matrix1, Matrix2, 3, 3)){
+		system("color 2F");
+		cout << "\nSum Of Elements  Of Matrix1 is:" << SumMatrix(Matrix1, 3, 3)<<endl;
+		cout << "\nSum Of Elements  Of Matrix2 is:" << SumMatrix(Matrix2, 3, 3)<<endl;
+		cout << "\nEqual\n";
+	}
+	else{
+		system("color 4F");
+		cout << "\nSum Of Elements  Of Matrix1 is:" << SumMatrix(Matrix1, 3, 3)<<endl;
+		cout << "\nSum Of Elements  Of Matrix2 is:" << SumMatrix(Matrix2, 3, 3)<<endl;
+		cout << "\nNot Equal\n";
+	}
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+12-Check Typical Matrices 
+
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+void FillMatrixWithRandomeNumbers(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			arr[i][j] = Randome_Number(1,10);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+		printf("%0*d",2,arr[i][j]);
+		printf("   ");
+		}
+		cout << endl;
+	}
+}
+
+bool ChackTypical(int Matrix1[3][3], int Matrix2[3][3], int Row, int Col){
+	for (int i = 0;i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+
+			if (Matrix1[i][j] != Matrix2[i][j])
+				return false;
+
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	int Matrix1[3][3];
+	int Matrix2[3][3];
+	srand((unsigned)time(NULL));
+	FillMatrixWithRandomeNumbers(Matrix1, 3, 3);
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix1, 3, 3);
+	FillMatrixWithRandomeNumbers(Matrix2, 3, 3);
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix2, 3, 3);
+	if (ChackTypical(Matrix1, Matrix2, 3, 3)){
+		system("color 2F");
+		cout << "\nTypicla\n";
+	}
+	else{
+		system("color 4F");
+		cout << "\nNot Typicla\n";
+	}
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+13-Check Identity Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+
+bool IsIdentity(int Matrix[3][3],short Row ,short Col){
+	int Counter = 0;
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			if (i == j && Matrix[i][j] != 1)
+				return false;
+			else if (i != j && Matrix[i][j] != 0)
+				return false;
+		}
+	}
+	return true;
+}
+int main()
+{
+	int Matrix[3][3] = { {1,0,0} ,{0,1,0} ,{0,0,1} };
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix, 3, 3);
+	if (IsIdentity(Matrix, 3, 3))
+		cout << "Idetity";
+	else
+		cout << "Not Identity";
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+14-Check Scalar Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+
+bool IsScalar(int Matrix[3][3],short Row ,short Col){
+	int FristDiagonalElement = Matrix[0][0];
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			if (i == j && Matrix[i][j] != FristDiagonalElement)
+				return false;
+			else if (i != j && Matrix[i][j] != 0)
+				return false;
+		}
+	}
+	return true;
+}
+int main()
+{
+	int Matrix[3][3] = { {9,0,0} ,{0,9,0} ,{0,0,9} };
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix, 3, 3);
+	if (IsScalar(Matrix, 3, 3))
+		cout << "Scalar Matrix";
+	else
+		cout << "Not Scalar Matrix";
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+15-Count Number in Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadNumber(string Massege) {
+	int Number;
+	cout << Massege << endl;
+	cin >> Number;
+	return Number;
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+
+int CountNumberinMatrix(int Matrix[3][3], int Row, int Col,int Number) {
+	short Counter = 0;
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			if (Matrix[i][j] == Number)
+				Counter++;
+		}
+	}
+
+	return Counter;
+}
+int main()
+{
+	int Matrix[3][3] = { {9,1,12} ,{0,9,1} ,{0,9,9} };
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix, 3, 3);
+	int Number = ReadNumber("Enter the Number To Count In Matrix");
+	
+	cout<<"The Number "<<Number<<" Is Repeated in Matrix "<< CountNumberinMatrix(Matrix, 3, 3, Number)<<" Times";
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+16-Check Sparse Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadNumber(string Massege) {
+	int Number;
+	cout << Massege << endl;
+	cin >> Number;
+	return Number;
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+
+int CountNumberinMatrix(int Matrix[3][3], int Row, int Col,int Number) {
+	short Counter = 0;
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			if (Matrix[i][j] == Number)
+				Counter++;
+		}
+	}
+
+	return Counter;
+}
+
+bool IsSparse(int Matrix[3][3],short Row ,short Col){
+	int MatrixSize = Row * Col;
+	return (CountNumberinMatrix(Matrix, Row, Col, 0) > (MatrixSize/2));
+}
+int main()
+{
+	int Matrix[3][3] = { {0,0,0} ,{0,0,0} ,{0,9,9} };
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix, 3, 3);
+	if (IsSparse(Matrix, 3, 3))
+		cout << "Sparse Matrix";
+	else
+		cout << "Not Sparse";
+	system("pause>0");
+
+	
+}
+************************************************************************
+17-Number Exists In Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadNumber(string Massege) {
+	int Number;
+	cout << Massege << endl;
+	cin >> Number;
+	return Number;
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+
+
+
+bool IsNumberInMatrix(int Matrix[3][3],short Row ,short Col, int Number){
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			if (Matrix[i][j] == Number)
+				return true;
+		}
+	}
+	return false;
+}
+int main()
+{
+	int Matrix[3][3] = { {0,0,0} ,{0,0,0} ,{0,9,9} };
+	cout << "\nMatrix is :\n";
+	PrintMatrix(Matrix, 3, 3);
+	if (IsNumberInMatrix(Matrix, 3, 3, ReadNumber("Enter the Number?")))
+		cout << "Is Exsite";
+	else
+		cout << "Not Exsite";
+	system("pause>0");
+
+	
+}
+************************************************************************
+18-Intersected Numbers in Matrices (Important)
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadNumber(string Massege) {
+	int Number;
+	cout << Massege << endl;
+	cin >> Number;
+	return Number;
+}
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+bool IsNumberInMatrix(int Matrix[3][3], short Row, short Col, int Number) {
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col; j++) {
+			if (Matrix[i][j] == Number)
+				return true;
+		}
+	}
+	return false;
+}
+void PrintIntersectedNumbersinMatrices(int Matrix1[3][3], int Matrix2[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col; j++){
+			if (IsNumberInMatrix(Matrix2, Row, Col, Matrix1[i][j]))
+				cout <<setw(3)<< Matrix1[i][j]<<"  ";
+		}
+	}
+}
+
+int main()
+{
+	int Matrix1[3][3] = { {77,5,12} ,{22,20,1} ,{1,0,9}};
+	int Matrix2[3][3] = { {5,80,90} ,{22,77,1} ,{10,8,33}};
+	cout << "\nMatrix1 is :\n";
+	PrintMatrix(Matrix1, 3, 3);
+	cout << "\nMatrix2 is :\n";
+	PrintMatrix(Matrix2, 3, 3);
+	cout << "\n";
+	PrintIntersectedNumbersinMatrices(Matrix1, Matrix2, 3, 3);
+	
+	system("pause>0");
+
+	
+}
+************************************************************************
+19-Min /Max number in Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+int MinNumberinMatrix(int Matrix[3][3], short Row, short Col){
+	int Min = Matrix[0][0];
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col;j++) {
+			if (Min > Matrix[i][j]) {
+				Min = Matrix[i][j];
+			}
+		}
+	}
+	return Min;
+}
+int MaxNumberinMatrix(int Matrix[3][3], short Row, short Col) {
+
+	int Max = 0;
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col;j++) {
+			if (Max < Matrix[i][j]) {
+				Max = Matrix[i][j];
+			}
+		}
+	}
+	return Max;
+
+}
+
+int main()
+{
+	int Matrix1[3][3] = { {77,5,12} ,{22,20,1} ,{1,0,9}};
+	cout << "\nMatrix1 is :\n";
+	PrintMatrix(Matrix1, 3, 3);
+	cout << "\nMax Number In Matrix is :" << MaxNumberinMatrix(Matrix1, 3, 3)<<endl;
+	cout << "\nMin Number In Matrix is :" << MinNumberinMatrix(Matrix1, 3, 3)<<endl;
+	
+	system("pause>0");
+
+	
+}
+************************************************************************
+20-Palindrom Matrix 
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void PrintMatrix(int arr[3][3], short Row, short Col) {
+	for (int i = 0;i < Row;i++) {
+		for (int j = 0; j < Col;j++) {
+			cout <<setw(2)<< arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+bool IsPalindromMatrix(int Matrix[3][3], short Row, short Col) {
+	for (int i = 0; i < Row; i++) {
+		for (int j = 0; j < Col/2;j++) {
+			if (Matrix[i][j] != Matrix[i][Col - 1-j])
+				return false;
+		}
+	}
+	return true;
+
+}
+
+int main()
+{
+	int Matrix1[3][3] = { {1,1,1} ,{5,5,5} ,{7,3,7} };
+	cout << "\nMatrix1 is :\n";
+	PrintMatrix(Matrix1, 3, 3);
+	if (IsPalindromMatrix(Matrix1, 3, 3))
+		cout << "Palindrom Matrix ";
+	else
+		cout << "Not Palindrom Matrix";
+	system("pause>0");
+
+	
+}
+************************************************************************
+21-Fibonacci Series 
+
+#include <iostream>
+using namespace std;
+void FibonacciSeries(int Number){
+	int Sum = 0;
+	int Prev1 = 1;
+	int Prev2 = 0;
+	cout << "1 ";
+	for (int i = 2; i <= Number;i++){
+		Sum=Prev1+Prev2;
+		cout << Sum << "  ";
+		Prev2 = Prev1;
+		Prev1 = Sum;
+	}
+
+}
+int main()
+{
+	FibonacciSeries(10);
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+22-Fibonacci Series  With Recursion 
+
+#include <iostream>
+using namespace std;
+
+void FibonacciSeries(int Number, int Prev1 , int Prev2){
+	int Sum = 0;
+	if (Number > 0) {
+	    Sum = Prev1 + Prev2;
+		Prev2 = Prev1;
+		Prev1 = Sum;
+		cout << Sum << "  ";
+		 FibonacciSeries(Number - 1,Prev1,Prev2);
+	}
+}
+int main()
+{
+	FibonacciSeries(10,0,1);
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+23-Print Frist Letter Of Each Word 
+
+#include <iostream>
+#include <string>
+using namespace std;
+string ReadString() {
+	string Name = "";
+	cout << "Enter the String ?\n";
+	getline(cin, Name);
+	return Name;
+
+}
+void PrintFristLetterOfString(string Name) {
+	bool isFristLetter = true;
+	int Length = Name.length();
+	for (int i = 0; i < Length;i++) {
+		if (Name[i] != ' '&&isFristLetter) {
+			cout << Name[i] << endl;
+		}
+		isFristLetter = (Name[i] == ' ' ? true : false);
+
+	}
+
+}
+int main()
+{
+	string Name = ReadString();
+	cout << "\nthe First Letter From Each String Is :\n";
+	PrintFristLetterOfString(Name);
+	system("pause>0");
+
+	
+}
+************************************************************************
+24-Upper Frist Letter Of Each Word
+
+#include <iostream>
+#include <string>
+using namespace std;
+string ReadString() {
+	string Name = "";
+	cout << "Enter the String ?\n";
+	getline(cin, Name);
+	return Name;
+
+}
+void UpperFristLetterOfEachWord(string &Name) {
+	
+	bool isFristLetter = true;
+	int Length = Name.length();
+	for (int i = 0; i < Length;i++) {
+		if (Name[i] != ' ' && isFristLetter) {
+			Name[i] = toupper(Name[i]);
+		}
+		isFristLetter = (Name[i] == ' ' ? true : false);
+
+	}
+}
+int main()
+{
+	string Name = ReadString();
+	cout << "\nthe Upper First Letter From Each String Is :\n";
+	UpperFristLetterOfEachWord(Name);
+	cout << Name;
+	system("pause>0");
+
+	
+}
+
+************************************************************************
+25-Lower Frist Letter Of Each Word
+
+#include <iostream>
+#include <string>
+using namespace std;
+string ReadString() {
+	string Name = "";
+	cout << "Enter the String ?\n";
+	getline(cin, Name);
+	return Name;
+
+}
+void LowerFristLetterOfEachWord(string &Name) {
+	
+	bool isFristLetter = true;
+	int Length = Name.length();
+	for (int i = 0; i < Length;i++) {
+		if (Name[i] != ' ' && isFristLetter) {
+			Name[i] = tolower(Name[i]);
+		}
+		isFristLetter = (Name[i] == ' ' ? true : false);
+
+	}
+}
+int main()
+{
+	string Name = ReadString();
+	cout << "\nthe Upper First Letter From Each String Is :\n";
+	LowerFristLetterOfEachWord(Name);
+	cout << Name;
+	system("pause>0");
+
+	
+}
+************************************************************************
+26-Upper/Lower All Letters  Of a String 
+
+#include <iostream>
+#include <string>
+using namespace std;
+string ReadString() {
+	string Name = "";
+	cout << "Enter the String ?\n";
+	getline(cin, Name);
+	return Name;
+
+}
+string ToUpperAllString(string Name) {
+	for (int i = 0;i < Name.length();i++) {
+		Name[i] = toupper(Name[i]);
+	}
+	return Name;
+}
+string ToLowerAllString(string Name) {
+	for (int i = 0;i < Name.length();i++) {
+		Name[i] = tolower(Name[i]);
+	}
+	return Name;
+}
+int main()
+{
+	string Name = ReadString();
+	cout << "Upper String :" << ToUpperAllString(Name)<<endl;
+	cout << "Lower String :" << ToLowerAllString(Name)<<endl;
+	system("pause>0");
+
+	
+}
+************************************************************************
+27-Invert Charcter Case
+
+#include <iostream>
+#include <string>
+using namespace std;
+char  Readchar() {
+	char C = 0;
+	cout << "Enter the Charcter ?\n";
+	cin>>C;
+	return C;
+}
+char Invert_Char(char C) {
+	return isupper(C) ? tolower(C) : toupper(C);
+
+}
+int main()
+{
+	char C =Readchar();
+	cout << "\nthe Invering Charcter is:" << Invert_Char(C);
+	system("pause>0");
+
+	
+}
+************************************************************************
+28-Invert All Letters Case 
+
+#include <iostream>
+#include <string>
+using namespace std;
+string  ReadString() {
+	string Name ="";
+	cout << "Enter the String ?\n";
+	getline(cin,Name);
+	return Name;
+}
+char Invert_Char(char C) {
+	return isupper(C) ? tolower(C) : toupper(C);
+
+}
+string Invert_AllLettersCase(string Name){
+	for (int i = 0 ; i < Name.length() ; i++) {
+	Name[i]=Invert_Char(Name[i]);
+	}
+	return Name;
+}
+
+int main()
+{
+	string Name =ReadString();
+	cout << "\nthe Invering  All Charcter is:" << Invert_AllLettersCase(Name);
+	system("pause>0");
+
+	
+}
+************************************************************************
+29-Count Small/Capital Letters 
+
+#include <iostream>
+#include <string>
+using namespace std;
+enum enWhattoCount { SmallLetter = 0,CapitalLetter=1,All=2};
+string  ReadString() {
+	string Name ="";
+	cout << "Enter the String ?\n";
+	getline(cin,Name);
+	return Name;
+}
+int CounterLetter(string Name, enWhattoCount WhattoCount=enWhattoCount::All){
+	if (WhattoCount == enWhattoCount::All) {
+		return Name.length();
+	}
+	int Counter = 0;
+	for (int i = 0;i < Name.length();i++) {
+		if (islower(Name[i]) && WhattoCount == enWhattoCount::SmallLetter)
+			Counter++;
+		else if (isupper(Name[i]) && WhattoCount == enWhattoCount::CapitalLetter)
+			Counter++;
+	}
+	return Counter;
+
+ }
+int Count_SmallLetter(string Name){
+	int Counter = 0;
+	for (int i = 0;i < Name.length();i++) {
+		if (islower(Name[i])) {
+			Counter++;
+		}
+	}
+	return Counter;
+}
+int Count_CapitalLetter(string Name) {
+	int Counter = 0;
+	for (int i = 0;i < Name.length();i++) {
+		if (isupper(Name[i])){
+			Counter++;
+		}
+	}
+	return Counter;
+}
+int main()
+{
+	string Name =ReadString();
+	cout << "\nThe Lenght Of String Is =" << CounterLetter(Name)<<endl;
+	cout << "The Number Of Capitel Letters In Thes String Is :" <<CounterLetter(Name,enWhattoCount::CapitalLetter)<<endl;
+	cout << "The Number Of Small Letters In Thes String Is :" << CounterLetter(Name, enWhattoCount::SmallLetter) <<endl;
+	system("pause>0");
+
+	
+}
+************************************************************************
+30-Count Letters 
+
+#include <iostream>
+#include <string>
+using namespace std;
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin , Name);
+	return Name;
+}
+char ReadCharcter() {
+	char C = 0;
+	cout << "Enter the Charcter ?\n";
+	cin >> C;
+	return C;
+}
+int CountLetter(string Name ,char C){
+	int Counter = 0;
+	for (int i = 0; i < Name.length();i++) {
+		if (Name[i] == C) {
+			Counter++;
+		}
+
+	}
+	return Counter;
+}
+int main()
+{
+	string Name = ReaString();
+	char C = ReadCharcter();
+	cout << "The Number Of '" << C << "' in Srting is:" << CountLetter(Name, C)<<endl;
+	
+	system("pause>0");
+
+	
+}
+************************************************************************
+31-Count Letter (Match Case)
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin , Name);
+	return Name;
+}
+char ReadCharcter() {
+	char C = 0;
+	cout << "Enter the Charcter ?\n";
+	cin >> C;
+	return C;
+}
+char Invert_Char(char C) {
+	return isupper(C) ? tolower(C) : toupper(C);
+
+}
+ int CountLetter(string Name ,char Letter,bool LetterMatch = true ){
+	 int Counter = 0;
+	for (int i = 0; i < Name.length();i++) {
+		if (LetterMatch){
+			if (Name[i] == Letter) {
+				Counter++;
+			}
+		}
+			else {
+				if (toupper(Name[i]) == toupper(Letter)) {
+					Counter++;
+				}
+			}
+
+		}
+	return Counter ;
+}
+int main()
+{
+	string Name = ReaString();
+	char Letter = ReadCharcter();
+	cout << "The Number of '" << Letter << "' in String is : " << CountLetter(Name, Letter)<<endl;
+	cout << "The Number of '" << Letter << "'in or '"<<Invert_Char(Letter)<< "' String is : " << CountLetter(Name, Letter,false);
+
+	system("pause>0");
+
+	
+}
+************************************************************************
+32- Is Vowel 
+
+#include <iostream>
+#include <string>
+using namespace std;
+char ReadCharcter(){
+	char C = 0;
+	cout << "Enter the Charcter ?\n";
+	cin >> C;
+	return C;
+}
+bool IsVowel(char Letter) {
+	Letter = tolower(Letter);
+	return (Letter == 'a' || Letter == 'e' || Letter == 'i' || Letter == 'o' || Letter == 'u');
+
+}
+
+int main()
+{
+	char Letter = ReadCharcter();
+	if (IsVowel(Letter))
+		cout << "Yes '"<<Letter<< "' It Is Vowel"    <<  endl;
+	else
+		cout << "No '" << Letter << "' It Is Not Vowel" << endl;
+
+		system("pause>0");
+
+	
+}
+************************************************************************
+33-Number Of Vowels
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+char ReadCharcter(){
+	char C = 0;
+	cout << "Enter the Charcter ?\n";
+	cin >> C;
+	return C;
+}
+bool IsVowel(char Letter) {
+	Letter = tolower(Letter);
+	return (Letter == 'a' || Letter == 'e' || Letter == 'i' || Letter == 'o' || Letter == 'u');
+
+}
+int Vowel_Counter(string Name) {
+	int Counter = 0;
+	for (int i = 0; i < Name.length();i++){
+		if (IsVowel(Name[i]))
+			Counter++;
+	}
+	return Counter;
+}
+
+int main()
+{
+	string Name = ReaString();
+	cout << "Number Of Vowels in This String is:" << Vowel_Counter(Name)<<endl;
+
+		system("pause>0");
+
+	
+}
+************************************************************************
+34-Pirnt All Vowels In String 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+char ReadCharcter(){
+	char C = 0;
+	cout << "Enter the Charcter ?\n";
+	cin >> C;
+	return C;
+}
+bool IsVowel(char Letter) {
+	Letter = tolower(Letter);
+	return (Letter == 'a' || Letter == 'e' || Letter == 'i' || Letter == 'o' || Letter == 'u');
+
+}
+void  Print_AllVowlseInString(string Name) {
+	for (int i = 0; i < Name.length();i++){
+		if (IsVowel(Name[i]))
+			cout << Name[i]<<"  ";
+	}
+}
+
+int main()
+{
+	string Name = ReaString();
+	cout << "Number Of Vowels in This String is:";
+	Print_AllVowlseInString(Name);
+
+		system("pause>0");
+
+	
+}
+************************************************************************
+35-Print Each Word In String 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+
+void Print_EachWordInString(string Name){
+	string dlime= " ";
+	short Pos = 0;
+	string sword;
+	cout << "\nThe Each Word In String is :\n";
+	while ((Pos = Name.find(dlime)) != std::string::npos)
+	{
+		sword=Name.substr(0, Pos);
+		if (sword != "") 
+		{
+			cout << sword<<endl;
+		}
+		Name.erase(0, Pos + dlime.length());
+	}
+	if (Name != "") {
+		cout << Name;
+	}
+
+}
+int main()
+{
+	Print_EachWordInString(ReaString());
+	system("pause>0");
+
+	
+}
+************************************************************************
+36-Count Each Word In String 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+
+short CountWord(string Name) {
+	short Counter = 0;
+	string dlime = " ";
+	short Pos = 0;
+	string sword;
+	cout << "\nNumber Of Words In String is :";
+	while ((Pos = Name.find(dlime)) != std::string::npos)
+	{
+		sword = Name.substr(0, Pos);
+		if (sword != "")
+		{
+			Counter++;
+		}
+		Name.erase(0, Pos + dlime.length());
+	}
+	if (Name != "") {
+		Counter++;
+	}
+	return Counter;
+
+}
+int main()
+{
+	string Name = ReaString();
+	cout << CountWord(Name);
+	system("pause>0");
+
+
+}
+************************************************************************
+37-Splite String 
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+ 
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+vector <string> SpliteString( string Dilime, string Name){
+	vector<string> vName;
+	short Pos = 0;
+	string sWord="";
+	while ((Pos = Name.find(Dilime)) != string::npos){
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+int main()
+{
+	vector<string>vName;
+	vName= SpliteString(" ",ReaString());
+	cout << "\nTonkens:" <<vName.size()<<endl;
+	for (string &Name : vName) {
+		cout << Name << endl;
+	}
+	system("pause>0");
+
+
+}
+************************************************************************38-TrimeLift,TrimeRight,Trime
+
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+string TrimeLeft(string Name){
+
+	for (int i = 0; i < Name.length();i++) {
+		if (Name[i] != ' ')
+			return Name.substr(i, Name.length() - i);
+	}
+
+	return "";
+}
+string TrimeRight(string Name) {
+
+	for (int i = Name.length()-1 ; i>0 ; i--) {
+		if (Name[i] != ' ')
+			return Name.substr(0,i+1);
+	}
+	
+
+	return "";
+}
+string Trime(string Name){
+	return TrimeLeft(TrimeRight(Name));
+}
+int main()
+{
+	string Name = ReaString();
+	cout << "String     =" <<Name<<endl;
+	cout << "TrimeLeft  ="<<TrimeLeft(Name)<<endl;
+	cout << "TrimeRight ="<<TrimeRight(Name)<<endl;
+	cout << "Trime      ="<<Trime(Name)<<endl;
+	system("pause>0");
+
+
+}
+************************************************************************
+39-Join String 
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+string JoinString(string Dilime, vector <string> &vName){
+	string S = "";
+	for (string Name : vName) {
+		S += Name+Dilime;
+	}
+	return S.substr(0,S.length()-Dilime.length()) ;
+}
+int main()
+{
+	vector<string>vName{"Mohamed","Ali","Hassan"};
+	cout << JoinString(",", vName);
+	system("pause>0");
+
+
+}
+************************************************************************
+40-Join String Overloading 
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+string ReaString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+string JoinString(vector <string>& vName,string Dilime){
+	string S = "";
+	for (string Name : vName) {
+		S += Name+Dilime;
+	}
+	return S.substr(0,S.length()-Dilime.length()) ;
+}
+
+string JoinString(string arr[], string Dilime, short Length){
+	string S = "";
+	for (int i = 0;i < Length;i++) {
+		S += arr[i] + Dilime;
+	}
+	return S.substr(0, S.length() - Dilime.length());
+}
+int main()
+{ 
+	string arr[] = { "Mohamed","Said","Ahemd","Hassan" };
+	vector<string>vName{"Mohamed","Ali","Hassan"};
+	cout << JoinString( vName,",")<<endl;
+	cout << JoinString(arr,"?",4)<<endl;
+	system("pause>0");
+
+
+}
+************************************************************************
+41-Revers String 
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+string ReadString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+
+vector <string> SpliteString(string Name,string Dilime) {
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+
+string Revers_word(string Name){
+	vector<string> vString;
+	string Word = "";
+	vString = SpliteString(Name, " ");
+	vector<string> ::iterator iter = vString.end();
+	while (iter != vString.begin()) {
+		--iter;
+		Word += *iter + " ";
+	}
+	Word.substr(0, Word.length() - 1);//to neglgte Last Space 
+	return Word;
+}
+
+int main()
+{ 
+	cout<<Revers_word(ReadString());
+	system("pause>0");
+
+
+}
+************************************************************************
+42-Replace Word 
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+string ReadString() {
+	string Name = "";
+	cout << "Enter The String?\n";
+	getline(cin, Name);
+	return Name;
+}
+vector <string> SpliteString(string Name, string Dilime) {
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+
+
+string ReplaceWrodInStringUsinrgBeltinFunction(string S1, string StringToReplace, string sReplace){
+	int Pos = S1.find(StringToReplace);
+	while (Pos != string::npos){
+		S1 = S1.replace(Pos, StringToReplace.length(),sReplace);
+		Pos= S1.find(StringToReplace);
+	}
+	return S1;
+}
+
+int main()
+{ 
+
+	cout << ReplaceWrodInStringUsinrgBeltinFunction(ReadString(), "Mohamed", "Ali");
+	system("pause>0");
+
+
+}
+************************************************************************
+43- Replace Word  With Case Senstive
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+string ReadString(){
+	string Name;
+	cout << "Enter the String?\n";
+	getline(cin, Name);
+    return Name;
+}
+string JoinString(vector<string> vString, string Delim)
+{
+	string S1;
+	for (string& s : vString)
+	{
+		S1 = S1 + s + Delim;
+	}
+	return S1.substr(0, S1.length() - Delim.length());
+}
+vector <string> SpliteString(string Dilime, string Name) {
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+string ToLowerAllString(string Name) {
+	for (int i = 0;i < Name.length();i++) {
+		Name[i] = tolower(Name[i]);
+	}
+	return Name;
+}
+string Replacee(string S1, string StringToReplace, string sReplaceTo,bool MacthCase=true) {
+	vector <string> vString = SpliteString(" ", S1);
+	for (string& s:vString) {
+		if (MacthCase) 
+		{
+			if(s== StringToReplace)
+			{
+				s = sReplaceTo;
+			}
+		}
+		else 
+		{
+			if (ToLowerAllString(s) == ToLowerAllString(StringToReplace))
+			{
+				s = sReplaceTo;
+		   }
+		}
+	
+	}
+	return JoinString(vString, " ");
+}
+
+int main()
+{
+	string Name = ReadString();
+	cout << "\nThe Oreginal String is :" << Name<<endl;
+	cout << "\nWith  Match Case :" << Replacee(Name, "Mohamed", "Ali") << endl;
+	cout << "\nWith  Not Match Case :" << Replacee(Name, "Mohamed", "Ali",false )<<endl;
+	system("pause>0");
+
+
+}
+************************************************************************
+44-Remove Punctuations 
+
+#include <iostream>
+#include <cctype>
+#include <string>
+using namespace std;
+string ReadString(){
+	string Name;
+	cout << "Enter the String?\n";
+	getline(cin, Name);
+    return Name;
+}
+
+string Remove_Punct(string S1) {
+	string S2 = "";
+	for (int i = 0;i < S1.length();i++) {
+		if (!ispunct(S1[i])) {
+			S2+=S1[i];
+		}
+	}
+	return S2;
+}
+int main()
+{
+	string Name = ReadString();
+	cout << "\nThe Oreginal String:\n" << Name<<endl;
+	cout << "\nRemove Punctuations :\n" << Remove_Punct(Name)<<endl;
+	system("pause>0");
+
+
+}
+************************************************************************
+45-Convert Record To Line (Important)
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+struct st_Clinet {
+	string AcountNumber = "";
+	string PinCod ;
+	string name = "";
+	string Phon = "";
+	int AcountBalanc = 0;
+
+};
+st_Clinet ReadData(){
+	st_Clinet Clinte;
+	 cout << "Enter the AcountNumber ?";
+	 getline(cin ,Clinte.AcountNumber);
+
+	 cout << "Enter the Pin Code ?";
+	 getline( cin , Clinte.PinCod);
+
+	 cout << "Enter Your Name ?";
+	 getline( cin, Clinte.name);
+
+	 cout << "Enter Your Phon ?";
+	 getline( cin , Clinte.Phon);
+
+	 cout << "Enter Your Balanc?";
+	 cin >> Clinte.AcountBalanc;
+	 return Clinte;
+}
+
+string ConvertRecordtoLine(st_Clinet Clinte, string Separator){
+
+	string Data = "";
+	Data = Clinte.AcountNumber + Separator;
+	Data += Clinte.PinCod + Separator;
+	Data += Clinte.name + Separator;
+	Data += Clinte.Phon + Separator;
+	Data += to_string(Clinte.AcountBalanc) + Separator;
+	return Data;
+}
+
+int main()
+{
+	cout << "Pleas Enter the Data:\n\n";
+	st_Clinet Data = ReadData();
+	cout << ConvertRecordtoLine(Data, "#//#");
+	system("pause>0");
+
+
+}
+************************************************************************
+46-Convert Line Data to Record 
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+struct st_Clinet {
+	string AcountNumber = "";
+	string PinCod ;
+	string name = "";
+	string Phon = "";
+	int AcountBalanc = 0;
+
+};
+string ReadData() {
+	string Line = "";
+	cout << "Enter the Line Of Data ?\n";
+	getline(cin ,Line);
+	return Line;
+}
+
+vector <string> SpliteString(string Dilime, string Name) {
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+st_Clinet ConvertLinetoRecord(string Data, string Separator){
+	vector<string>vData=SpliteString(Separator,Data);
+	st_Clinet Clinte;
+	Clinte.AcountNumber= vData[0];
+	Clinte.PinCod = vData[1];
+	Clinte.name = vData[2];
+	Clinte.Phon = vData[3];
+	Clinte.AcountBalanc =stoi(vData[4]);
+	return Clinte;
+}
+void PrintData(st_Clinet Clinte) {
+	cout << "Account Number :" << Clinte.AcountNumber<<endl;
+	cout << "Pin Code       :" << Clinte.PinCod<<endl;
+	cout << "Name           :" << Clinte.name<<endl;
+	cout << "Phone          :" << Clinte.Phon<<endl;
+	cout << "Account Balanc :" << Clinte.AcountBalanc<<endl;
+}
+
+int main()
+{
+	st_Clinet Clinte;
+	Clinte= ConvertLinetoRecord(ReadData(), "#//#");
+	PrintData(Clinte);
+
+	system("pause>0");
+
+
+}
+************************************************************************
+47-Add Clints in File 
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+using namespace std;
+const string ClintesFoleName = "Clinte.txt";
+struct st_Clinet {
+	string AcountNumber = "";
+	string PinCod="";
+	string name = "";
+	string Phon = "";
+	int AcountBalanc = 0;
+
+};
+st_Clinet ReadData() {
+	st_Clinet Clinte;
+	
+		cout << "Enter the AcountNumber ?";
+		getline(cin>>ws, Clinte.AcountNumber);
+
+		cout << "Enter the Pin Code ?";
+		getline(cin, Clinte.PinCod);
+
+		cout << "Enter Your Name ?";
+		getline(cin, Clinte.name);
+
+		cout << "Enter Your Phon ?";
+		getline(cin, Clinte.Phon);
+
+		cout << "Enter Your Balanc?";
+		cin >> Clinte.AcountBalanc;
+	    return Clinte;
+}
+
+string ConvertRecordtoLine(st_Clinet Clinte, string Separator) {
+
+	string Data = "";
+	Data = Clinte.AcountNumber + Separator;
+	Data += Clinte.PinCod + Separator;
+	Data += Clinte.name + Separator;
+	Data += Clinte.Phon + Separator;
+	Data += to_string(Clinte.AcountBalanc) ;
+	return Data;
+}
+void AddDataLineToFile(string Filename, string Data){
+	fstream MyFile;
+
+	MyFile.open(Filename, ios::out | ios::app);
+	if (MyFile.is_open()) {
+		MyFile <<Data << endl;
+		MyFile.close();
+	}
+}
+
+void AddNewClinte() {
+
+	st_Clinet Clinte;
+	Clinte = ReadData();
+	AddDataLineToFile(ClintesFoleName, ConvertRecordtoLine(Clinte, "#//#"));
+}
+
+void AddClinte() {
+	char ReadMore = 'Y';
+	do {
+		system("cls");
+		cout << "Add New Clinte\n";
+
+		AddNewClinte();
+
+		cout << "Saved ,Do You Want To Add New Clinte ?(Y||N)\n";
+		cin >> ReadMore;
+	} while (ReadMore == 'y' || ReadMore == 'Y');
+}
+
+int main()
+{
+	AddClinte();
+
+	system("pause>0");
+
+
+}
+************************************************************************
+48-Show all Clints 
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+const string ClintesFoleName = "Clinte.txt";
+void Print_Hedder(){
+	cout << setw(32) << "Clints List (3) Clintes"<<endl;
+	cout << "________________________________________________________________________________________\n";
+	cout << setw(15) <<left << "|Acount Number" 
+		 << setw(12) <<left << "|Pin Code" 
+		 << setw(42) <<left << "|Clinte Name" 
+		 << setw(10) <<left << "|Phon"
+		 << setw(10) <<left << "|Balanc" << endl;
+	cout << "________________________________________________________________________________________\n";
+}
+struct st_Clinet {
+	string AcountNumber = "";
+	string PinCod="";
+	string name = "";
+	string Phon = "";
+	int AcountBalanc = 0;
+
+};
+
+
+vector <string> SpliteString(string Dilime, string Name) {
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+st_Clinet ConvertLinetoRecord(string Data, string Separator="#//#") {
+	vector<string>vData = SpliteString(Separator, Data);
+	st_Clinet Clinte;
+	Clinte.AcountNumber = vData[0];
+	Clinte.PinCod = vData[1];
+	Clinte.name = vData[2];
+	Clinte.Phon = vData[3];
+	Clinte.AcountBalanc = stoi(vData[4]);
+	return Clinte;
+}
+vector<st_Clinet>  ReadFileContant(string FileName) {
+	fstream MyFile;
+	vector<st_Clinet> vData;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+		string Line;
+		while (getline(MyFile, Line)) {
+			vData .push_back( ConvertLinetoRecord(Line, "#//#"));
+		}
+		MyFile.close();
+	}
+	return vData;
+}
+
+void PrintRecord(st_Clinet Clinte) {
+	cout<<"|" << setw(15) << left << Clinte.AcountNumber;
+	cout<<"|"<<setw(10)<<left<<Clinte.PinCod;
+	cout<<"|"<<setw(40)<<left<<Clinte.name;
+	cout<<"|"<<setw(12)<<left<<Clinte.Phon;
+	cout<<"|"<<setw(12)<<left<<Clinte.AcountBalanc;
+}
+void PrintAllClintse(vector <st_Clinet> vClinte){
+	Print_Hedder();
+	for (st_Clinet &Line : vClinte){
+		PrintRecord(Line);
+		cout<<endl;
+	}
+	cout << "________________________________________________________________________________________\n";
+
+}
+
+int main()
+{ 
+	vector<st_Clinet> vClinte = ReadFileContant(ClintesFoleName);
+	PrintAllClintse(vClinte);
+	system("pause>0");
+
+}
+************************************************************************
+49-Find Clinte By Acount Number 
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+const string ClintesFoleName = "Clinte.txt";
+struct st_Clinet {
+	string AcountNumber = "";
+	string PinCod="";
+	string name = "";
+	string Phon = "";
+	int AcountBalanc = 0;
+
+};
+vector <string> SpliteString(string Dilime, string Name) {
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+st_Clinet ConvertLinetoRecord(string Data, string Separator="#//#") {
+	vector<string>vData = SpliteString(Separator, Data);
+	st_Clinet Clinte;
+	Clinte.AcountNumber = vData[0];
+	Clinte.PinCod = vData[1];
+	Clinte.name = vData[2];
+	Clinte.Phon = vData[3];
+	Clinte.AcountBalanc = stoi(vData[4]);
+	return Clinte;
+}
+vector<st_Clinet>  ReadFileContant(string FileName) {
+	fstream MyFile;
+	vector<st_Clinet> vData;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+		string Line;
+		while (getline(MyFile, Line)) {
+			vData .push_back( ConvertLinetoRecord(Line, "#//#"));
+		}
+		MyFile.close();
+	}
+	return vData;
+}
+void PrintClinteCarde(st_Clinet Clinte) {
+	cout << "Account Number :" << Clinte.AcountNumber << endl;
+	cout << "Pin Code       :" << Clinte.PinCod << endl;
+	cout << "Name           :" << Clinte.name << endl;
+	cout << "Phone          :" << Clinte.Phon << endl;
+	cout << "Account Balanc :" << Clinte.AcountBalanc << endl;
+}
+bool FindClinteByAcounteNumber(string AcounteNumber, st_Clinet &Clinte) {
+	vector<st_Clinet> vClinte = ReadFileContant(ClintesFoleName);
+	for (st_Clinet& C : vClinte) {
+		if (C.AcountNumber == AcounteNumber) {
+			Clinte = C;
+			return true;
+		}
+	
+	}
+	return false;
+
+}
+
+int main()
+{ 
+	string AcountNumber = "";
+	st_Clinet Clinte;
+	cout << "Enter the Acount Number?\n";
+	getline(cin, AcountNumber);
+
+	if (FindClinteByAcounteNumber(AcountNumber,Clinte)){
+		cout << "Yes It Found:\n";
+		PrintClinteCarde(Clinte);
+		system("color 2F");
+	}
+	else {
+		cout << "Not Found :";
+	}
+	system("pause>0");
+
+}
+************************************************************************
+50-Delet Clint By Account Number 
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+const string ClintesFoleName = "Clinte.txt";
+struct st_Clinet
+{
+	string AcountNumber = "";
+	string PinCod="";
+	string name = "";
+	string Phon = "";
+	int AcountBalanc = 0;
+	bool MarkForDelet = false;
+
+};
+vector <string> SpliteString(string Dilime, string Name)
+{
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+st_Clinet ConvertLinetoRecord(string Data, string Separator="#//#")
+{
+	vector<string>vData = SpliteString(Separator, Data);
+	st_Clinet Clinte;
+	Clinte.AcountNumber = vData[0];
+	Clinte.PinCod = vData[1];
+	Clinte.name = vData[2];
+	Clinte.Phon = vData[3];
+	Clinte.AcountBalanc = stoi(vData[4]);
+	return Clinte;
+}
+string ConvertRecordtoLine(st_Clinet Clinte, string Separator="#//#") {
+
+	string Data = "";
+	Data = Clinte.AcountNumber + Separator;
+	Data += Clinte.PinCod + Separator;
+	Data += Clinte.name + Separator;
+	Data += Clinte.Phon + Separator;
+	Data += to_string(Clinte.AcountBalanc) + Separator;
+	return Data;
+}
+vector<st_Clinet>LoadClintseDataFromFlie(string FileName)
+{
+	fstream MyFile;
+	vector<st_Clinet> vData;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+		string Line;
+		while (getline(MyFile, Line)) {
+			vData .push_back( ConvertLinetoRecord(Line, "#//#"));
+		}
+		MyFile.close();
+	}
+	return vData;
+}
+void PrintClinteCard(st_Clinet Clinte)
+{
+	cout << "Account Number :" << Clinte.AcountNumber << endl;
+	cout << "Pin Code       :" << Clinte.PinCod << endl;
+	cout << "Name           :" << Clinte.name << endl;
+	cout << "Phone          :" << Clinte.Phon << endl;
+	cout << "Account Balanc :" << Clinte.AcountBalanc << endl;
+}
+bool FindClinteByAcounteNumber(string AcounteNumber, st_Clinet &Clinte)
+{
+	vector<st_Clinet> vClinte = LoadClintseDataFromFlie(ClintesFoleName);
+	for (st_Clinet& C : vClinte) {
+		if (C.AcountNumber == AcounteNumber) {
+			Clinte = C;
+			return true;
+		}
+	
+	}
+	return false;
+
+}
+void SaveClintseToFile(string FileName, vector<st_Clinet> &vClinte)
+{
+	fstream MyFile;
+	string DataLine;
+	MyFile.open(FileName, ios::out);
+	if (MyFile.is_open()) {
+
+		for (st_Clinet& Line : vClinte) {
+			if (Line.MarkForDelet==false)
+			{
+				DataLine = ConvertRecordtoLine(Line);
+				MyFile << DataLine << endl;
+			}
+		}
+
+		MyFile.close();
+
+	}
+
+
+
+}
+bool MarkClinteForDelete(string AccountNumber,vector<st_Clinet> &vClinte)
+{
+	for (st_Clinet &Clinte : vClinte)
+	{
+		if (Clinte.AcountNumber == AccountNumber)
+		{
+		    Clinte.MarkForDelet = true;
+			return true;
+		}
+	}
+	return false;
+
+}
+string ReadClientAccountNumber()
+{
+	string AccountNumber = "";
+	cout << "\nPlease enter AccountNumber? ";
+	cin >> AccountNumber;
+	return AccountNumber;
+}
+bool DeletClinteFormFile(string AccountNumber,vector<st_Clinet> &vClinte)
+{
+	st_Clinet Clinte;
+	char Delete = false;
+	if (FindClinteByAcounteNumber(AccountNumber, Clinte)) 
+	{
+		PrintClinteCard(Clinte);
+		cout << "Do You Want to Delete THis Clinte?(Y|N)\n";
+		cin >> Delete;
+		if (Delete == 'y' || Delete == 'Y') {
+			MarkClinteForDelete(AccountNumber, vClinte);
+			SaveClintseToFile(ClintesFoleName, vClinte);
+			vClinte = LoadClintseDataFromFlie(ClintesFoleName);
+			cout << "It Deleted\n";
+			return true;
+		}
+	}
+	else 
+	{
+		cout << "It Not Found :";
+		return false;
+	}
+
+}
+int main()
+{ 
+	vector <st_Clinet>vClinte =       LoadClintseDataFromFlie(ClintesFoleName);
+	string AccountNumber = ReadClientAccountNumber();
+	DeletClinteFormFile(AccountNumber, vClinte);
+	system("pause>0");
+
+}
+************************************************************************
+51- Update Clinte By Account Number 
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+const string ClintesFoleName = "Clinte.txt";
+struct st_Clinet
+{
+	string AcountNumber = "";
+	string PinCod="";
+	string name = "";
+	string Phon = "";
+	int AcountBalanc = 0;
+	bool MarkForDelet = false;
+
+};
+st_Clinet ChangClintData(string AccountNumber) {
+	st_Clinet Clinte;
+	Clinte.AcountNumber = AccountNumber;
+
+	cout << "Enter the Pin Code ?";
+	getline(cin>>ws, Clinte.PinCod);
+
+	cout << "Enter Your Name ?";
+	getline(cin, Clinte.name);
+
+	cout << "Enter Your Phon ?";
+	getline(cin, Clinte.Phon);
+
+	cout << "Enter Your Balanc?";
+	cin >> Clinte.AcountBalanc;
+
+	return Clinte;
+
+}
+vector <string> SpliteString(string Dilime, string Name)
+{
+	vector<string> vName;
+	short Pos = 0;
+	string sWord = "";
+	while ((Pos = Name.find(Dilime)) != string::npos) {
+		sWord = Name.substr(0, Pos);
+		if (sWord != "") {
+			vName.push_back(sWord);
+		}
+		Name.erase(0, Pos + Dilime.length());
+	}
+	if (Name != "") {
+		vName.push_back(Name);
+	}
+	return vName;
+}
+st_Clinet ConvertLinetoRecord(string Data, string Separator="#//#")
+{
+	vector<string>vData = SpliteString(Separator, Data);
+	st_Clinet Clinte;
+	Clinte.AcountNumber = vData[0];
+	Clinte.PinCod = vData[1];
+	Clinte.name = vData[2];
+	Clinte.Phon = vData[3];
+	Clinte.AcountBalanc = stoi(vData[4]);
+	return Clinte;
+}
+string ConvertRecordtoLine(st_Clinet Clinte, string Separator="#//#") {
+
+	string Data = "";
+	Data = Clinte.AcountNumber + Separator;
+	Data += Clinte.PinCod + Separator;
+	Data += Clinte.name + Separator;
+	Data += Clinte.Phon + Separator;
+	Data += to_string(Clinte.AcountBalanc);
+	return Data;
+}
+vector<st_Clinet>LoadClintseDataFromFlie(string FileName)
+{
+	fstream MyFile;
+	vector<st_Clinet> vData;
+	MyFile.open(FileName, ios::in);//Read Mode
+	if (MyFile.is_open()) {
+		string Line;
+		while (getline(MyFile, Line)) {
+			vData .push_back( ConvertLinetoRecord(Line, "#//#"));
+		}
+		MyFile.close();
+	}
+	return vData;
+}
+void PrintClinteCard(st_Clinet Clinte)
+{
+	cout << "Account Number :" << Clinte.AcountNumber << endl;
+	cout << "Pin Code       :" << Clinte.PinCod << endl;
+	cout << "Name           :" << Clinte.name << endl;
+	cout << "Phone          :" << Clinte.Phon << endl;
+	cout << "Account Balanc :" << Clinte.AcountBalanc << endl;
+}
+bool FindClinteByAcounteNumber(string AcounteNumber, st_Clinet &Clinte)
+{
+	vector<st_Clinet> vClinte = LoadClintseDataFromFlie(ClintesFoleName);
+	for (st_Clinet& C : vClinte) {
+		if (C.AcountNumber == AcounteNumber) {
+			Clinte = C;
+			return true;
+		}
+	
+	}
+	return false;
+
+}
+void SaveClintseToFile(string FileName, vector<st_Clinet> &vClinte)
+{
+	fstream MyFile;
+	string DataLine;
+	MyFile.open(FileName, ios::out);
+	if (MyFile.is_open()) {
+
+		for (st_Clinet& Line : vClinte) {
+			if (Line.MarkForDelet==false)
+			{
+				DataLine = ConvertRecordtoLine(Line);
+				MyFile << DataLine << endl;
+			}
+		}
+
+		MyFile.close();
+
+	}
+
+
+
+}
+bool MarkClinteForUpDate(string AccountNumber,vector<st_Clinet> &vClinte)
+{
+	for (st_Clinet &Clinte : vClinte)
+	{
+		if (Clinte.AcountNumber == AccountNumber)
+		{
+		    Clinte.MarkForDelet = false;
+			return true;
+		}
+	}
+	return false;
+
+}
+string ReadClientAccountNumber()
+{
+	string AccountNumber = "";
+	cout << "\nPlease enter AccountNumber? ";
+	cin >> AccountNumber;
+	return AccountNumber;
+}
+bool UpdateClinteFormFileByAccountNumber(string AccountNumber,vector<st_Clinet> &vClinte)
+{
+	st_Clinet Clinte;
+	char UpDate = false;
+	if (FindClinteByAcounteNumber(AccountNumber, Clinte)) 
+	{
+		PrintClinteCard(Clinte);
+		cout << "Do You Want to Delete THis Clinte?(Y|N)\n";
+		cin >> UpDate;
+		if (UpDate == 'y' || UpDate== 'Y') {
+			for (st_Clinet& C : vClinte) 
+			{
+				if (C.AcountNumber == AccountNumber) 
+				{
+					C = ChangClintData(AccountNumber);
+					break;
+				}
+			}
+			MarkClinteForUpDate(AccountNumber, vClinte);
+			SaveClintseToFile(ClintesFoleName, vClinte);
+			vClinte = LoadClintseDataFromFlie(ClintesFoleName);
+			cout << "It Changed\n";
+			return true;
+		}
+	}
+	else 
+	{
+		cout << "It Not Found :";
+		return false;
+	}
+
+}
+int main()
+{ 
+	vector <st_Clinet>vClinte = LoadClintseDataFromFlie(ClintesFoleName);
+	string AccountNumber = ReadClientAccountNumber();
+	UpdateClinteFormFileByAccountNumber(AccountNumber, vClinte);
+	system("pause>0");
+
+}
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1792 @@
+1-CLass And Object
+
+using System;
+
+namespace Curse_16
+{
+    internal class Program
+    {
+
+        class clsPerson
+        {
+            //Members
+            public string FirstName;
+            public string LastName;
+
+
+            //Methods
+            public string FullName()
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+        static void Main(string[] args)
+        {
+
+            clsPerson Person1 = new clsPerson();
+
+            clsPerson Person2 = new clsPerson();
+
+
+            Console.WriteLine("Access Mabmers (Person1)");
+            Person1.FirstName = "Mohamed";
+            Person1.LastName = "Ali";
+            Console.WriteLine(Person1.FullName());
+
+
+            Console.WriteLine("Access Mabmers (Person2)");
+            Person2.FirstName = "Ahmed";
+            Person2.LastName = "Ali";
+            Console.WriteLine(Person2.FullName());
+
+        }
+    }
+}
+___________________________________________________________________________________
+
+2-Access Modifiers
+
+using System;
+
+namespace Curse_16
+{
+    internal class Program
+    {
+
+        class clsA
+        {
+
+            public int x = 10;
+            private int y = 20;
+            protected int z = 100;
+
+            public int Func1()
+            {
+                return 10;
+            }
+            private int Func2()
+            {
+                return 20;
+            }
+            protected int Func3()
+            {
+                return 100;
+            }
+
+
+ 
+        }
+
+
+        class clsB : clsA
+        {
+            public int Func4()
+            {
+                return z;
+            }
+            public int Func5()
+            {
+                return Func3();
+            }
+        }
+        static void Main(string[] args)
+        {
+
+
+            clsA A = new clsA();
+
+            Console.WriteLine(A.x);
+            Console.WriteLine(A.Func1());
+            //Console.WriteLine(A.y);//Not Valide Becuose it is Privare Mamber
+            //Console.WriteLine(A.z);//Not Valide Becuose it is Protected Mamber
+            //Console.WriteLine(A.Func2());//Not Valide Becuose it is Privare Method
+            //Console.WriteLine(A.Func3());//Not Valide Becuose it is Protected Method
+
+
+            clsB B = new clsB();
+
+            Console.WriteLine(B.x);
+            Console.WriteLine(B.Func4());
+            Console.WriteLine(B.Func1());
+            Console.WriteLine(B.Func5());
+ 
+
+        }
+    }
+}
+
+___________________________________________________________________________________
+
+3-static Members
+
+using System;
+
+    class clsA
+    {
+        public int x1;
+        //x2 is shared for all object because it's on the class level
+        public static int x2;
+
+
+        public int Method1 ()
+        {
+            //not static methods can always access the static members
+            return x1 + x2;
+        }
+
+        public static int Method2()
+        {
+            //static methods cannot access non-static memebers because there is no object
+            //static methods are called at the class level.
+            //return clsA.x1 + x2;
+            return  x2;
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Create an object of Employee class.
+            clsA objA1 = new clsA();
+            clsA objA2 = new clsA();
+
+
+            objA1.x1 = 7;
+            objA2.x1 = 10;
+            //x2 is shared for all object because it's on the class level, you can access it
+            //using the class name.
+            clsA.x2 = 100;
+
+
+            Console.WriteLine("objA1.x1:={0}", objA1.x1);
+            Console.WriteLine("objA2.x1:={0}", objA2.x1);
+            Console.WriteLine("objA1.method1 results:={0}", objA1.Method1());
+            Console.WriteLine("objA2.method1 results:={0}", objA2.Method1());
+
+
+            //Method 2 cannot be accessed through object, only through the class itself.
+            //  Console.WriteLine(objA1.Method2());
+            Console.WriteLine("static method2 results:={0}",clsA.Method2());
+
+            Console.WriteLine("static x2:={0}", clsA.x2);
+            Console.ReadLine();
+        }
+    }
+___________________________________________________________________________________
+
+4-Properties Set and Get
+
+using System;
+
+class clsEmployee
+{
+    // Private fields
+    private int _ID;
+    private string _Name = string.Empty;
+
+
+    //ID Property Declaration
+    public int ID
+    {
+        //Get is use for Reading field
+        get
+        {
+            return _ID;
+        }
+
+        //Set is use for writing field
+        set
+        {
+            _ID = value;
+        }
+    }
+
+    //Name Property Declaration
+
+    public string Name
+    {
+        //Get is use for Reading field
+        get
+        {
+            return _Name;
+        }
+
+        //Set is use for writing field
+        set
+        {
+            _Name = value;
+        }
+
+    }
+
+    static void Main(string[] args)
+    {
+
+        //Create an object of Employee class.
+
+        clsEmployee Employee1 = new clsEmployee();
+
+        Employee1.ID = 7;
+        Employee1.Name = "Mohammed Abu-Hadhoud";
+
+        Console.WriteLine("Employee Id:={0}", Employee1.ID);
+        Console.WriteLine("Employee Name:={0}", Employee1.Name);
+        Console.ReadLine();
+
+
+    }
+
+}
+___________________________________________________________________________________
+
+5- Read Only Proparety
+
+using System;
+
+class clsEmployee
+{
+    // Private fields
+    private int _ID;
+    private string _Name = string.Empty;
+
+
+    //ID Property Declaration as readonly
+    public int ID
+    {
+        //Get is use for Reading field
+        get
+        {
+            return _ID;
+        }
+    }
+
+    //Name Property Declaration
+
+    public string Name
+    {
+        //Get is use for Reading field
+        get
+        {
+            return _Name;
+        }
+
+        //Set is use for writing field
+        set
+        {
+            _Name = value;
+        }
+
+    }
+
+    static void Main(string[] args)
+    {
+
+        //Create an object of Employee class.
+
+        clsEmployee Employee1 = new clsEmployee();
+       // You cannot modify the id value because it's readonly
+       // Employee1.ID = 7;
+        Employee1.Name = "Mohammed Abu-Hadhoud";
+
+        Console.WriteLine("Employee Id:={0}", Employee1.ID);
+        Console.WriteLine("Employee Name:={0}", Employee1.Name);
+        Console.ReadLine();
+
+
+    }
+
+}
+___________________________________________________________________________________
+
+6-Auto impelemented Propreties
+
+using System;
+
+
+class clsEmployee
+{
+
+    //ID Property
+    public int ID
+    {
+        get;
+        set;
+    }
+
+    //Name Property Declaration
+    public string Name
+    {
+        get;
+        set;
+    }
+
+    static void Main(string[] args)
+    {
+        //Create an object of Employee class.
+        clsEmployee Employee1 = new clsEmployee();
+ 
+        Employee1.ID = 7;
+        Employee1.Name = "Mohammed Abu-Hadhoud";
+
+
+        Console.WriteLine("Employee Id:={0}", Employee1.ID);
+        Console.WriteLine("Employee Name:={0}", Employee1.Name);
+        Console.ReadLine();
+    }
+}
+
+
+___________________________________________________________________________________
+
+7-Static Properties & Static Class
+
+using System;
+
+static class Settings
+{
+    public static int DayNumber
+    {
+        get
+        {
+            return DateTime.Today.Day;
+        }
+    }
+
+    public static string DayName
+    {
+        get
+        {
+            return DateTime.Today.DayOfWeek.ToString();
+        }
+    }
+
+    public static string ProjectPath
+    {
+        get;
+        set;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        //
+        // Read the static properties.
+        //
+        Console.WriteLine(Settings.DayNumber);
+        Console.WriteLine(Settings.DayName);
+        //
+        // Change the value of the static bool property.
+        //
+        Settings.ProjectPath = @"C:\MyProjects\";
+        Console.WriteLine(Settings.ProjectPath);
+        Console.ReadKey();
+
+    }
+}
+___________________________________________________________________________________
+
+8-Parameter-less Constructor(public)
+
+using System;
+
+class clsPerson
+{
+
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public clsPerson()
+    {
+        Id = -1;
+        Name = "Empty";
+        Age= 0;
+    }
+}
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        clsPerson Person1 = new clsPerson();
+
+        Console.WriteLine("ID:= {0}", Person1.Id);
+        Console.WriteLine("Name:= {0}", Person1.Name);
+        Console.WriteLine("Age:= {0}", Person1.Age);
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+9-Parameterized Constructor(public)
+
+using System;
+
+namespace Constructor {
+
+  class Car {
+
+    string brand;
+    int price;
+
+    // parameterized constructor
+    Car(string theBrand, int thePrice) {
+
+      brand = theBrand;
+      price = thePrice;
+    }
+ 
+    static void Main(string[] args) {
+
+      // call parameterized constructor
+      Car car1 = new Car("Bugatti", 50000);
+
+      Console.WriteLine("Brand: " + car1.brand);
+      Console.WriteLine("Price: " + car1.price);
+      Console.ReadLine();
+ 
+    }
+  }
+}
+___________________________________________________________________________________
+
+10-Default Constructor
+
+using System;
+
+
+class clsPerson
+{
+    public int ID { get; set;}
+    public string Name { get; set;}
+    public string Description { get; set;}
+
+    public clsPerson(int ID, string Name , string Description)
+    {
+       this.ID            = ID;
+       this.Name          = Name;
+        this.Description  = Description;
+    }
+    public clsPerson()
+    {
+        ID = 0;
+        Name = "Mohamed";
+        Description = "Ali";
+    }
+
+}
+
+
+
+internal class Program
+{
+ 
+
+    static void Main(string[] args)
+    {
+        clsPerson Person = new clsPerson(-1,"Mohamed","Ali");
+        //Or
+        //clsPerson Person = new clsPerson();
+
+        Console.WriteLine($"ID:{Person.ID}\n" +
+            $"Name :{Person.Name}\n" +
+            $"Description:{Person.Description}");
+ 
+ 
+
+    }
+}
+___________________________________________________________________________________
+
+11-Private Constructor vs Static Class
+
+using System;
+class Settings
+{
+    public static int DayNumber
+    {
+        get
+        {
+            return DateTime.Today.Day;
+        }
+    }
+
+    public static string DayName
+    {
+        get
+        {
+            return DateTime.Today.DayOfWeek.ToString();
+        }
+    }
+
+    public static string ProjectPath
+    {
+        get;
+        set;
+    }
+ 
+   //this is a private constructor to prevent creating object from this class
+    private Settings()
+    {
+
+    }
+}
+
+
+class Program
+{
+    static void Main()
+    {
+
+        // You cannot create an object here because class has private constructor
+        // Settings Obj1 = new Settings();
+
+        //
+        // Read the static properties.
+        //
+        Console.WriteLine(Settings.DayNumber);
+        Console.WriteLine(Settings.DayName);
+ 
+        //
+        // Change the value of the static bool property.
+        //
+        Settings.ProjectPath = @"C:\MyProjects\";
+        Console.WriteLine(Settings.ProjectPath);
+        Console.ReadKey();
+    }
+}
+
+Way2
+
+using System;
+
+static class Settings
+{
+    public static int DayNumber
+    {
+        get
+        {
+            return DateTime.Today.Day;
+        }
+    }
+
+    public static string DayName
+    {
+        get
+        {
+            return DateTime.Today.DayOfWeek.ToString();
+        }
+    }
+
+    public static string ProjectPath
+    {
+        get;
+        set;
+    }
+ 
+}
+
+
+class Program
+{
+    static void Main()
+    {
+
+        // You cannot create an object here because class is static
+        // Settings Obj1 = new Settings();
+
+        //
+        // Read the static properties.
+        //
+        Console.WriteLine(Settings.DayNumber);
+        Console.WriteLine(Settings.DayName);
+ 
+        //
+        // Change the value of the static bool property.
+        //
+        Settings.ProjectPath = @"C:\MyProjects\";
+        Console.WriteLine(Settings.ProjectPath);
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+12-Multiple Constructors using overloading
+
+using System;
+
+class clsPerson
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public clsPerson()
+    {
+        this.Id = -1;
+        this.Name = "Empty";
+        this.Age = 0;
+    }
+
+    public clsPerson(int Id, string Name, short Age)
+    {
+        this.Id = Id;
+        this.Name = Name;
+        this.Age = Age;
+    }
+}
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Calling Parameterless Construcor");
+        clsPerson Person1 = new clsPerson();
+        Console.WriteLine("ID:= {0}", Person1.Id);
+        Console.WriteLine("Name:= {0}", Person1.Name);
+        Console.WriteLine("Age:= {0}", Person1.Age);
+
+
+        Console.WriteLine("\n\nCalling Parametarized Construcor");
+        clsPerson Person2 = new clsPerson(10, "Mohammed Abu-Hadhoud", 45);
+        Console.WriteLine("ID:= {0}", Person2.Id);
+        Console.WriteLine("Name:= {0}", Person2.Name);
+        Console.WriteLine("Age:= {0}", Person2.Age);
+
+        Console.ReadKey();
+    }
+}
+
+___________________________________________________________________________________
+
+13-Destructor
+
+using System;
+using System.Runtime.InteropServices;
+
+class clsPerson
+{
+    private static string _Name;
+
+    public static string Name()
+    {
+        return _Name;
+    }
+    static clsPerson()
+    {
+        _Name = "Mohamed";
+    }
+    ~clsPerson() //it Called After End The Object
+    {
+        Console.WriteLine("End Class");
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine( clsPerson.Name());
+        Console.ReadKey();
+
+    }
+}
+___________________________________________________________________________________
+
+14-Static Constructor
+
+using System;
+static class Settings
+{
+    public static int DayNumber
+    {
+        get
+        {
+            return DateTime.Today.Day;
+        }
+    }
+
+
+    public static string DayName
+    {
+        get
+        {
+            return DateTime.Today.DayOfWeek.ToString();
+        }
+    }
+
+
+    public static string ProjectPath
+    {
+        get;
+        set;
+    }
+    //this is a static constructor will be called once during the program
+    static Settings()
+    {
+        ProjectPath = @"C:\MyProjects\";
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+
+        // You cannot create an object here because class is static
+        // Settings Obj1 = new Settings();
+
+        //
+        // Read the static properties.
+        //
+        Console.WriteLine(Settings.DayNumber);
+        Console.WriteLine(Settings.DayName);
+        //
+        // Change the value of the static bool property.
+        //
+ 
+        Console.WriteLine(Settings.ProjectPath);
+
+        Console.ReadKey();
+
+    }
+}
+___________________________________________________________________________________
+
+15-Reale Inportent Projecte
+
+using System;
+using System.Collections.Concurrent;
+using System.Runtime.InteropServices;
+
+
+
+class clsPerson
+{
+    public int Id { set; get;}
+    public string Name {set; get;}
+    public int Age {set; get;}
+    public string Paerword {set; get;}
+    public string UserName{set; get;}
+
+    public clsPerson(int Id, string Name, int Age)
+    {
+        this.Id = Id;
+        this.Name = Name;
+        this.Age = Age;
+    }
+
+
+    public static clsPerson Find( int Id)
+    {
+        if (Id == 10)
+            return new clsPerson(10, "Mohamed ali", 21);
+
+        return null;
+    }
+
+    public static clsPerson Find(string UserName, string Password)
+    {
+        if (UserName == "Mohamed" && Password == "p1234")
+            return new clsPerson(10, "Mohamed ali", 21);
+
+        return null;
+    }
+
+
+}
+class Program
+{
+    static void Main()
+    {
+
+        clsPerson P = clsPerson.Find(10);
+
+        if (P != null)
+        {
+            Console.WriteLine(P.Id);
+            Console.WriteLine(P.Name);
+            Console.WriteLine(P.Age);
+        }
+        else
+        {
+            Console.WriteLine("Not Found The User ");
+        }
+
+
+        clsPerson P2 = clsPerson.Find("Mohamed", "p1234");
+
+
+        if (P2 != null)
+        {
+            Console.WriteLine(P2.Id);
+            Console.WriteLine(P2.Name);
+            Console.WriteLine(P2.Age);
+        }
+        else
+        {
+            Console.WriteLine("Not Found The User ");
+        }
+
+
+
+
+    }
+}
+___________________________________________________________________________________
+
+16-Third Principle/Concept of OOP: Inheritance
+
+
+using System;
+
+public class clsPerson
+{
+    //properties
+    public int ID { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Title { get; set; }
+
+    //read only property
+    public string FullName
+    {
+        //Get is use for Reading field
+        get
+        {
+            return FirstName + ' ' + LastName;
+        }
+    }
+}
+
+
+public class clsEmployee : clsPerson
+    {
+
+
+    public float Salary { get; set; }
+    public string DepartmentName { get; set; }
+
+
+    public void IncreaseSalaryBy(float Amount)
+    {
+        Salary += Amount;
+    }
+
+
+}
+
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+ 
+        //Create an object of Empoyee
+        clsEmployee Employee1 = new clsEmployee();
+
+        //the following inherited from base class person
+        Employee1.ID = 10;
+        Employee1.Title = "Mr.";
+        Employee1.FirstName = "Mohammed";
+        Employee1.LastName = "Abu-Hadhoud";
+ 
+        //the following are from derived class Employee
+        Employee1.DepartmentName = "IT";
+        Employee1.Salary = 5000;
+ 
+        Console.WriteLine("Accessing Object 1 (Employee1):\n");
+        Console.WriteLine("ID := {0}", Employee1.ID);
+        Console.WriteLine("Title := {0}", Employee1.Title);
+        Console.WriteLine("Full Name := {0}" , Employee1.FullName);
+        Console.WriteLine("Department Name := {0}", Employee1.DepartmentName);
+        Console.WriteLine("Salary := {0}", Employee1.Salary);
+
+        Employee1.IncreaseSalaryBy(100);
+        Console.WriteLine("Salary after increase := {0}", Employee1.Salary);
+        Console.ReadKey();
+    }
+    }
+___________________________________________________________________________________
+
+17-Inheritance Constructor
+
+using System;
+
+public class clsPerson
+{
+
+    public clsPerson(int ID,string FirstName,string LastName,string Title)
+    {
+        this.ID = ID;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Title = Title;
+    }
+    //properties
+    public int ID { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Title { get; set; }
+
+    //read only property
+    public string FullName
+    {
+        //Get is use for Reading field
+        get
+        {
+            return FirstName + ' ' + LastName;
+        }
+    }
+}
+
+
+public class clsEmployee : clsPerson
+{
+
+
+    public clsEmployee(int ID, string FirstName, string LastName, string Title, float Saalry, string DepartmentName) : base(ID, FirstName, LastName, Title)
+    {
+        this.Salary = Saalry;
+        this.DepartmentName = DepartmentName;
+    }
+
+    public float Salary { get; set; }
+    public string DepartmentName { get; set; }
+
+
+    public void IncreaseSalaryBy(float Amount)
+    {
+        Salary += Amount;
+    }
+
+
+}
+
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+
+        //Create an object of Empoyee
+        clsEmployee Employee1 = new clsEmployee(1, "Mohamed", "Ali", "Gym", 101.2f, "ENG");
+
+        Console.WriteLine("Accessing Object 1 (Employee1):\n");
+        Console.WriteLine("ID := {0}", Employee1.ID);
+        Console.WriteLine("Title := {0}", Employee1.Title);
+        Console.WriteLine("Full Name := {0}", Employee1.FullName);
+        Console.WriteLine("Department Name := {0}", Employee1.DepartmentName);
+        Console.WriteLine("Salary := {0}", Employee1.Salary);
+
+        Employee1.IncreaseSalaryBy(100);
+        Console.WriteLine("Salary after increase := {0}", Employee1.Salary);
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+18-UpCasting/DownCasting
+
+
+using System;
+
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public void Greet()
+    {
+        Console.WriteLine($"Hi, my name is {Name} and I am {Age} years old.");
+    }
+}
+
+public class Employee : Person
+{
+    public string Company { get; set; }
+    public decimal Salary { get; set; }
+
+
+    public void Work()
+    {
+        Console.WriteLine($"I work at {Company} and earn {Salary:C} per year.");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Upcasting
+        Employee employee = new Employee { Name = "John", Age = 30, Company = "Acme Inc.", Salary = 50000 };
+        Person person = employee;
+        person.Greet(); // Output: "Hi, my name is John and I am 30 years old."
+
+        // Downcasting
+        Person person2 = new Employee { Name = "Jane", Age = 25, Company = "XYZ Corp.", Salary = 60000 };
+        Employee employee2 = (Employee)person2;
+        employee2.Work(); // Output: "I work at XYZ Corp. and earn $60,000.00 per year."
+
+        // Invalid downcasting - throws InvalidCastException at runtime
+      //  Person person3 = new Person { Name = "Bob", Age = 40 };
+       // Employee employee3 = (Employee)person3; // Runtime exception: InvalidCastException
+
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+19-Method Overriding in C# Inheritance + Base Keyword
+
+using System;
+public  class clsA
+{
+  public virtual void  Print()
+    {
+        Console.WriteLine("Hi, I'm the print method from the base class A");
+    }
+}
+
+public class clsB : clsA
+{
+    public  override void  Print()
+ 
+    {
+        Console.WriteLine("Hi, I'm the print method from the derived class B");
+        base.Print();
+     }
+}
+
+
+ internal class Program
+    {
+        static void Main(string[] args)
+        {
+ 
+        //Create an object of Empoyee
+        clsB ObjB= new clsB();
+
+        ObjB.Print();
+
+        Console.ReadKey();
+        }
+    }
+
+virtual - allows the method to be overridden by the derived class
+override - indicates the method is overriding the method from the base class
+___________________________________________________________________________________
+
+20-Method Hiding in C#
+
+using System;
+
+
+public class MyBaseClass
+{
+    public virtual void MyMethod()
+    {
+        Console.WriteLine("Base class implementation");
+    }
+
+
+    public virtual void MyOtherMethod()
+    {
+        Console.WriteLine("Base class implementation of MyOtherMethod");
+    }
+}
+
+
+public class MyDerivedClass : MyBaseClass
+{
+    public override void MyMethod()
+    {
+        Console.WriteLine("Derived class implementation using override");
+    }
+
+
+    public new void MyOtherMethod()
+    {
+        Console.WriteLine("Derived class implementation of MyOtherMethod using new");
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        MyBaseClass myBaseObj = new MyBaseClass();
+        Console.WriteLine("\nBase Object:\n");
+        myBaseObj.MyMethod(); // Output: "Base class implementation"
+        myBaseObj.MyOtherMethod(); // Output: "Base class implementation of MyOtherMethod"
+
+
+        MyDerivedClass myDerivedObj = new MyDerivedClass();
+        Console.WriteLine("\nDerived Object:\n");
+        myDerivedObj.MyMethod(); // Output: "Derived class implementation using override"
+        myDerivedObj.MyOtherMethod(); // Output: "Derived class implementation of MyOtherMethod using new"
+
+
+        MyBaseClass myDerivedObjAsBase = myDerivedObj;
+        Console.WriteLine("\nAfter Castring:\n");
+        myDerivedObjAsBase.MyMethod(); // Output: "Derived class implementation using override"
+        myDerivedObjAsBase.MyOtherMethod(); // Output: "Base class implementation of MyOtherMethod"
+ 
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+21-Multi-Level Inheritance
+
+using System;
+
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public void Introduce()
+    {
+        Console.WriteLine($"Hi, my name is {Name} and I'm {Age} years old.");
+    }
+}
+
+public class Employee : Person
+{
+    public int EmployeeId { get; set; }
+    public decimal Salary { get; set; }
+
+    public void Work()
+    {
+        Console.WriteLine($"Employee with ID {EmployeeId} and salary {Salary:C} is working.");
+    }
+}
+
+
+public class Doctor : Employee
+{
+    public string Specialty { get; set; }
+
+
+    public void Heal()
+    {
+        Console.WriteLine($"Doctor {Name} with ID {EmployeeId}, salary {Salary:C}, and specialty {Specialty} is healing a patient.");
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Doctor doctor = new Doctor();
+        doctor.Name = "John";
+        doctor.Age = 35;
+        doctor.EmployeeId = 123;
+        doctor.Salary = 100000.00M;
+        doctor.Specialty = "Cardiology";
+        doctor.Introduce(); // Output: "Hi, my name is John and I'm 35 years old."
+        doctor.Work(); // Output: "Employee with ID 123 and salary $100,000 is working."
+        doctor.Heal(); // Output: "Doctor John with ID 123, salary $100,000, and specialty Cardiology is healing a patient."
+
+
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+22-Hierarchal Inheritance
+
+using System;
+
+
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+
+    public void Introduce()
+    {
+        Console.WriteLine($"Hi, my name is {Name} and I'm {Age} years old.");
+    }
+}
+
+
+public class Employee : Person
+{
+    public int EmployeeId { get; set; }
+    public decimal Salary { get; set; }
+
+
+    public void Work()
+    {
+        Console.WriteLine($"Employee with ID {EmployeeId} and salary {Salary:C} is working.");
+    }
+}
+
+
+public class User : Person
+{
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public int Permission { get; set; }
+
+
+    public void Info()
+    {
+        Console.WriteLine($"User: {Username} and Password {Password} .");
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee Employee1 = new Employee();
+        Employee1.Name = "John";
+        Employee1.Age = 35;
+        Employee1.EmployeeId = 123;
+        Employee1.Salary = 100000.00M;
+        Console.WriteLine("\nEmployee:");
+        Employee1.Introduce(); // Output: "Hi, my name is John and I'm 35 years old."
+        Employee1.Work(); // Output: "Employee with ID 123 and salary $100,000.00 is working."
+
+        User User1 = new User();
+        User1.Name = "Ali";
+        User1.Age = 45;
+        User1.Username = "User1";
+        User1.Password = "1234";
+
+
+        Console.WriteLine("\nUser:");
+        User1.Introduce(); // Output: "Hi, my name is John and I'm 35 years old."
+        User1.Info(); //Output: "User: User1 and Password 1234 ."
+
+
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+23-Abstract Class & Methods
+
+using System;
+
+public abstract class Person
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    public abstract void Introduce();
+
+    public void SayGoodbye()
+    {
+        Console.WriteLine("Goodbye!");
+    }
+}
+
+public class Employee : Person
+{
+    public int EmployeeId { get; set; }
+
+    public override void Introduce()
+    {
+        Console.WriteLine($"Hi, my name is {FirstName} {LastName}, and my employee ID is {EmployeeId}.");
+    }
+}
+
+
+public class Program
+{
+    public static void Main()
+    {
+        //You cannot create an object of an abstract class, you can only inherit it.
+      //  Person Person1= new Person();
+
+        Employee employee = new Employee();
+        employee.FirstName = "Mohammed";
+        employee.LastName = "Abu-Hadhoud";
+        employee.EmployeeId = 123;
+        employee.Introduce(); // Output: "Hi, my name is John Doe, and my employee ID is 123."
+        employee.SayGoodbye(); // Output: "Goodbye!"
+
+        Console.ReadKey();
+    }
+}
+___________________________________________________________________________________
+
+24-Interface 
+
+using System;
+
+public interface IPerson
+{
+    string FirstName { get; set; }
+    string LastName { get; set; }
+
+    void Introduce();
+    void Print();
+
+    string To_String();
+}
+
+
+public abstract class Person : IPerson
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+
+    public abstract void Introduce();
+
+    public void SayGoodbye()
+    {
+        Console.WriteLine("Goodbye!");
+    }
+
+    public void Print()
+    {
+        Console.WriteLine("Hi I'm the print method");
+    }
+
+    public string To_String()
+    {
+        return "Hi this is the complete string....";
+    }
+
+
+    public void SedEmail()
+    {
+        Console.WriteLine("Email Sent :-)");
+    }
+
+}
+
+
+public class Employee : Person
+{
+    public int EmployeeId { get; set; }
+
+    public override void Introduce()
+    {
+        Console.WriteLine($"Hi, my name is {FirstName} {LastName}, and my employee ID is {EmployeeId}.");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        //You cannot create an object of an Interface, you can only Implement it.
+       // IPerson Person1 = new IPerson();
+
+        Employee employee = new Employee();
+        employee.FirstName = "Mohammed";
+        employee.LastName = "Abu-Hadhoud";
+        employee.EmployeeId = 123;
+        employee.Introduce(); // Output: "Hi, my name is John Doe, and my employee ID is 123."
+        employee.SayGoodbye(); // Output: "Goodbye!"
+        employee.Print();
+        employee.SedEmail();
+        Console.ReadKey();
+    }
+}
+
+___________________________________________________________________________________
+
+25-inpelementing Multiable Interfaces
+ 
+using System;
+
+public interface IPerson
+{
+    string FirstName { get; set; }
+    string LastName { get; set; }
+
+    void Introduce();
+
+    void Print();
+
+    string To_String();
+}
+
+
+public interface ICommunicate
+{
+   
+    void CallPhone();
+
+    void SendEmail(string Title, string Body);
+
+    void SendSMS(string Title, string Body);
+
+    void SendFax(string Title, string Body);
+
+}
+
+
+public abstract class Person : IPerson, ICommunicate
+
+{
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public abstract void Introduce();
+
+
+    public void SayGoodbye()
+    {
+        Console.WriteLine("Goodbye!");
+    }
+
+
+    public void Print()
+    {
+        Console.WriteLine("Hi I'm the print method");
+    }
+
+    public string To_String()
+    {
+        return "Hi this is the complete string....";
+    }
+
+    public void CallPhone()
+    {
+        Console.WriteLine("Calling Phone... :-)");
+    }
+
+    public void SendEmail(string Title, string Body)
+    {
+        Console.WriteLine("Email Sent :-)");
+    }
+
+    public void SendSMS(string Title, string Body)
+    {
+        Console.WriteLine("SMS Sent :-)");
+    }
+
+    public void SendFax(string Title, string Body)
+    {
+        Console.WriteLine("Fax Sent :-)");
+    }
+}
+
+
+public class Employee : Person
+{
+    public int EmployeeId { get; set; }
+
+    public override void Introduce()
+    {
+        Console.WriteLine($"Hi, my name is {FirstName} {LastName}, and my employee ID is {EmployeeId}.");
+    }
+}
+
+
+public class Program
+{
+    public static void Main()
+    {
+        //You cannot create an object of an Interface, you can only Implement it.
+       // IPerson Person1 = new IPerson();
+
+        Employee employee = new Employee();
+        employee.FirstName = "Mohammed";
+        employee.LastName = "Abu-Hadhoud";
+        employee.EmployeeId = 123;
+        employee.Introduce(); // Output: "Hi, my name is John Doe, and my employee ID is 123."
+        employee.SayGoodbye(); // Output: "Goodbye!"
+        employee.Print();
+        employee.CallPhone();
+        employee.SendEmail("hi","Body");
+        employee.SendSMS("hi", "Body");
+        employee.SendFax("hi", "Body");
+
+        Console.ReadKey();
+
+
+    }
+}
+___________________________________________________________________________________
+
+26-Neted Class
+
+
+using System;
+
+public class OuterClass
+{
+    private int outerVariable;
+
+    public OuterClass(int outerVariable)
+    {
+        this.outerVariable = outerVariable;
+    }
+
+    public void OuterMethod()
+    {
+        Console.WriteLine("Outer method called.");
+    }
+
+    public class InnerClass
+    {
+        private int innerVariable;
+
+
+        public InnerClass(int innerVariable)
+        {
+            this.innerVariable = innerVariable;
+        }
+
+        public void InnerMethod()
+        {
+            Console.WriteLine("Inner method called with innerVariable = " + innerVariable);
+        }
+
+
+        public void AccessOuterVariable(OuterClass outer)
+        {
+            Console.WriteLine("Accessing outerVariable from inner class: " + outer.outerVariable);
+        }
+    }
+}
+
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // create an instance of OuterClass
+        OuterClass outer1 = new OuterClass(42);
+
+        // create an instance of InnerClass
+        OuterClass.InnerClass inner1 = new OuterClass.InnerClass(100);
+
+        // call methods on the instances
+        outer1.OuterMethod(); // prints "Outer method called."
+        inner1.InnerMethod(); // prints "Inner method called with innerVariable = 100"
+        inner1.AccessOuterVariable(outer1); // prints "Accessing outerVariable from inner class: 42"
+        Console.ReadKey();
+
+
+    }
+}
+___________________________________________________________________________________
+
+27-C# Composition
+
+using System;
+
+class clsA
+    {
+        public int x;
+        public int y;
+
+        public void Method1()
+        {
+            Console.WriteLine("Method1 of class A is called");
+        }
+
+        public void Method2()
+        {
+            Console.WriteLine("Method2 of class A is called");
+            Console.WriteLine("Now i will call method1 of class B...");
+
+            //defining an object of another class inside this class is called composition.
+            clsB ObjectB1= new clsB();
+            ObjectB1.Method1();
+        }
+}
+
+class clsB
+{ 
+    public void Method1()
+    {
+        Console.WriteLine("Method1 of class B is called");
+    }
+}
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+        //Create object from class
+        clsA ObjectA1 = new clsA();
+        ObjectA1.Method1();
+        ObjectA1.Method2();
+
+        Console.ReadKey();
+        }
+    }
+
+___________________________________________________________________________________
+
+28-Sealed Class
+
+    using System;
+
+    sealed  class clsA
+    {
+
+
+    }
+
+    // trying to inherit sealed class
+    // Error Code
+    class clsB : clsA
+    {
+
+
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            // create an object of B class
+            clsB B1 = new clsB();
+
+            Console.ReadKey();
+        }
+    }
+___________________________________________________________________________________
+
+29-Selade Method
+
+
+using System;
+
+
+public class Person
+{
+    public virtual void Greet()
+    {
+        Console.WriteLine("The person says hello.");
+    }
+}
+
+
+public class Employee : Person
+{
+    public sealed override void Greet()
+    {
+        Console.WriteLine("The employee greets you.");
+    }
+}
+
+public class Manager : Employee
+{
+    //This will produce a compile-time error because the Greet method in Employee is
+    //sealed and cannot be overridden.
+    //public override void Greet()
+    //{
+    //    Console.WriteLine("The manager greets you warmly.");
+    //}
+}
+
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Person person = new Person();
+        person.Greet(); // outputs "The person says hello."
+
+        Employee employee = new Employee();
+        employee.Greet(); // outputs "The employee greets you."
+
+        Manager manager = new Manager();
+        manager.Greet(); // outputs "The employee greets you."
+
+        Console.ReadKey();
+
+    }
+}
+___________________________________________________________________________________
+
+30-Partial Class & Method
+
+// File: Person.cs
+public partial class Person
+{
+    public int Age { get; set; }
+
+    partial void PrintAge();
+
+    public void Birthday()
+    {
+        Age++;
+        PrintAge();
+    }
+}
+
+// File: PersonPrinting.cs
+public partial class Person
+{
+    partial void PrintAge()
+    {
+        Console.WriteLine("Current age: {0}", Age);
+    }
+}
+
+// File: Program.cs
+class Program
+{
+    static void Main()
+    {
+        //the code of Person Class is seperated in 2 files Person1.cs and PersonPrinting.cs
+        Person person1 = new Person();
+        person1.Age = 25;
+        person1.Birthday(); // Output: "Current age: 26"
+    }
+}
+
+___________________________________________________________________________________
+
+31-Enum inside Class
+
+using System;
+
+using MyMathLib;
+
+
+class cls 
+{
+    public enum en 
+    {
+        Level=1,
+    }
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+          { 
+
+            Console.WriteLine("Mohamed Ali");
+
+            clsMyMathLib MyMath = new clsMyMathLib();
+
+            Console.WriteLine(MyMath.Sum(10, 20, 20));
+
+             cls c = new cls();
+
+             cls.en e = cls.en.Level;
+
+             Console.WriteLine(e);
+       
+        
+        }
+ }
+
+
+
+
+

@@ -1,0 +1,115 @@
+1-Templet Function (Swap)
+
+#include <iostream>
+#include "clsLoginScreen.h"
+using namespace std;
+
+template <typename T> void Swap(T &Number1, T &Number2) 
+{
+	T Temp = Number1;
+	Number1 = Number2;
+	Number2 = Temp;
+}
+int main()
+{
+	/*while (true)
+	{
+		if (!clsLoginScreen::ShowLoginScreen())
+		{
+			break;
+		}
+	}*/
+
+	int X = 10;
+	int y = 20;
+	char A = 'A';
+	char B = 'B';
+	float c = 10.2;
+	float D = 10.10;
+
+	Swap<int>(X, y);
+	cout << "X=" << X << endl;
+	cout << "Y=" << y << endl;
+
+
+	Swap<char>(A, B);
+	cout << "A=" << A << endl;
+	cout << "B=" << B << endl;
+
+	Swap<float>(c, D);
+	cout << "C=" << c << endl;
+	cout << "D=" << D << endl;
+
+	return 0;
+}
+________________________________________________________________________________
+
+2-Templet Function (Max Number)
+
+#include <iostream>
+#include "clsLoginScreen.h"
+using namespace std;
+
+template <typename T> T MyMax(T Number1, T Number2) 
+{
+	if(Number1>Number2)
+	{
+		return Number1;
+	}
+	return Number2;
+}
+int main()
+{
+	/*while (true)
+	{
+		if (!clsLoginScreen::ShowLoginScreen())
+		{
+			break;
+		}
+	}*/
+
+	cout<<"The Max Number:"<< MyMax<int>(10, 20)<<endl;
+	cout<<"The Max Number:"<< MyMax<float>(10.54, 10.24)<<endl;
+	cout<<"The Max Number:"<< MyMax<char>('A', 'B') << endl;
+
+	return 0;
+}
+
+________________________________________________________________________________
+
+3-Templet Function (Add Array Elements)
+
+#include <iostream>
+#include "clsLoginScreen.h"
+using namespace std;
+
+template <typename T> T AddArray(T arr[100],int Length)
+{
+	T Sum = 0;
+
+	for (int i = 0;i < Length;i++) 
+	{
+		Sum += arr[i];
+	}
+	return Sum;
+}
+int main()
+{
+	/*while (true)
+	{
+		if (!clsLoginScreen::ShowLoginScreen())
+		{
+			break;
+		}
+	}*/
+
+	int arr1[5] = { 1,2,3,4,5};
+	float arr2[5] = { 1.1,2.2,3.3,4.4,5.5};
+
+	cout << "Sum Of Int Array :" << AddArray<int>(arr1, 5) << endl;
+	cout << "Sum Of Float Array :" << AddArray<float>(arr2, 5) << endl;
+
+	return 0;
+}
+
+

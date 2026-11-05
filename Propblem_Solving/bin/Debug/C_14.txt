@@ -1,0 +1,2392 @@
+1-Console.WriteLine
+
+using System;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Hi It is My First Programe In C#");
+            Console.WriteLine("\nMy Name Is Mohamed Ali");
+            Console.WriteLine("\nSum Of Two Numbers 10 and 20 Is " + (10 + 20));
+            Console.ReadKey();
+        }
+    }
+}
+
+________________________________________________________________________________
+
+2- Console.Write
+
+using System;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.Write("Hi It is My First Programe In C#");
+            Console.Write("My Name Is Mohamed Ali");
+            Console.Write("Sum Of Two Numbers 10 and 20 Is " + (10 + 20));
+            Console.ReadKey();
+        }
+    }
+}
+
+________________________________________________________________________________
+
+3- Format String
+
+
+using System;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        { 
+            Console.WriteLine("My Name Is {0} I Live In {1}","Mohamed", "Giza" );
+            Console.ReadKey();
+        }
+    }
+}
+________________________________________________________________________________
+
+4- Escape Characters 
+
+using System;
+using System.Data.SqlTypes;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Escape Chars........\n");
+
+            Console.WriteLine("New Line");
+            Console.WriteLine("Mohamed \n Ali \n");
+
+            Console.WriteLine("Tep");
+            Console.WriteLine("Mohamed \t Ali \n");
+
+
+            Console.WriteLine("Single Cote");
+            Console.WriteLine("Mohamed \' Ali \n");
+
+
+            Console.WriteLine("Duoble Cote");
+            Console.WriteLine("Mohamed \" Ali \n");
+
+            Console.WriteLine("Back Space");
+            Console.WriteLine("Mohamed\b Ali \n");
+
+
+            Console.WriteLine("Back Slach ");
+            Console.WriteLine("Mohamed \\ Ali \n");
+
+
+            Console.WriteLine("Bell");
+            Console.WriteLine("\a");
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+5- Varaibles 
+
+using System;
+using System.Data.SqlTypes;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string Name = "Mohamed Ali";
+            int Age = 21;
+
+            Console.WriteLine("My Name Is {0} and My Age is {1} ", Name, Age);
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+6-Implicitly Typed Variables 
+
+using System;
+using System.Data.SqlTypes;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            var X = 10;
+            var Y = 10.2;
+            var Name = "Mohamed";
+
+            Console.WriteLine("Name :{0} \n Float Number :{1} \n In Number :{2}", Name, Y, X);
+        }
+    }
+}
+
+________________________________________________________________________________
+
+7-Numbers Data Types 
+
+
+using System;
+using System.Data.SqlTypes;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            byte Number1 = 255;
+            Console.WriteLine("\nByte:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", Byte.MinValue, Byte.MaxValue);
+
+            //byte Number2 = -2; Compilation Error 
+
+            sbyte Number3 = -128;
+            sbyte Number4 = 127;
+
+            Console.WriteLine("\nSByte:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", SByte.MinValue, SByte.MaxValue);
+
+            short Number5 = 10;
+            short Number6 = -10;
+
+
+            Console.WriteLine("\nShort:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", short.MinValue, short.MaxValue);
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", Int16.MinValue, Int16.MaxValue);
+
+            //ushort Number7 = -1;//Compilation Error 
+
+            Console.WriteLine("\nUShort:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", UInt16.MinValue, UInt16.MaxValue);
+
+            int N1 = 10;
+            int N2 = 20;
+
+
+            Console.WriteLine("\nInt:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", Int32.MinValue, Int32.MaxValue);
+
+            //uint N3 = -1;//Compilation Error 
+
+            Console.WriteLine("\nUInt:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", UInt32.MinValue, UInt32.MaxValue);
+
+            long l1 = 10;
+            long l2 = -1;
+
+            Console.WriteLine("\nLong:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", Int64.MinValue, Int64.MaxValue);
+
+            //ulong l3 = -1;//Compilation Error
+            Console.WriteLine("\nULong:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", UInt64.MinValue, UInt64.MaxValue);
+
+
+
+            float f1 = 10.12F;// You Must Wirt the "f or F" At the End 
+            float f2 = -10.123f;
+
+            Console.WriteLine("\nFLoat:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", float.MinValue, float.MaxValue);
+
+
+            double d1 = 10.232D;// Not Must Wirt the "d or D" At the End 
+            double d2 = 10.232d;
+
+            Console.WriteLine("\nDuoble:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", double.MinValue, double.MaxValue);
+
+
+            decimal C1 = 1903990239023990.1m;// You Must Wirt the "m or M" At the End
+            decimal C2 = 1903990239023990.1M;
+
+
+            Console.WriteLine("\nDecimal:");
+            Console.WriteLine("Min Value = {0} , Max Value = {1} ", decimal.MinValue, decimal.MaxValue);
+
+
+
+            double d= 0.12e3 ; //Number Is Multibly In 10 Power 3
+            Console.WriteLine(d);
+
+            float f = 123.123e-2f; //Number Is Multibly In 10 Power -2
+            Console.WriteLine(f);
+
+            decimal m = 1.2e5m; //Number Is Multibly In 10 Power 6
+            Console.WriteLine(m);
+
+            //Hex
+
+
+            int Hex = 0x2F;
+            int Binary = 0b_1100_1101;
+            Console.WriteLine(Hex);
+            Console.WriteLine(Binary);
+
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+________________________________________________________________________________
+
+8-Defulte Values 
+
+using System;
+using System.Data.SqlTypes;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Way1 
+            int i = default(int);
+            float f = default(float);
+            char c = default(char);
+            double d = default(double);
+            decimal d2 = default(decimal);
+            bool b = default(bool);
+
+            Console.WriteLine(i);
+            Console.WriteLine(f);
+            Console.WriteLine(c);
+            Console.WriteLine(d);
+            Console.WriteLine(d2);
+            Console.WriteLine(b);
+            //Way2
+
+            int i1      = default;
+            float f1    = default;
+            char c1     = default;
+            double d1   = default;
+            decimal d12 = default;
+            bool b1     = default;
+
+            Console.WriteLine(i1);
+            Console.WriteLine(f1);
+            Console.WriteLine(c1);
+            Console.WriteLine(d1);
+            Console.WriteLine(d12);
+            Console.WriteLine(b1);
+
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+9-Enum
+
+using System;
+using System.Data.SqlTypes;
+using System.Runtime.InteropServices;
+
+namespace Curse14
+{
+    internal class Program
+    {
+        enum enNumber
+        {
+            n1=1,
+            n2=2,
+            n3=3,
+            n4=4,
+            n5=5,
+        }
+        //Enum can have any numarical data type byte, sbyte, short, ushort, int, uint, long, or ulong
+        //but not string
+        enum enNumber1 :byte
+        {
+            n1 = 1,
+            n2 = 2,
+            n3 = 3,
+            n4 = 4,
+            n5 = 5,
+        }
+
+        static void Main(string[] args)
+        {
+
+            enNumber N1;
+
+            N1 = enNumber.n1;
+
+            Console.WriteLine(N1);
+
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+________________________________________________________________________________
+
+10-Nullable Types
+
+using System;
+using System.Data.SqlTypes;
+using System.Runtime.InteropServices;
+
+namespace Curse14
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            //  Nullable<int> can be assigned any value
+            //  from -2147483648 to 2147483647, or a null value.
+
+            Nullable<int> i = null;
+
+            i = default(int);
+
+            Console.WriteLine(i);
+            Console.ReadKey();
+
+
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+11-Anonymous Types
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+
+
+        static void Main(string[] args)
+        {
+            var Student1 = new { Id = 1,FirstName="Mohamed",LastName="Ali"};
+
+            Console.WriteLine(Student1.Id);
+            Console.WriteLine(Student1.FirstName);
+            Console.WriteLine(Student1.LastName);
+            Console.WriteLine(Student1);
+            var Student2 = new
+            { Id = 1,
+                FirstName = "Mohamed",
+                LastName = "Ali",
+                Address = new { Country = "Eygpt", City = "Giza" }         
+            };
+            Console.WriteLine(Student2.Id);
+            Console.WriteLine(Student2.FirstName);
+            Console.WriteLine(Student2.LastName);
+            Console.WriteLine(Student2.Address.Country);
+            Console.WriteLine(Student2.Address.City);
+            Console.WriteLine(Student2.Address);
+            Console.WriteLine(Student2);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+________________________________________________________________________________
+
+12-Stuctuer 
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+
+        struct stStudent 
+        {
+            public string FirstName;
+            public string LastName;
+        }
+
+        static void Main(string[] args)
+        {
+            stStudent Student1;
+            stStudent Student2 = new stStudent();
+
+            Student2.FirstName = "Mohamed";
+            Student2.LastName  = "Ali";
+            Console.WriteLine("FullName:{0} {1}",Student2.FirstName,Student2.LastName);
+
+            Student1.FirstName = "Mohamed";
+            Student1.LastName = "Ali";
+            Console.WriteLine("\nFullName:{0} {1}", Student1.FirstName, Student1.LastName);
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+ ________________________________________________________________________________
+
+13-Dynamic Types (معرفتش اعمل رن بس لان في مشكلة في الاضدار الي انا بستخدموا بس ده الكود ادامك لو عايز تبص عليه)
+
+
+//ProgrammingAdvices.com
+//Mohammed Abu-Hadhoud
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            dynamic MyDynamicVar = 100;
+            Console.WriteLine("Value: {0}, Type: {1}", MyDynamicVar, MyDynamicVar.GetType());
+
+            MyDynamicVar = "Hello World!!";
+            Console.WriteLine("Value: {0}, Type: {1}", MyDynamicVar, MyDynamicVar.GetType());
+
+            MyDynamicVar = true;
+            Console.WriteLine("Value: {0}, Type: {1}", MyDynamicVar, MyDynamicVar.GetType());
+
+            MyDynamicVar = DateTime.Now;
+            Console.WriteLine("Value: {0}, Type: {1}", MyDynamicVar, MyDynamicVar.GetType());
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+ ________________________________________________________________________________
+
+14-Working with Date and Time in
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+       static void Main(string[] args)
+        {
+            DateTime dt = new DateTime();
+            Console.WriteLine("\n" + dt);
+
+            dt =new DateTime(2023, 10, 1);
+            Console.WriteLine("\n" + dt);
+
+            dt = new DateTime(2023, 12, 31, 5, 10, 20);
+            Console.WriteLine("\n" + dt);
+
+            dt = new DateTime(2023, 12, 31, 5, 10, 20, DateTimeKind.Utc);
+            Console.WriteLine("\n" + dt);
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+15-Current Datetime in
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+       static void Main(string[] args)
+        {
+            DateTime dt = new DateTime();
+
+            dt = DateTime.Now;
+
+            Console.WriteLine(dt);
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+16-Ticks
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           
+            Console.WriteLine(DateTime.MinValue.Ticks);
+            Console.WriteLine(DateTime.MaxValue.Ticks);
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+17-DateTime Static Fields
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            DateTime CurruntTimeAndDate = DateTime.Now;
+
+            DateTime Day = DateTime.Today;
+
+            DateTime CurruntDatTimeUTC = DateTime.UtcNow;//Time In Grenntish
+
+            DateTime MaxValue = DateTime.MaxValue; //Max Value Of Date
+
+            DateTime MinValue = DateTime.MinValue; //Min Value Of Date
+
+            Console.WriteLine("Currunt Time:" + CurruntTimeAndDate);
+
+            Console.WriteLine("ToDay:" + Day);
+
+            Console.WriteLine("Time Now IN Utc:" + CurruntDatTimeUTC);
+
+            Console.WriteLine("Max Value Of Date:" + MaxValue);
+
+            Console.WriteLine("Min Value Of Date:" + MinValue);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+18-TimeSpan
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            DateTime Date =  DateTime.Now;
+
+            TimeSpan ts = new TimeSpan(80, 109, 20);
+
+            Console.WriteLine(ts);
+            Console.WriteLine(ts.Days);
+            Console.WriteLine(ts.Hours);
+            Console.WriteLine(ts.Minutes);
+            Console.WriteLine(ts.Seconds);
+            Console.WriteLine(ts.Milliseconds);
+
+            //Add Old Date To New Date
+            DateTime NewDate = Date.Add(ts);
+            Console.WriteLine(NewDate);
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+19-Subtraction of two dates results in TimeSpan
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            DateTime Date1 = new DateTime(2022,2,1);
+            DateTime Date2 = new DateTime (2022, 1, 1);
+
+            TimeSpan Result = Date1.Subtract(Date2);
+
+            Console.WriteLine(Result);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+20-Date & Time (Operators)
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            DateTime Date1 = new DateTime(2022,2,1);
+            DateTime Date2 = new DateTime (2022, 1, 1,19,2,1);
+            TimeSpan Time = new TimeSpan(10, 5, 25, 50);
+
+            Console.WriteLine(Date1 + Time);
+            Console.WriteLine(Date1 - Date2);
+            Console.WriteLine(Date1 == Date2);
+            Console.WriteLine(Date1 > Date2);
+            Console.WriteLine(Date1 < Date2);
+            Console.WriteLine(Date1 >= Date2);
+            Console.WriteLine(Date1 <= Date2);
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+21-Date & Time (Operators)
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var str = "6/6/2030";
+
+            DateTime dt =new DateTime(); ;
+
+            var IsValidDate = DateTime.TryParse(str, out dt);
+
+            if (IsValidDate)
+                Console.WriteLine(dt);
+            else
+                Console.WriteLine($"{str} is not a valid date string");
+
+            var str1 = "6/65/2030";
+
+            DateTime dt1=new DateTime();
+
+            var IsValidDate1 = DateTime.TryParse(str1, out dt1);
+
+            if (IsValidDate1)
+                Console.WriteLine(dt1);
+            else
+                Console.WriteLine($"{str1} is not a valid date string");
+
+
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+________________________________________________________________________________
+
+22-Date & Time (Operators)
+
+
+//ProgrammingAdvices.com
+//Mohammed Abu-Hadhoud
+
+using System;
+
+namespace Main
+    {
+        internal class Program
+        {
+
+        static void Main(string[] args)
+            {
+
+            DateTime dt1 = new DateTime(2015, 12, 20);
+            DateTime dt2 = new DateTime(2016, 12, 31, 5, 10, 20);
+            TimeSpan time = new TimeSpan(10, 5, 25, 50);
+
+            Console.WriteLine(dt2 + time); // 1/10/2017 10:36:10 AM
+            Console.WriteLine(dt2 - dt1); //377.05:10:20
+            Console.WriteLine(dt1 == dt2); //False
+            Console.WriteLine(dt1 != dt2); //True
+            Console.WriteLine(dt1 > dt2); //False
+            Console.WriteLine(dt1 < dt2); //True
+            Console.WriteLine(dt1 >= dt2); //False
+            Console.WriteLine(dt1 <= dt2);//True
+
+
+            Console.ReadKey();
+
+            }
+        }
+    }
+
+
+
+________________________________________________________________________________
+
+23-Convert String To Date
+
+using System;
+
+namespace Main
+    {
+        internal class Program
+        {
+
+        static void Main(string[] args)
+            {
+
+            var str = "6/12/2023";
+            DateTime dt;
+
+            var isValidDate = DateTime.TryParse(str, out dt);
+
+            if (isValidDate)
+                Console.WriteLine(dt);
+            else
+                Console.WriteLine($"{str} is not a valid date string");
+
+            //invalid string date
+            var str2 = "6/65/2023";
+            DateTime dt2;
+
+            var isValidDate2 = DateTime.TryParse(str2, out dt2);
+
+            if (isValidDate2)
+                Console.WriteLine(dt2);
+            else
+                Console.WriteLine($"{str2} is not a valid date string");
+
+
+
+            Console.ReadKey();
+
+            }
+        }
+    }
+
+________________________________________________________________________________
+
+24-String Over View  
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            string Name = "Mohamed Ali";
+
+            Console.WriteLine(Name.Length);
+
+            Console.WriteLine(Name.Substring(2, 3));
+            Console.WriteLine(Name.ToLower());
+            Console.WriteLine(Name.ToUpper());
+            Console.WriteLine(Name[2]);
+            Console.WriteLine(Name.Insert(3,"sdklsdklsd"));
+            Console.WriteLine(Name.Replace("M","sdkl"));
+            Console.WriteLine(Name.IndexOf("M"));
+            Console.WriteLine(Name.Contains("m"));
+            Console.WriteLine(Name.Contains("x"));
+            Console.WriteLine(Name.LastIndexOf("m"));
+
+            string Name1 = "Mohamed,Ali,Ahmed";
+            string [] NameListe1 = Name1.Split(',');
+
+            for (int i = 0; i < NameListe1.Length; i++)
+            {
+                Console.WriteLine(NameListe1[i]);
+            }
+
+            string Name3 = "  Mohamed ali  ";
+
+            Console.WriteLine(Name3.Trim());
+            Console.WriteLine(Name3.TrimStart());
+            Console.WriteLine(Name3.TrimEnd());
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+________________________________________________________________________________
+
+25-String Interpolation
+
+ 
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            string FirstName = "Mohamed";
+            string LastName = "Ali";
+            string Code = "13911";
+            byte Age = 21;
+
+            string Data = $"Mr.{FirstName} {LastName} Code:{Code} Age:{Age}";
+
+            Console.WriteLine($"Data:{Data}");
+
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+26-Casting Types
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            //Implicit Casting char -> int -> long -> float -> double
+
+            int Number = 10;
+
+            double NUmber1 = Number;
+
+            //Explicit Casting double -> float -> long -> int -> char
+
+            int MyInt = 10;
+
+            double MyDouble = (double)MyInt;
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+________________________________________________________________________________
+
+27-Implicit Casting
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            //Implicit Casting char -> int -> long -> float -> double
+
+            int Number = 10;
+
+            double Number1 = Number;
+
+            Console.WriteLine(Number);
+            Console.WriteLine(Number1);
+       
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+27-Explicit Casting
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            //Explicit Casting double -> float -> long ->  -> int -> char
+
+            double Number = 10.132;
+
+            int Number1 = (int) Number;
+
+            Console.WriteLine(Number);
+            Console.WriteLine(Number1);
+       
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+28-Type Conversion Methods
+
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int MyInt = 1;
+            double MyDouble = 10.1;
+            bool MyBool = false;
+
+            Console.WriteLine(Convert.ToString(MyInt));
+
+            Console.WriteLine(Convert.ToDouble(MyInt));
+
+            Console.WriteLine(Convert.ToInt32(MyDouble));
+
+            Console.WriteLine(Convert.ToString(MyBool));
+
+
+       
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+29-Enums Conversion
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        enum WeekDays
+        {
+            Monday,
+            Tuesday,
+            Wednesday,
+            Thursday,
+            Friday,
+            Saturday,
+            Sunday
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine(WeekDays.Thursday);
+
+            int Number = (int)WeekDays.Thursday;
+
+            WeekDays ws = (WeekDays) 5;
+
+            Console.WriteLine(ws);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+30-Read Input 
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            Console.Write("Enter The UserName :");
+
+            string UserName = Console.ReadLine();
+
+            Console.WriteLine($"UserName : {UserName} ");
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+31-User Input and Numbers
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            Console.Write("Enter The Age :");
+
+            // method returns a string. Therefore, you cannot get information from another data type
+
+            int Age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"Your Age :{Age}");
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+32-Assignment Operators
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int x = 20;
+            int y = 10;
+
+            int Result = x + y;
+            Console.WriteLine(Result);
+
+            Result = x - y;
+            Console.WriteLine(Result);
+
+            Result = x * y;
+            Console.WriteLine(Result);
+
+            Result = x / y;
+            Console.WriteLine(Result);
+
+            Result = x % y;
+            Console.WriteLine(Result);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+________________________________________________________________________________
+
+33-Relational Operators
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int x = 20;
+            int y = 10;
+
+            Console.WriteLine(x==y);
+            Console.WriteLine(x>y);
+            Console.WriteLine(x<y);
+            Console.WriteLine(x>=y);
+            Console.WriteLine(x<=y);
+            Console.WriteLine(x!=y);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+34-Logical Operators
+
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int x = 20;
+            int y = 10;
+
+
+            if (x == 20 && y == 10)
+                Console.WriteLine("true");
+
+
+            if (x == 20 || y == 10)
+                Console.WriteLine("true");
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+35-Ternary Operator
+
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int Number = 10;
+
+            string Result = (Number % 2 == 0) ? "Even" : "Odd";
+
+            Console.WriteLine($"Number:{Number} Case:{Result}");
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+________________________________________________________________________________
+
+36-Unary Operators
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int x = 20,result;
+            bool flage = false;
+
+            result = +x;
+            Console.WriteLine(result);
+
+            result = -x;
+            Console.WriteLine(result);
+
+            result = ++x;
+            Console.WriteLine(result);
+
+            result = --x;
+            Console.WriteLine(result);
+
+            Console.WriteLine(!flage);
+
+            Console.WriteLine(++x);
+            Console.WriteLine(x++);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+37-BitWise Oparators
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            //BetWise Oprators
+
+            int Number1 = 10;
+            int Number2 = 20;
+
+            Console.WriteLine("Number 1 | Number2:{0}", Number1 | Number2);
+            Console.WriteLine("Number 1 & Number2:{0}", Number1 & Number2);
+            Console.WriteLine("Number 1 ^ Number2:{0}", Number1 ^ Number2);
+
+            Console.ReadKey();
+
+        }
+    }
+}
+________________________________________________________________________________
+
+38- if, if...else, if...else if and Nested if Statement
+
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Globalization;
+using System.IO;
+
+namespace Main
+{
+    internal class Program
+    {
+
+      
+       
+        static void Main(string[] args)
+        {
+
+            int Number = -1;
+            if (Number > 0) 
+            {
+                Console.WriteLine("Number is Positv");
+            }
+            else if (Number<0)
+            {
+                Console.WriteLine("Number Is Negativ");
+            }
+
+            if (Number % 2 == 0)
+            {
+                Console.WriteLine("Number Is Even ");
+            }
+            else 
+            {
+
+                Console.WriteLine("Number Is Odd");
+            }
+
+
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+________________________________________________________________________________
+
+39- switch Statement
+
+***********************************************************************************
+
+Ex1:
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+
+      
+       
+        static void Main(string[] args)
+        {
+
+            char c = default(char);
+
+            Console.Write("Enter the Letter?");
+            c = Convert.ToChar(Console.ReadLine());
+
+            switch (Char.ToLower(c)) 
+            {
+                case 'a':
+                    Console.WriteLine("\nVolwe");
+                    break;
+
+                case 'e':
+                    Console.WriteLine("\nVolwe");
+                    break;
+
+                case 'i':
+                    Console.WriteLine("\nVolwe");
+                    break;
+
+                case 'o':
+                    Console.WriteLine("\nVolwe");
+                    break;
+
+                case 'u':
+                    Console.WriteLine("\nVolwe");
+                    break;
+
+                default:
+                    Console.WriteLine("\nNot Vowle");
+                    break;
+
+            }
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+***********************************************************************************
+
+Ex2:
+
+
+using System;
+
+
+namespace Main
+{
+    internal class Program
+    {
+
+      
+       
+        static void Main(string[] args)
+        {
+
+            char c = default(char);
+
+            Console.Write("Enter the Letter?");
+            c = Convert.ToChar(Console.ReadLine());
+
+            switch (Char.ToLower(c)) 
+            {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+
+                    Console.WriteLine("\nVolwe");
+                    break;
+
+                default:
+                    Console.WriteLine("\nNot Vowle");
+                    break;
+
+            }
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+***********************************************************************************
+
+Ex3:
+
+
+using System;
+
+
+namespace Main
+{
+    internal class Program
+    {
+
+      
+       
+        static void Main(string[] args)
+        {
+
+            char Op = default(char);
+
+            short First    = default(short);
+            short Sacounde = default(short);
+            float Result     = default(int);
+
+            Console.WriteLine("Enter tne First Number?");
+            First = Convert.ToInt16(Console.ReadLine());
+
+
+            Console.WriteLine("Enter tne Sacound Number?");
+            Sacounde = Convert.ToInt16(Console.ReadLine());
+
+
+            Console.WriteLine("Enter tne Oprator(+,-,/,*)?");
+            Op = Convert.ToChar(Console.ReadLine());
+
+            switch (Op) 
+            {
+                case '+':
+                    Result = First + Sacounde;
+                    Console.WriteLine("{0} {1} {2} ={3}", First, Op, Sacounde, Result);
+                    break;
+
+                case '-':
+                    Result = First - Sacounde;
+                    Console.WriteLine("{0} {1} {2} ={3}", First, Op, Sacounde, Result);
+                    break;
+
+                case '*':
+                    Result = First * Sacounde;
+                    Console.WriteLine("{0} {1} {2} ={3}", First, Op, Sacounde, Result);
+                    break;
+
+                case '/':
+                    Result = ((float)First / Sacounde);
+                    Console.WriteLine("{0} {1} {2} ={3}", First, Op, Sacounde, Result);
+                    break;
+
+                default:
+                    Console.WriteLine("Error!..");
+                    break;
+
+            }
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+***********************************************************************************
+
+Ex4:
+
+
+using System;
+using System.Globalization;
+
+
+namespace Main
+{
+    internal class Program
+    {
+
+      
+       
+        static void Main(string[] args)
+        {
+
+            string Name = "ALI";
+
+
+            switch (Name.ToLower()) 
+            {
+                case "mohamed":
+                    Console.WriteLine("Yes Mohamed");
+                    break;
+
+                case "ali":
+                    Console.WriteLine("Yes Ali");
+                    break;
+
+                default:
+                    Console.WriteLine("No Name Match");
+                    break;
+
+
+
+            }
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+40-ternary (? :) Operator
+
+using System;
+using System.Globalization;
+
+
+namespace Main
+{
+    internal class Program
+    {
+
+      
+       
+        static void Main(string[] args)
+        {
+
+            int Number = 1;
+
+            bool IsEven = (Number % 2 == 0) ? true : false;
+
+            Console.WriteLine($"Number : {Number} Case : {IsEven}");
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+41-for loop
+
+using System;
+using System.Globalization;
+using System.Runtime.InteropServices;
+
+
+namespace Main
+{
+    internal class Program
+    {
+
+      
+       
+        static void Main(string[] args)
+        {
+            //Normal Loop 
+
+            for (int i =0; i < 10; i++) 
+            {
+                Console.WriteLine(i);
+            }
+
+            //BackWord Loop
+
+            for (int i = 10; i > 0; i--)
+            {
+                Console.WriteLine(i);
+            }
+
+            //Nestd Loop
+
+            for (int i = 0; i < 10; i++) 
+            {
+
+                for(int j = 0; j < 10; j++) 
+                {
+                    Console.WriteLine("i = {0} and j = {1}", i, j);
+                }
+            }
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+________________________________________________________________________________
+
+42-While
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 1;
+            while (i <= 5)
+            {
+                Console.WriteLine("C# while Loop: Iteration {0}", i);
+                i++;
+            }
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+43-do While Loop 
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 1;
+          
+            do
+            {
+                Console.WriteLine("C# while Loop: Iteration {0}", i);
+                i++;
+            } while (i <= 5) ;
+
+
+                Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+44-break Statemnts 
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 1;
+          
+            do
+            {
+                Console.WriteLine("C# while Loop: Iteration {0}", i);
+                if (i == 3)
+                    break;
+
+                i++;
+            } while (i <= 5) ;
+
+
+                Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+45-Continue Statemnte 
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            for (int i = 1; i <= 5; i++) 
+            {
+                if (i == 3) continue;
+
+                Console.WriteLine(i);
+            }
+            
+
+
+                Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+46-Array Decleration 
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Storag In Heap
+            int[] Number = new int[5];
+
+            for (int i = 0; i < 5; i++) 
+            {
+                Number[i] = i;
+            }
+
+            for(int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(Number[i]);
+
+            }
+
+
+
+                Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+________________________________________________________________________________
+
+47-Array  initialization
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Storag In Heap
+            int[] Number = new int[5];
+
+            Number[0] = 1;
+            Number[1] = 2;
+            Number[2] = 3;
+            Number[3] = 4;
+            Number[4] = 5;
+
+
+            Console.WriteLine(Number[0]);
+            Console.WriteLine(Number[1]);
+            Console.WriteLine(Number[2]);
+            Console.WriteLine(Number[3]);
+            Console.WriteLine(Number[4]);
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+________________________________________________________________________________
+
+48- 2D Array 
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //Storag In Heap
+            int[,] Number = new int[2, 3] { {1,2,3},{4,5,6} };
+
+            for (int i = 0; i < 2; i++) 
+            {
+                for (int j = 0; j < 3; j++) 
+                {
+                    Console.WriteLine(Number[i,j]);
+                } 
+            }
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+________________________________________________________________________________
+
+49-foreach Loop
+
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            char[] ch = new char[]{ 'H', 'e', 'l', 'l', 'o'};
+
+            foreach (char c in ch) 
+            {
+                Console.Write(c);
+            }
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+50-foreach Loop
+
+using System;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            char[] ch = new char[]{ 'm', 'm', 'm', 'f', 'm'};
+
+            short male = default(short);
+            short female = default(short);
+            foreach (char c in ch) 
+            {
+                if (c == 'm')
+                    male++;
+                else if (c == 'f')
+                    female++;
+            }
+
+            Console.WriteLine($"Number Of Male:{male}");
+            Console.WriteLine($"Number Of Female:{female}");
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+51-Array Operations using System.Linq (Max , Min)
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            short[] a = new short[] { 1, 2, 3, 4, 5 };
+
+           Console.WriteLine( a.Max()); 
+           Console.WriteLine( a.Min()); 
+
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+52-Array Operations using System.Linq (Count ,Sum , Avareg)
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int[] a = new int[] { 1, 2, 3, 4, 5 ,6};
+
+           Console.WriteLine( $"Sum Of Elements : {a.Sum()}"); 
+           Console.WriteLine( $"Number Of Elements : {a.Count()}"); 
+           Console.WriteLine( $"Avareg Of Elements : {a.Average()}"); 
+
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+53-C# Math 
+
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            Console.WriteLine(Math.Max(2, 3));
+            Console.WriteLine(Math.Min(2, 3));
+            Console.WriteLine(Math.Sqrt(4));
+            Console.WriteLine(Math.Abs(-2));
+            Console.WriteLine(Math.Round(2.932));
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+54-C# Methods
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+        static void Number ()
+        {
+            Console.WriteLine(3);
+        }
+         void Number(int Number)
+        {
+            Console.WriteLine(Number);
+        }
+        static void Main(string[] args)
+        {
+
+            Number();
+
+            Program N = new Program();
+
+            N.Number(10);
+
+
+           
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+55-C# Method Parameters
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+      
+        static void PrintInfo(string Name , byte Age)
+        {
+            Console.WriteLine($"My Name : {Name} My Age : {Age}");
+        }
+       
+        
+        static void Main(string[] args)
+        {
+
+            PrintInfo("Mohamed ali", 21);
+
+
+           
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+56-C# Default Parameter Value
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+      
+        static void PrintInfo(string Name , byte Age,string Adderss="No Address")
+        {
+            Console.WriteLine($"My Name : {Name}\nMy Age : {Age} \nMy Address : {Adderss}");
+        }
+       
+        
+        static void Main(string[] args)
+        {
+
+            PrintInfo("Mohamed ali", 21);
+
+            PrintInfo("Mohamed ali", 21,"Eygpt");
+
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+57-C# Return Values
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static string MyName() 
+        {
+            return "Mohamed ali";
+        }
+        
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine($"Name :{MyName()}");
+
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+_________________________________________________________________________________
+
+58-C#  Named Arguments (Important)
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static void nnn(string Name1, string Name2, string Name3) 
+        {
+            Console.WriteLine(Name3);
+        }
+        
+        static void Main(string[] args)
+        {
+
+            nnn(Name1: "Mohamed", Name2: "Ali", Name3: "Omar");
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+59-C#  Overloading
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+
+        static int Sum(int Number1, int Number2) 
+        {
+
+            return Number1 + Number2;
+        }
+
+        static int Sum(int Number1, int Number2 , int Number3)
+        {
+
+            return Number1 + Number2+Number3;
+        }
+
+
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine(Sum(1, 2));
+            Console.WriteLine(Sum(1, 2,3));
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+_________________________________________________________________________________
+
+60-C#  Try Catch Exsption 
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+
+     
+
+        static void Main(string[] args)
+        {
+
+            int[] arr = new []{ 1, 2, 3, 4 };
+            try
+            {
+                Console.WriteLine(arr[1]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+_________________________________________________________________________________
+
+61-Random Function 
+
+using System;
+using System.Linq;
+
+namespace Main
+{
+    internal class Program
+    {
+
+     
+
+        static void Main(string[] args)
+        {
+
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < 4; i++) 
+            {
+                Console.WriteLine(rnd.Next(10, 100));
+            }
+
+            Console.WriteLine("\n\nPress any Key To End The Programe........\a");
+            Console.ReadKey();
+
+        }
+    }
+}
+_________________________________________________________________________________
+
+62-????? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

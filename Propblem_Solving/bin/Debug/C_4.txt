@@ -1,0 +1,1784 @@
+1- Print Your Name
+
+#include <iostream>
+using namespace std;
+void Print_Name(string Name) {
+    cout << "Name is " << Name;
+
+}
+int main()
+{
+    Print_Name("Mohamed ali");
+}
+
+*************************************************************************
+2- Read Name And Print It
+
+#include <iostream>
+#include <string>
+using namespace std;
+string  Read_Name(){
+    string Name;
+    cout << "Enter your Name:";
+     getline(cin , Name);
+     return Name;
+}
+void Print_Name(string Name) {
+    cout << "Name is " << Name;
+
+}
+int main()
+{
+    Print_Name(Read_Name());
+}
+
+*************************************************************************
+3-Check Odd or Even
+
+#include <iostream>
+#include <string>
+using namespace std;
+enum en_NumberType {Odd=1,Even=2};
+int Read_Num() {
+	int Num = 0;
+	cout << "Enter the Number:";
+	cin >> Num;
+	return Num;
+}
+en_NumberType Check_NumType(int Num) {
+	int Result = Num % 2;
+	if (Result == 0) 
+		return en_NumberType::Even;
+	else 
+		return en_NumberType::Odd;
+}
+void Print_NumType(en_NumberType NumberType) {
+	if (NumberType == en_NumberType::Even) {
+		cout << "\n Even \n";
+	}
+	else {
+		cout << "\n Odd \n";
+	}
+
+}
+int main()
+{     
+	
+	Print_NumType(Check_NumType(Read_Num()));
+
+
+}
+
+*************************************************************************
+4-Hire adriver Case 1
+
+#include <iostream>
+#include <string>
+using namespace std;
+struct st_Info {
+	int Age;
+	bool HasDriverLicnce;
+};
+st_Info Read_Data() {
+	st_Info Info;
+	cout << "Enter Your Age?\n";
+	cin >> Info.Age;
+	cout << "Do you Have Drive Licnce?\n";
+	cout << "0-No\n";
+	cout << "1-Yes\n";
+	cin >> Info.HasDriverLicnce;
+	return Info;
+}
+bool Check_Data(st_Info Info) {
+	return (Info.Age >= 21 && Info.HasDriverLicnce);
+}
+void Print_Data(st_Info Info) {
+	if (Check_Data(Info))
+		cout << "\n Acecpted \n";
+	else
+		cout << "\n Not Acecpted \n";
+
+}
+int main()
+{     
+	Print_Data(Read_Data());
+}
+
+*************************************************************************
+5-Hire adriver Case 2
+  
+#include <iostream>
+#include <string>
+using namespace std;
+struct st_Info {
+	int Age;
+	bool HasDriverLicnce,Recomendation;
+};
+st_Info Read_Data() {
+	st_Info Info;
+	cout << "Enter Your Age?\n";
+	cin >> Info.Age;
+	cout << "Do you Have Drive Licnce?\n";
+	cout << "0-No\n";
+	cout << "1-Yes\n";
+	cin >> Info.HasDriverLicnce;
+	cout << "Do Your Have a recomndation?\n";
+	cout << "0-No\n";
+	cout << "1-Yes\n";
+	cin >> Info.Recomendation;
+	return Info;
+}
+bool Check_Data(st_Info Info) {
+	if (Info.Recomendation)
+		return true;
+	else 
+	return (Info.Age >= 21 && Info.HasDriverLicnce && Info.Recomendation);
+}
+void Print_Data(st_Info Info) {
+	if (Check_Data(Info))
+		cout << "\n Acecpted \n";
+	else
+		cout << "\n Not Acecpted \n";
+
+}
+int main()
+{     
+	Print_Data(Read_Data());
+}
+*************************************************************************
+6- print fullname
+
+#include <iostream>
+#include <string>
+using namespace std;
+struct st_Info {
+    string Frist_Name;
+    string Last_Name;
+};
+st_Info Read_Data() {
+    st_Info Info;
+    cout << "Enter your Frist Name?\n";
+    cin >> Info.Frist_Name;
+    cout << "Enter your Last Name?\n";
+    cin >> Info.Last_Name;
+    return Info;
+}
+string FullName(st_Info Info) {
+    string FullName = { 0 };
+    FullName = Info.Frist_Name + " " + Info.Last_Name;
+    return FullName;
+}
+void Print_Data(string FullName) {
+    cout << "FullName is " <<FullName;
+}
+int main()
+{     
+    Print_Data(FullName(Read_Data()));
+}
+*************************************************************************
+7- Half Number
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+float  Read_Data() {
+     float  num;
+    cout << "Enter the Number?\n";
+    cin >>num;
+    return num;
+}
+float Half_Number(float num) {
+    return num / 2;
+}
+void Print_Num(float num) {
+    string Result = " Half of " + to_string(num) + " is " +to_string( Half_Number(num));
+    cout << "\n" << Result << "\n";
+}
+
+int main()
+{     
+    Print_Num(Read_Data());
+}
+*************************************************************************
+8-Mark Pass Fail
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+enum en_Grade {Fail,Pass};
+float Read_Grade(){
+	int Grade;
+	cout << "Enter your Grade?\n";
+	cin >> Grade;
+	if (Grade == (int)Grade)
+		return (int)Grade;
+	else
+		return Grade;
+ }
+en_Grade Check_Grade(float Grade) {
+	if (Grade >= 50)
+		return en_Grade::Pass;
+	else
+		return en_Grade::Fail;
+}
+void Print_Grade(float Grade) {
+	if (Check_Grade(Grade))
+		cout << "\nPass\n";
+	else
+		cout << "\nFail\n";
+}
+int main()
+{     
+	Print_Grade(Read_Grade());
+}
+*************************************************************************
+9-sum of 3 numbers
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Read_Numbers( int Num[3]){
+	for (int i = 0; i < 3;i++) {
+		cout << "Enter the Number " << i+1 << "?\n";
+		cin >> Num[i];
+	}
+ }
+int Sum_Numbers(int Num[3]) {
+	int Sum = 0;
+	for (int i = 0;i < 3;i++) {
+		Sum += Num[i];
+	}
+	return Sum;
+}
+void Print_Numbers( int sum){
+	cout << " Sum of Numbres :" << sum;
+}
+
+int main()
+{
+	int Num[3];
+	Read_Numbers(Num);
+	Print_Numbers(Sum_Numbers(Num));
+}
+
+*************************************************************************
+10- calculate AVG
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Read_Numbers( int Num[3]){
+	for (int i = 0; i < 3;i++) {
+		cout << "Enter the Number " << i+1 << "?\n";
+		cin >> Num[i];
+	}
+ }
+int Sum_Numbers(int Num[3]) {
+	int Sum = 0;
+	for (int i = 0;i < 3;i++) {
+		Sum += Num[i];
+	}
+	return Sum;
+}
+float AVG(int Num[3]) {
+	return (float)Sum_Numbers(Num) / 3;
+}
+void Print_Numbers( float AVG){
+	cout << " AVG of Numbres :" << AVG;
+}
+
+int main()
+{
+	int Num[3];
+	Read_Numbers(Num);
+	Print_Numbers(AVG(Num));
+}
+
+*************************************************************************
+11- ِAVG Pass/Fail
+ 
+#include <iostream>
+#include <string>
+using namespace std;
+enum en_Grade {Fail ,Pass};
+void Read_Numbers( int Num[3]){
+	for (int i = 0; i < 3;i++) {
+		cout << "Enter the Grade " << i+1 << "?\n";
+		cin >> Num[i];
+	}
+ }
+int Sum_Numbers(int Num[3]) {
+	int Sum = 0;
+	for (int i = 0;i < 3;i++) {
+		Sum += Num[i];
+	}
+	return Sum;
+}
+float AVG(int Num[3]) {
+	return (float)Sum_Numbers(Num) / 3;
+}
+int Check_AVG(float num) {
+	if (num >= 50)
+		return en_Grade::Pass;
+
+	else
+		return en_Grade::Fail;
+}
+void Print_Numbers( float AVG){
+	cout << "Avareg :" << AVG;
+	if (Check_AVG(AVG))
+		cout << "\nPass\n";
+	else
+		cout << "\nFail\n";
+}
+
+int main()
+{
+	int Num[3];
+	Read_Numbers(Num);
+	Print_Numbers(AVG(Num));
+}
+*************************************************************************
+12-MAX  TWO NUMBER
+
+#include <iostream>
+#include <string>
+using namespace std;
+struct st_Num { 
+int Num[2];  
+};
+st_Num Read_Data() {
+	st_Num Num;
+	for (int i = 0; i < 2;i++) {
+		cout << "Enter  Number " << i << "?"<<endl;
+		cin >> Num.Num[i];
+	}
+	return Num;
+}
+int Get_MaxNumber(st_Num Num) {
+	if (Num.Num[0] > Num.Num[1])
+		return Num.Num[0];
+	else
+		return Num.Num[1];
+}
+void Print_MaxNumber( int Num) {
+	cout << "Max Number is : " << Num;
+}
+
+int main()
+{
+	Print_MaxNumber(Get_MaxNumber(Read_Data()));
+}
+                   ANOTHER SOLVE
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Read_Data(int &Num1,int &Num2) {
+		cout << "Enter  Number 1?\n";
+		cin >>Num1;
+		cout << "Enter  Number 2?\n";
+		cin >> Num2;
+}
+int Get_MaxNumber( int Num1, int Num2) {
+	if (Num1 >Num2)
+		return Num1;
+	else
+		return Num2;
+}
+void Print_MaxNumber( int Num) {
+	cout << "Max Number is : " << Num;
+}
+
+int main()
+{
+	int Num1, Num2;
+	Read_Data(Num1, Num2);
+	Print_MaxNumber(Get_MaxNumber(Num1,Num2));
+}
+*************************************************************************
+13- Max OF THREE NUMBERS
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Read_Data(int &Num1,int &Num2, int &Num3) {
+		cout << "Enter  Number 1?\n";
+		cin >>Num1;
+		cout << "Enter  Number 2?\n";
+		cin >> Num2;
+		cout << "Enter  Number 3?\n";
+		cin >> Num3;
+}
+int Get_MaxNumber( int Num1, int Num2, int Num3) {
+	if (Num1 > Num2)
+		if (Num1 > Num3)
+			return Num1;
+		else
+			return Num3;
+	else if (Num2>Num1)
+		if(Num2>Num3)
+			return Num2;
+		else
+			return Num3;
+}
+void Print_MaxNumber( int Num) {
+	cout << "Max Number is : " << Num;
+}
+
+int main()
+{
+	int Num1, Num2,Num3;
+	Read_Data(Num1, Num2,Num3);
+	Print_MaxNumber(Get_MaxNumber(Num1,Num2,Num3));
+}
+*************************************************************************
+14- Swap 2 Numbers
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Read_Data(int &Num1,int &Num2) {
+		cout << "Enter  Number 1?\n";
+		cin >>Num1;
+		cout << "Enter  Number 2?\n";
+		cin >> Num2;
+}
+void Swap_Number( int &Num1, int &Num2) {
+	int Temp = Num1;
+	Num1 = Num2;
+	Num2 = Temp;
+
+}
+void Print_MaxNumber( int Num1 , int Num2) {
+	cout << "Number1 is : " << Num1<<endl;
+	cout << "Number2 is : " << Num2<<endl;
+	cout << "***************************************\n";
+}
+
+int main()
+{
+	int Num1, Num2;
+	Read_Data(Num1, Num2);
+	Print_MaxNumber(Num1,Num2);
+	Swap_Number(Num1, Num2);
+	Print_MaxNumber(Num1, Num2);
+}
+*************************************************************************
+15- Rectangle Area
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Read_Data(int &Length,int &Width) {
+		cout << "Enter  Length ?\n";
+		cin >>Length;
+		cout << "Enter  Width ?\n";
+		cin >> Width;
+}
+float Rectangel_Area( int Length, int Width) {
+	return Length * Width;
+}
+void Print_Area( int Area) {
+	cout << "Area : " << Area<<endl;
+}
+
+int main()
+{
+	int Length, Width;
+	Read_Data(Length,Width);
+	Print_Area(Rectangel_Area(Length,Width));
+
+	
+}
+*************************************************************************
+16- Rectangle Area By Diagonal & Side
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void Read_Data(int &Side,int &Diagonal) {
+		cout << "Enter One Side ?\n";
+		cin >>Side;
+		cout << "Enter  Diagonal ?\n";
+		cin >> Diagonal;
+}
+float Rectangel_AreaBySideandDiagonal( int Side, int Diagonal ) {
+	float Result =float(Side * sqrt(pow(Diagonal, 2) - pow(Side, 2)));
+	return Result;
+}
+void Print_Area( float Area) {
+	cout << "Area  of Rectangle: " << Area<<endl;
+}
+int main()
+{
+	int Side, Diagonal;
+	Read_Data(Side,Diagonal);
+	Print_Area(Rectangel_AreaBySideandDiagonal(Side,Diagonal));
+}
+*************************************************************************17-Triangle Area
+
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void Read_Data(float &Base,float &Hight) {
+		cout << "Enter One Base ?\n";
+		cin >>Base;
+		cout << "Enter  Hight ?\n";
+		cin >> Hight;
+}
+float Triangle_Area_ofTriangle( float Base , float Hight ) {
+	float Result = (0.5 * Base) * Hight;
+	return Result;
+}
+void Print_Area_ofTriangle( float Area) {
+	cout << "Area  of Triangle: " << Area<<endl;
+}
+int main()
+{
+	float Base, Hight;
+	Read_Data(Base,Hight);
+	Print_Area_ofTriangle(Rectangel_Area_ofTriangle(Base,Hight));
+}
+*************************************************************************
+18- Circle Area
+
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void Read_Data(float &Radius) {
+		cout << "Enter One Radius ?\n";
+		cin >>Radius;
+}
+float Calculate_Area_ofCircle( float Radius) {
+	const float PI = 3.14;
+	float Result = pow(Radius,2)*PI;
+	return Result;
+}
+void Print_Area_ofCircle( float Area) {
+	cout << "Area  of Circle: " << Area<<endl;
+}
+int main()
+{
+	float Raduis;
+	Read_Data(Radius);
+	Print_Area_ofCircle(Calculate_Area_ofCircle(Radius));
+}
+*************************************************************************
+19-Circle Area Diameter
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+float Read_Data() {
+	int Diameter = 0;
+		cout << "Enter One Diameter ?\n";
+		cin >>Diameter;
+		return Diameter;
+}
+float Calculate_Area_ofCircleByDiameter( float Diameter) {
+	const float PI = 3.14;
+	float Result = (pow(Diameter,2)/4)*PI;
+	return Result;
+}
+void Print_Area_ofCircleByDiameter( float Area) {
+	cout << "Area  of Circle: " << Area<<endl;
+}
+int main()
+{
+	Print_Area_ofCircleByDiameter(Calculate_Area_ofCircleByDiameter(Read_Data()));
+}
+*************************************************************************
+20-Circle Area Inscribed in a Square
+
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+float Read_Data() {
+	int Side = 0;
+		cout << "Enter One Side Of Square ?\n";
+		cin >>Side;
+		return Side;
+}
+float Calculate_Area_ofCircleBySide( float Side ) {
+	const float PI = 3.14;
+	float Result = (pow(Side,2)/4)*PI;
+	return Result;
+}
+void Print_Area_ofCircleBySide( float Area) {
+	cout << "Area  of Circle: " << Area<<endl;
+}
+int main()
+{
+	Print_Area_ofCircleBySide(Calculate_Area_ofCircleBySide(Read_Data()));
+}
+*************************************************************************
+21-Circle Area Analonge The Circumference 
+
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+float Read_Data() {
+	int L = 0;
+		cout << "Enter The Analog The Circumference  ?\n";
+		cin >>L;
+		return L;
+}
+float Calculate_Area_ofCircleByAnalogCircumference( float L ) {
+	const float PI = 3.14;
+	float Result = (pow(L,2))/(4*PI);
+	return Result;
+}
+void Print_Area_ofCircleByAnalogCircumference( float Area) {
+	cout << "Area  of Circle: " << Area<<endl;
+}
+int main()
+{
+	Print_Area_ofCircleByAnalogCircumference(Calculate_Area_ofCircleByAnalogCircumference(Read_Data()));
+}
+*************************************************************************
+22-Circle Area  Inscribed in an Isosceles Triangle
+ 
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void Read_Data(float &a, float &b) {
+		cout << "Enter The Length of Leg ?\n";
+		cin >>a;
+		cout << "Enter The Length Base ?\n";
+		cin >> b;
+}
+float Calculate_Area_ofTriangleByIsoscelesTriangle( float a,float b ) {
+	const float PI = 3.14;
+	float Result[3];
+	 Result[0] = PI * (pow(b, 2) / 4);
+	 Result[1] = (2 *a - b) / (2*a + b);
+	 Result[2] = Result[0] * Result[1];
+	return Result[2];
+}
+void Print_Area_ofIsoscelesTriangleBy( float Area) {
+	cout << "Area  of Triangle: " << Area<<endl;
+}
+int main()
+{
+	float a=0, b=0;
+	Read_Data(a,b);
+	Print_Area_ofIsoscelesTriangleBy(Calculate_Area_ofTriangleByIsoscelesTriangle(a, b));
+}
+*************************************************************************
+23-Cricle Area Described Around An Arbitrary Triangle
+ 
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void Read_Data(float &a, float &b, float &c) {
+		cout << "Enter a ?\n";
+		cin >>a;
+		cout << "Enter b ?\n";
+		cin >> b;
+		cout << "Enter c ?\n";
+		cin >> c;
+}
+float Calculate_Area_ofTriangleByATriangle( float a,float b ,float c) {
+	const float PI = 3.14;
+    const float P = (a + c + b) / 2;;
+	float Result = 0;
+	Result = PI * ( pow( (a * b * c) / (4 * sqrt (P * (P - a) * (P - b) * (P - c) ) ) ,2 ) );
+	return Result;
+}
+void Print_Area_ofATriangle( float Area) {
+	cout << "Area  of Triangle: " << Area<<endl;
+}
+int main()
+{
+	float a=0, b=0,c=0;
+	Read_Data(a,b,c);
+	Print_Area_ofATriangle(Calculate_Area_ofTriangleByATriangle(a, b, c));
+}
+*************************************************************************
+24- valid Age from 18 to 45
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int Read_Age() {
+	int Age;
+	cout << "Enter your Age?\n";
+	cin >> Age;
+	return Age;
+}
+bool ValidateNumberInRang(int Number, int From, int To) {
+	return (Number >= From && Number <= To);
+}
+void Print_Result( int Age) {
+	if (ValidateNumberInRang(Age, 18, 45))
+		cout << " Valid Age";
+	else
+		cout << "Invalid Age";
+}
+int main()
+{	
+	Print_Result(Read_Age());
+}
+
+*************************************************************************
+25-Valied Age Between 18 to 45 in Loop
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int Read_Age() {
+	int Age;
+	cout << "Enter your Age?\n";
+	cin >> Age;
+	return Age;
+}
+bool ValidateNumberInRang(int Number, int From, int To) {
+	return (Number >= From && Number <= To);
+}
+int ReadNumberBetweenAge (int From, int To) {
+	 int Age = 0;
+	do {
+		Age = Read_Age();
+	}
+	while (!ValidateNumberInRang(Age, From, To));
+	return Age;
+}
+void Print_Result( int Age) {
+	cout << Age <<" is Valid Age";
+}
+int main()
+{	
+	Print_Result(ReadNumberBetweenAge(18,45));
+}
+*************************************************************************
+26- Print NUmber From 1 to N
+
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int Read_Number() {
+	int Num;
+	cout << "Enter the Number?\n";
+	cin >> Num;
+	return Num;
+ }
+void Print_NumByForLoop(int Num) {
+	int j = 1;
+	for (int i = 1; i <=Num; i++) {
+		cout << "Number" << "[" << i << "]:" << i<<endl;
+	}
+	cout << "*******************************\n";
+}
+void Print_NumByWhileLoop(int Num) {
+	int i = 0;
+	while (i <Num) {
+		i++;
+		cout << "Number" << "[" << i << "]:" << i << endl;
+	}
+	cout << "*******************************\n";
+}
+void Print_NumByDoWhileLoop(int Num) {
+	int j = 0;
+	do {
+		j++;
+		cout << "Number" << "[" << j << "]:" << j << endl;
+	
+	} while (j <Num);
+}
+int main()
+{
+	int N = Read_Number();
+	Print_NumByForLoop(N);
+	Print_NumByWhileLoop(N);
+	Print_NumByDoWhileLoop(N);
+}
+
+*************************************************************************
+27- Print From Number to 1
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int Read_Number() {
+	int Num;
+	cout << "Enter the Number?\n";
+	cin >> Num;
+	return Num;
+ }
+void Print_NumByForLoop(int Num) {
+	for (int i = Num; i >=1; i--) {
+		cout << "Number" << "[" << i << "]:" << i<<endl;
+	}
+	cout << "*******************************\n";
+}
+void Print_NumByWhileLoop(int Num) {
+	int i = Num;
+	while (i >=1) {
+		
+		cout << "Number" << "[" << i << "]:" << i << endl;
+		i--;
+	}
+	cout << "*******************************\n";
+}
+void Print_NumByDoWhileLoop(int Num) {
+	int j = Num;
+	do {
+		cout << "Number" << "[" << j << "]:" << j << endl;
+		j--;
+	
+	} while (j >=1);
+}
+int main()
+{
+	int N = Read_Number();
+	Print_NumByForLoop(N);
+	Print_NumByWhileLoop(N);
+	Print_NumByDoWhileLoop(N);
+}
+ *************************************************************************
+28- Sum Odd Numbers
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_EvenOrOdd {Odd =1, Even =2};
+int Read_Number() {
+	int Num;
+	cout << "Enter the Number?\n";
+	cin >> Num;
+	return Num;
+ }
+  en_EvenOrOdd CheckEvenOrOdd (int N){
+	  if (N % 2 == 0)
+		  return en_EvenOrOdd::Even;
+	  else
+		  return en_EvenOrOdd::Odd;
+
+}
+ int  SumOddNumByForLoop(int N) {
+	int Sum = 0;
+	cout << "Sum Odd Num With For Loop:";
+	for (int Counter  = 0;Counter <=N; Counter++) {
+		if (CheckEvenOrOdd (Counter)==en_EvenOrOdd::Odd)
+			Sum += Counter;
+	}
+	return Sum;
+}
+int SumOddNumByWhileLoop(int N) {
+	int Sum = 0;
+	int Counter = 0;
+	cout << "Sum Odd Num With While Loop:";
+	while (Counter <= N) {
+		if (CheckEvenOrOdd(Counter)==en_EvenOrOdd::Odd)
+	    Sum += Counter;
+		Counter++;
+	}
+	return Sum;
+}
+int Print_SumOddNumByDoWhileLoop(int Num) {
+	int Sum = 0;
+	int Counter = 0;
+	cout << "Sum Odd Num With Do While Loop:";
+	do {
+		if (CheckEvenOrOdd (Counter)==en_EvenOrOdd::Odd)
+		Sum += Counter;
+		Counter++;
+	} while (Counter <= Num);
+	return Sum;
+}
+
+	
+
+int main()
+ {
+	int N = Read_Number();
+	cout<<SumOddNumByForLoop(N)<<endl;
+	 cout<<SumOddNumByWhileLoop(N)<<endl;
+	 cout<<Print_SumOddNumByDoWhileLoop(N)<<endl;
+}
+
+
+*************************************************************************
+29- Sum of Even Number From 0 To N
+
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_EvenOrOdd {Odd =1, Even =2};
+int Read_Number() {
+	int Num;
+	cout << "Enter the Number?\n";
+	cin >> Num;
+	return Num;
+ }
+  en_EvenOrOdd CheckEvenOrOdd (int N){
+	  if (N % 2 == 0)
+		  return en_EvenOrOdd::Even;
+	  else
+		  return en_EvenOrOdd::Odd;
+
+}
+ int  SumOddNumByForLoop(int N) {
+	int Sum = 0;
+	cout << "Sum Odd Num With For Loop:";
+	for (int Counter  = 0;Counter <=N; Counter++) {
+		if (CheckEvenOrOdd (Counter)==en_EvenOrOdd::Even)
+			Sum += Counter;
+	}
+	return Sum;
+}
+int SumOddNumByWhileLoop(int N) {
+	int Sum = 0;
+	int Counter = 0;
+	cout << "Sum Odd Num With While Loop:";
+	while (Counter <= N) {
+		if (CheckEvenOrOdd(Counter)==en_EvenOrOdd::Even)
+	    Sum += Counter;
+		Counter++;
+	}
+	return Sum;
+}
+int Print_SumOddNumByDoWhileLoop(int Num) {
+	int Sum = 0;
+	int Counter = 0;
+	cout << "Sum Odd Num With Do While Loop:";
+	do {
+		if (CheckEvenOrOdd (Counter)==en_EvenOrOdd::Even)
+		Sum += Counter;
+		Counter++;
+	} while (Counter <= Num);
+	return Sum;
+}
+
+	
+
+int main()
+ {
+	int N = Read_Number();
+	cout<<SumOddNumByForLoop(N)<<endl;
+	 cout<<SumOddNumByWhileLoop(N)<<endl;
+	 cout<<Print_SumOddNumByDoWhileLoop(N)<<endl;
+}
+*************************************************************************
+30- Factorial Of N
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int Read_PositiveNumber(string Massage) {
+	int Num;
+	do {
+	     cout << Massage;
+		cin >> Num;
+	} while (Num < 0);
+	return Num;
+ }
+int Calculate_FactorialOfNumberByForLoop(int N) {
+	int Fact = 1;
+	cout << "Using For Loop Factorial of " << N << " is ";
+	for (int Counter = 1; Counter <= N; Counter++) {
+		Fact *= Counter;
+	}
+	return Fact;
+}
+
+
+
+
+
+int main()
+ {
+	cout<<Calculate_FactorialOfNumberByForLoop(Read_PositiveNumber("Enter the Number?\n")) << endl;
+}
+
+*************************************************************************
+31- Power Of Number (2,3,4)
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int Read_Num() {
+	int Num = 0;
+	cout << "Enter the Number?\n";
+	cin >> Num;
+	return Num;
+}
+void Power2_3_4_Num(int Num) {
+	int a = Num * Num;
+	int b = Num * Num*Num;
+	int c = Num * Num*Num*Num;
+	cout << a <<"\n" << b <<"\n"<< c;
+}
+int main()
+ {
+    Power2_3_4_Num(Read_Num());
+
+	return 0;
+}
+*************************************************************************
+32- Power Of M
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int Read_Num() {
+	int Num=0;
+	cout << "Enter the Number?\n";
+	cin >> Num;
+	return Num;
+}
+int Read_Power() {
+	int Power = 0;
+	cout << "Enter the Power?\n";
+	cin >>Power;
+	return Power;
+}
+int PowerOfM(int Power,int Num ) {
+	if (Power == 0) {
+	
+		return 1;
+
+	}
+	int Mul = 1;
+	cout << Num << "^" << Power << "=";
+	for (int i = 0; i<Power;i++) {
+		Mul *=Num;
+	}
+	return Mul;
+}
+int main()
+ {
+	cout << PowerOfM(Read_Power(), Read_Num());
+
+	return 0;
+}
+*************************************************************************
+33- Get Grade 
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int Read_Grade( int From , int To) {
+	int Grade=0;
+	do {
+		cout << "Enter the Grade?\n";
+		cin >> Grade;
+	}while (Grade <From || Grade>To);
+	return Grade;
+}
+char Get_Grade(int Grade) {
+	if (Grade >= 90)
+		return 'A';
+
+	else if (Grade >= 80)
+		return 'B';
+
+	else if (Grade >= 70)
+		return 'C';
+
+	else if (Grade >= 60)
+		return 'D';
+
+	else if  (Grade>=50)
+		return 'E';
+	else
+		return 'F';
+
+}
+int main()
+ {
+	 cout<<Get_Grade(Read_Grade(0,100));
+	return 0;
+}
+*************************************************************************
+34- Commission Precentage 
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+float Read_Sales( ) {
+	float Sales=0;
+		cout << "Enter the Total Sales?\n";
+		cin >> Sales;
+	return Sales;
+}
+float Get_Precentage(float Sales) {
+	if (Sales >= 1000000)
+		return   0.01;
+
+	else if (Sales >= 500000)
+		return  0.02;
+
+	else if (Sales >= 100000)
+		return  0.03;
+
+	else if (Sales >= 50000)
+		return  0.05;
+
+	else
+		return 0;
+}
+float Calculat_Commission(float Sales) {
+
+	return Get_Precentage(Sales) * Sales;
+}
+int main()
+ {
+	float N = Read_Sales();
+	cout << "your Commission is:" << Calculat_Commission(N)<<endl;
+	cout << "your Presentage:" << Get_Precentage(N)*100<<"%" << endl;
+	return 0;
+}
+
+*************************************************************************
+35- Total Pens And Dollars 
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+struct st_Mony
+{
+	int Penny;
+	int Nickel;
+	int Dime;
+	int Quarter;
+	int Dollar;
+};
+st_Mony Read_Data() {
+	st_Mony Mony;
+	cout << "Enter Number of Penny ?\n";
+	cin >> Mony.Penny;
+	cout << "Enter Number of Nickel ?\n";
+	cin >> Mony.Nickel;
+	cout << "Enter Number of Dime ?\n";
+	cin >> Mony.Dime;
+	cout << "Enter Number of Quarter ?\n";
+	cin >> Mony.Quarter;
+	cout << "Enter Number of Dollar ?\n";
+	cin >> Mony.Dollar;
+	return Mony;
+}
+float Calculate_TotalMony_Penny(st_Mony Mony) {
+	float Penny = Mony.Penny + 
+		(Mony.Nickel * 5)    + 
+		(Mony.Dime * 10)     + 
+		(Mony.Quarter * 25)  +
+	    (Mony.Dollar * 100);
+	return Penny;
+}
+
+int main()
+ {
+	float Mony = Calculate_TotalMony_Penny(Read_Data());
+	cout << "Total Mony in Penny:" <<Mony <<endl;
+	cout << "Total Mony in Dollar:" <<Mony/100<<endl;
+	return 0;
+}
+*************************************************************************
+36- Simple Calculator 
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+enum en_OprationType {Sum ='+',Sub='-',Mul='*',Div='/'};
+int Read_Number(string Massage) {
+	int Number = 0;
+	cout << Massage << endl;
+	cin >> Number;
+	return Number;
+}
+en_OprationType Read_OpType() {
+	char Signe;
+	cout << "Enter the Signe?\n";
+	cin >> Signe;
+	return (en_OprationType)Signe;
+}
+float Calculate(float num1, float num2, en_OprationType OT) {
+ 
+	switch (OT)
+	{
+	case en_OprationType::Sum :
+		return num1 + num2;
+	case en_OprationType::Sub:
+		return num1 - num2;
+	case en_OprationType::Mul:
+		return num1 * num2;
+	case en_OprationType::Div:
+		return num1 / num2;
+	
+	default:
+		return num1 + num2;
+		break;
+	}
+}
+
+int main()
+ {
+	float num1 = Read_Number("Enter Number 1?");
+	float num2 = Read_Number("Enter Number 2?");
+
+	en_OprationType OT = Read_OpType();
+
+	cout << Calculate(num1, num2, OT);
+	return 0;
+}
+
+*************************************************************************
+37- Sum Until -99
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int Read_Number(string Massage) {
+	int Number = 0;
+	cout << Massage << endl;
+	cin >> Number;
+	return Number;
+}
+int SumNumbersUntil_99() {
+	int Num = 0;
+	int Sum = 0;
+	int Counter = 1;
+	do {
+		Num = Read_Number("Enter the Number"+to_string(Counter));
+		if (Num == -99)
+		{
+			break;
+		}
+		Sum += Num;
+		Counter++;
+	} while (Num != -99);
+		return Sum;
+}
+
+int main()
+{
+	
+	cout << "Result =" << SumNumbersUntil_99();
+	return 0;
+}
+*************************************************************************
+38- Prime Number
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+enum en_NumberType {Prime = 1 ,Not_Prime = 2};
+
+int Read_Number(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+en_NumberType Check_NumberType(int Number) {
+  
+	int M = round(Number / 2);
+	for (int i = 2;i <= M;i++) {
+		if (Number % i == 0)
+			return en_NumberType::Not_Prime;
+	}
+	return en_NumberType::Prime;
+}
+void Print_NUmberType(int Number) {
+	if (Check_NumberType(Number) == en_NumberType::Prime)
+	       cout << "Prim Number";
+	else
+		cout << "Not Prim Number";
+}
+int main()
+{
+	Print_NUmberType(Read_Number("Enter the Number?"));
+	return 0;
+}
+*************************************************************************
+39-Pay Remainder
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+enum en_NumberType {Prime = 1 ,Not_Prime = 2};
+
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int Calculate_Remainder(int Total_Bill, int Cash_Paid) {
+	return Cash_Paid - Total_Bill;
+}
+
+int main()
+{
+	int Total_Bill =  Read_PositivNumber("Enter the Total Bill");
+	int Cash_Paid  =  Read_PositivNumber("Enter the Cash Paid");
+	cout << "Remainder=" << Calculate_Remainder(Total_Bill, Cash_Paid);
+	return 0;
+}
+*************************************************************************
+40-Service Fee and Sales Tax 
+ 
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+float Calculate_TotalBill(float OGPrice) {
+	OGPrice = OGPrice * 1.1;
+	OGPrice = OGPrice * 1.16;
+
+	return OGPrice;
+}
+
+int main()
+{
+	int Total_Bill =  Read_PositivNumber("Enter the Oreginal Price?");
+	cout<<"Total Bill After Service Fee and Tax Sales =" << Calculate_TotalBill(Total_Bill);
+	return 0;
+}
+*************************************************************************
+41-Weeks And Days
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+float Read_Hours(string Massage) {
+	float Hour=0;
+		cout << Massage << endl;
+		cin >> Hour;
+	return Hour;
+}
+float HourToDays(float Num_Hour) {
+	return Num_Hour / 24;
+}
+float HourToWeeks(float Num_Hour) {
+	return Num_Hour /24/ 7;
+}
+float DayToWeeks(float Num_Day) {
+	return Num_Day /7;
+}
+int main()
+{ 
+	float NumberOfHours = Read_Hours("Enter the Number Of Hours?");
+	float NumberOfDays = HourToDays(NumberOfHours);
+	float NumberOfWeeks = DayToWeeks(NumberOfDays);
+	cout << "Number Of Hours :" << NumberOfHours<<endl;
+	cout << "Number Of Days :"  << NumberOfDays<<endl;
+	cout << "Number Of Weeks :" << NumberOfWeeks<<endl;
+	return 0;
+}
+*************************************************************************
+42-Task Duration In Seconds
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+struct st_Time {
+    int	Days;
+	int Hours;
+	int Minutes;
+	int Seconds;
+};
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+st_Time Read_Time() {
+	st_Time Time;
+	Time.Days    = Read_PositivNumber("Pleas Enter the Number of Days");
+	Time.Hours   = Read_PositivNumber("Pleas Enter the Number of Hours");
+	Time.Minutes = Read_PositivNumber("Pleas Enter the Number of Minutes");
+	Time.Seconds = Read_PositivNumber("Pleas Enter the Number of Seconds");
+	return Time;
+}
+float Calculat_NumberOfSeconds(st_Time Time) {
+	float Total_Seconds = 0;
+	Total_Seconds = Time.Days * 24 * 60 * 60;
+	Total_Seconds += Time.Hours * 60 * 60;
+	Total_Seconds += Time.Minutes * 60;
+	Total_Seconds += Time.Seconds;
+	return Total_Seconds;
+}
+int main()
+{ 
+	cout << "Total Seconds :" << Calculat_NumberOfSeconds(Read_Time())<<endl;
+	return 0;
+}
+*************************************************************************
+43- Seconds To Days Hours Minutes Seconds
+     
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+struct st_TaskDuration { int NumberOfDays, NumberOfHours, NumberOfMinutes, NumberOfSeconds; };
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+st_TaskDuration SecondsToTaskDuration(int Total_Seconds) {
+	st_TaskDuration TaskDuration;
+	const int SecondsPerDays = 24 * 60 * 60;
+	const int SecondsPerHours =  60 * 60;
+	const int SecondsPerMinutes =  60;
+	int Reminder = 0;
+	TaskDuration.NumberOfDays = floor(Total_Seconds / SecondsPerDays);
+	Reminder = Total_Seconds % SecondsPerDays;
+	TaskDuration .NumberOfHours= floor(Reminder / SecondsPerHours);
+	Reminder = Total_Seconds % SecondsPerHours;
+	TaskDuration.NumberOfMinutes = floor(Reminder / SecondsPerMinutes);
+	Reminder = Total_Seconds % SecondsPerMinutes;
+	TaskDuration.NumberOfSeconds = Reminder;
+	return TaskDuration;
+}
+void Print_Days_Hours_Minutes_Seconds(st_TaskDuration TaskDuration) {
+	cout << TaskDuration.NumberOfDays << ":" << TaskDuration.NumberOfHours << ":" << TaskDuration.NumberOfMinutes << ":" << TaskDuration.NumberOfSeconds;
+}
+int main()
+{ 
+	int N = Read_PositivNumber("Pleas Enter the Total Seconds?");
+	st_TaskDuration B = SecondsToTaskDuration(N);
+	Print_Days_Hours_Minutes_Seconds(B);
+	return 0;
+}
+*************************************************************************
+44- Day Of Week
+
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_DayOfWeek {Sun=1 , Mon=2 , Tue=3 , Wed=4 , Thu=5 , Fri=6 , Sat=7 };
+int Read_NumberInRang(string Massage,int From,int To) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number<From || Number>To);
+	return Number;
+}
+en_DayOfWeek Read_DayOfWeek() {
+	return (en_DayOfWeek)Read_NumberInRang("Pleas Enter the Number Of Day", 1, 7);
+}
+string Get_DayOfWeek(en_DayOfWeek DayOfWeek) {
+	switch(DayOfWeek)
+	{
+	case en_DayOfWeek::Sun:
+		return "Sunday";
+	case en_DayOfWeek::Mon:
+		return "Monday";
+	case en_DayOfWeek::Tue:
+		return "Tuesday";
+	case en_DayOfWeek::Wed:
+		return "Wednesday";
+	case en_DayOfWeek::Thu:
+		return "Thursday";
+	case en_DayOfWeek::Fri:
+		return "Friday";
+	case en_DayOfWeek::Sat:
+		return "Saturday";
+	}
+
+}
+int main()
+{  
+	cout << Get_DayOfWeek(Read_DayOfWeek());
+	return 0;
+}
+*************************************************************************
+45- Month Of Year
+   
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_MonthOfYear {
+	Jan = 1, Feb = 2, Mar = 3, Apr = 4, May = 5, Jun = 6,
+	Jul = 7, Aug = 8, Sep = 9, Oct = 10, Nov = 11, Dec = 12
+};
+int Read_NumberInRang(string Massage,int From,int To) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number<From || Number>To);
+	return Number;
+}
+en_MonthOfYear Read_MonthOfYear() {
+	return (en_MonthOfYear)Read_NumberInRang("Pleas Enter the Number Of Month", 1, 7);
+}
+string Get_MonthOfYear(en_MonthOfYear MonthOfYear) {
+	switch(MonthOfYear)
+	{
+	case en_MonthOfYear::Jan:
+		return "January";
+	case en_MonthOfYear::Feb:
+		return "February";
+	case en_MonthOfYear::Mar:
+		return "March";
+	case en_MonthOfYear::Apr:
+		return "April";
+	case en_MonthOfYear::May:
+		return "May";
+	case en_MonthOfYear::Jun:
+		return "June";
+	case en_MonthOfYear::Jul:
+		return "July";
+	case en_MonthOfYear::Aug:
+		return "August";
+	case en_MonthOfYear::Sep:
+		return "September";
+	case en_MonthOfYear::Oct:
+		return "October";
+	case en_MonthOfYear::Nov:
+		return "November";
+	case en_MonthOfYear::Dec:
+		return "Decamber";
+
+	
+	}
+
+}
+int main()
+{
+	cout<<Get_MonthOfYear(Read_MonthOfYear());
+	return 0;
+}
+*************************************************************************
+46-Print Form A To Z
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+void Print_FormAToZ() {
+	for (int i = 65;i <= 90; i++) {
+		cout << (char)i << endl;
+	
+	}
+}
+int main()
+{
+	Print_FormAToZ();
+	return 0;
+}
+*************************************************************************
+47-Loan Installment Months
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+float Read_PositivNumber(string Massage) {
+	float Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+float Calculate_numberOfMonths(float loanAmount ,float MonthlyPayment) {
+	return loanAmount /MonthlyPayment;
+}
+int main()
+{
+	float loanAmount = Read_PositivNumber("Enter  the Loan Amount?");
+	float MonthlyPayment = Read_PositivNumber("Enter  the MonthlyPayment?");
+	cout << "Number Of Months :" << Calculate_numberOfMonths(loanAmount, MonthlyPayment);
+	
+	return 0;
+}
+*************************************************************************
+48- Monthly Loan Installment 
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+float Read_PositivNumber(string Massage) {
+	float Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+float Calculate_numberOfMonths(float loanAmount ,float NumberOfMonth) {
+	return loanAmount /NumberOfMonth;
+}
+int main()
+{
+	float loanAmount = Read_PositivNumber("Enter  the Loan Amount?");
+	float NumberOfMonth = Read_PositivNumber("Enter  the Number Of Month?");
+	cout << "Payment In Month  :" << Calculate_numberOfMonths(loanAmount,NumberOfMonth);
+	
+	return 0;
+}
+*************************************************************************
+49-  ATM PIN
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+string Read_Code() {
+	string PIN ;
+	cout << "Enter the Code?\n";
+	cin >> PIN;
+	return PIN;
+}
+bool Login() {
+	string PinCod;
+	do {
+		PinCod = Read_Code();
+		if (PinCod == "1234") {
+			return 1;
+		}
+		else {
+			system("color 4F");
+			cout << "Wrong Number...Try Again?\n";
+		}
+	} while (PinCod!="1234");
+	return 0;
+}
+int main()
+{
+	if (Login()) {
+		system("color 2F");
+		cout << "Your Balanc is " << 7500;
+	}
+	
+	return 0;
+}
+*************************************************************************
+50-  ATM PIN 3 Times
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+string Read_Code() {
+	string PIN ;
+	cout << "Enter the Code?\n";
+	cin >> PIN;
+	return PIN;
+}
+bool Login() {
+	string PinCod;
+	int Counter = 3;
+	do {
+		PinCod = Read_Code();
+		if (PinCod == "1234") {
+			return 1;
+		}
+		else {
+			Counter--;
+			system("color 4F");
+			cout << "Wrong Number...Try Again you Have "<<Counter<<" More Times\n\n";
+			
+		}
+	} while (PinCod!="1234"&& Counter>=1);
+	return 0;
+}
+int main()
+{
+	if (Login()) {
+		system("color 2F");
+		cout << "Your Balanc is " << 7500;
+	}
+	else {
+
+		cout << "System is Closed";
+	}
+	
+	return 0;
+}
+
+
+
+
+

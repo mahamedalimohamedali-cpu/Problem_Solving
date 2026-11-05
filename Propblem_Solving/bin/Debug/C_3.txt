@@ -1,0 +1,1583 @@
+1-Info_Card
+// MY_Frist.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+
+int main()
+{
+	/*P1*/
+	std::cout << "*****************************\n";
+	std::cout << "Name:Mohamed Ali\n";
+	std::cout << "Age:21\n";
+	std::cout << "City:Giza\n";
+	std::cout << "Country:Eygpt\n";
+	std::cout << "*****************************\n";
+	/*P2*/
+	std::cout << "\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+	/*P3*/
+	std::cout << "\n";
+	std::cout << "I Love Programing\n\n";
+	std::cout << "I Want TBe Sinoir In thes Feald \n\n";
+	std::cout << "I Hope To Complete Thes Curse \n\n";
+
+}
+
+**************************************************************************
+2-Print 'H' From '*'
+// MY_Frist.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+
+int main()
+{
+	/*P1*/
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*********\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	
+	
+
+}
+
+**************************************************************************
+3- 
+// MY_Frist.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	/*P1*/
+	cout << "*****************************\n";
+	cout << "Name:Mohamed Ali\n";
+	cout << "Age:21\n";
+	cout << "City:Giza\n";
+	cout << "Country:Eygpt\n";
+	cout << "*****************************\n";
+	/*P2*/
+	cout << "\n";
+	cout << "*****************************\n";
+	cout << "*****************************\n";
+	cout << "*****************************\n";
+	cout << "*****************************\n";
+	/*P3*/
+	cout << "\n";
+	std::cout << "I Love Programing\n\n";
+	std::cout << "I Want TBe Sinoir In thes Feald \n\n";
+	std::cout << "I Hope To Complete Thes Curse \n\n";
+
+}
+
+using namespace std;
+#include <iostream>
+
+int main()
+{
+	/*P4*/
+	cout << "*       *\n";
+	cout << "*       *\n";
+	cout << "*       *\n";
+	cout << "*********\n";
+	cout << "*       *\n";
+	cout << "*       *\n";
+	cout << "*       *\n";
+
+}
+
+**************************************************************************
+
+4-
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "\a";
+	cout << "Daer \\mohamed\n\n";
+	cout << "How Are You?\n\n";
+	cout << "My Name is \"Mohamed Ali\" "<<endl;
+	/***************************************************************************/;
+	cout << "***********************************************\n";
+	cout << "mohamed\tAli\tmona\n\nAhamed\tAnas\tSamie"<< endl;
+}
+**************************************************************************
+5-
+1-What is Literal?
+the literal is like Chars And Numbers
+
+2-Can You assign different values yo a literal?
+yes it can be assign it 
+
+3-Whate are literal types?
+(\',\",\a,\n\t)
+
+4-Why do you need escape sequence literals?
+to arrangement the data that print in consol
+**************************************************************************
+6-
+#include <iostream>
+using namespace std;
+int main()
+{
+    string name = "Mohamed Ali", city = "Giza", country = "Egypt";
+
+    short int age = 21, month_salary = 5000, yearly_salary =month_salary*12;
+    unsigned char gender = 'M';//M for Male
+    bool marrid = true; 
+    cout << "**********************************************************************************************\n";
+    cout << "Name:" << name << endl << "Age:" << age << endl << "City:" << city << endl << "Country:" << country << endl << "Monthly Salary:" << month_salary << endl << "Yearly Salary:" << yearly_salary << endl;
+    cout << "Gander:" << gender << endl;
+    cout << "Marride:" << marrid << endl;
+    cout << "**********************************************************************************************";
+
+
+}
+**************************************************************************
+7-
+#include <iostream>
+using namespace std;
+int main()
+{
+   short int num1 = 10, num2 = 20, num3 = 4, result = num1 + num2 + num3;
+    cout << num1 << "+" << endl << num2 << "+" << endl << num3 << endl << "_________________________________\n" << result;
+
+
+}
+**************************************************************************
+8-
+#include <iostream>
+using namespace std;
+int main()
+{
+    short int age = 21;
+    cout << "After 5 years i will be " << age + 5 << " years old";
+
+
+}
+**************************************************************************
+9-
+#include <iostream>
+using namespace std;
+struct stIntegars {
+   unsigned short int age,
+        month_salary,
+        yearly_salary;
+};
+struct stStrings {
+    string name ,
+       city ,
+       country ;
+};
+struct stChars {
+    unsigned char gender ;
+    bool marrid ;
+};
+struct stFull_Card {
+    stIntegars integars;
+    stStrings  strings;
+    stChars    chars;
+};
+int main()
+{
+    stFull_Card Full_Card;
+    cout << "Enter your name:";
+    cin >> Full_Card.strings.name;
+    cout << "Enter your age:";
+    cin >> Full_Card.integars.age;
+    cout << "Enter your City:";
+    cin >> Full_Card.strings.city;
+    cout << "Enter your Countery:";
+    cin >> Full_Card.strings.country;
+    cout << "Enter yout monthly Salary:";
+    cin >> Full_Card.integars.month_salary;
+    cout << "Enter your Gender (M ,F):";
+    cin >> Full_Card.chars.gender;
+    cout << "Are you Marrid (0,1):";
+    cin >> Full_Card.chars.marrid;
+    Full_Card.integars.yearly_salary = Full_Card.integars.month_salary * 12;
+    cout << "**********************************************************************************************\n";
+    cout << "Name:"           << Full_Card.strings.name           << endl;
+    cout << "Age:"            << Full_Card.integars.age           << endl;
+    cout << "City:"           << Full_Card.strings.city           << endl;
+    cout << "Country:"        << Full_Card.strings.country        << endl;
+    cout << "Monthly Salary:" << Full_Card.integars.month_salary  << endl;
+    cout << "Yearly Salary:"  << Full_Card.integars.yearly_salary << endl;
+    cout << "Gander:"         << Full_Card.chars.gender           << endl;
+    cout << "Marride:"        << Full_Card.chars.marrid           << endl;
+    cout << "**********************************************************************************************";
+
+    return 0;
+}
+**************************************************************************
+10-
+#include <iostream>
+using namespace std;
+int main()
+{
+  short int num1 = 0, num2 = 0, num3 = 0, result = 0;
+    cout << "Enter the num 1:";
+    cin >> num1;
+    cout << "Enter the num 2:";
+    cin >> num2; 
+    cout << "Enter the num 3: ";
+    cin >> num3;
+    cout << num1 << "+" << endl << num2 << "+" << endl<< num3 << endl;
+    cout << "________________________________________________\n";
+    result = num1 + num2 + num3;
+    cout << result;
+
+
+}
+**************************************************************************
+11-
+#include <iostream>
+using namespace std;
+int main()
+{
+    short  int age = 0;
+    cout << "Enter your Age:";
+    cin >> age;
+    cout << "your age After 5 Years is be " << age + 5 << " years old\n";
+
+}
+**************************************************************************
+12-
+#include <iostream>
+using namespace std;
+int main(){
+	short int num1 = 0, num2 = 0;
+	cout << "Enter the number 1:";
+	cin >> num1;
+	cout << "Enter the number 2:";
+	cin >> num2;
+	cout << num1 << "+" << num2 <<"="<<num1+num2<< endl;
+	cout << num1 << "-" << num2 <<"="<<num1-num2<< endl;
+	cout << num1 << "*" << num2 <<"="<<num1*num2<< endl;
+	cout << num1 << "/" << num2 <<"="<<num1/num2<< endl;
+	cout << num1 << "%" << num2 <<"="<<num1%num2<< endl;
+
+}
+**************************************************************************
+13-
+#include <iostream>
+using namespace std;
+int main(){
+	short num1 = 0, num2 = 0;
+	cout << "Enter the number 1:";
+	cin >> num1;
+	cout << "Enter the number 2:";
+	cin >> num2;
+	cout << num1 << "="  << num2 << "is:" << (num1 == num2) << endl;
+	cout << num1 << "!=" << num2 << "is:" << (num1 != num2) << endl;
+	cout << num1 << ">"  << num2 << "is:" << (num1 > num2)  << endl;
+	cout << num1 << "<"  << num2 << "is:" << (num1 < num2)  << endl;
+	cout << num1 << ">=" << num2 << "is:" << (num1 >= num2) << endl;
+	cout << num1 << "<=" << num2 << "is:" << (num1 <= num2) << endl;
+
+}
+**************************************************************************
+14-
+#include <iostream>
+using namespace std;
+int main() {
+	cout << !(12 >= 12) << endl;
+	cout <<  (1  &&  1) << endl;
+	cout <<((7 == 7) && (7 > 5)) << endl;
+	cout << !(12 > 7) << endl;
+	cout << (1&&0) << endl;
+	cout << !(8<6)<< endl;
+	cout << !(8<6) << endl;
+	cout << (0 || 1) << endl;
+	cout << ((7 == 7) || (7 > 5)) << endl;
+	cout << !(8 == 8) << endl;
+	cout << (0 || 0) << endl;
+	cout << ((7 > 7) || (7 > 5)) << endl;
+	cout << !(12 <= 12) << endl;
+	cout << !(0) << endl;
+	cout << (!(7 == 7) && (7 > 5)) << endl;
+	cout << !(7 == 5) << endl;
+	cout << !(1 || 0) << endl;
+	cout << ((7 == 7) && !(7 < 5)) << endl;
+	cout << (( (5 > 6) && (7 == 7)) ||  (1 || 0)) << endl;
+	cout << (!((5 > 6) && (7 == 7)) ||  (1 || 0)) << endl;
+	cout << (!((5 > 6) && (7 == 7)) || !(1 || 0)) << endl;
+	cout << (!((5 > 6) && (7 == 7)) && !(1 || 0)) << endl;
+	cout << (!((5 > 6) && (7 == 7)) && !(1 || 0)) << endl;
+	cout << (((5 > 6) && (7 > 8) || (8 > 1) && (4 <= 3)) && 1) << endl;
+	cout << (((5 > 6) && !(7 > 8) && (8 > 1) && (4 <= 3)) || 1) << endl;
+
+	return 0;
+}
+**************************************************************************
+15-
+#include <iostream>
+using namespace std;
+enum em_Gender {F,M};
+enum em_Marrid {Single,Marrid};
+enum em_Color {Red,Blue,Green};
+int main()
+{
+    em_Gender Gender;
+    em_Marrid Marrid;
+    em_Color Color;
+    Gender = em_Gender::M;
+    Marrid = em_Marrid::Single;
+    Color  = em_Color::Red;
+    unsigned short age = 0, month_salary = 0, yearly_salary = 0;
+    string name = { 0 }, city = { 0 }, country = {0};
+    cout <<"Enter your name:";
+    cin >>name;
+    cout <<"Enter your age:";
+    cin >> age;
+    cout <<"Enter your City:";
+    cin >> city;
+    cout <<"Enter your Countery:";
+    cin >>country;
+    cout <<"Enter yout monthly Salary:";
+    cin >>month_salary;
+    yearly_salary =month_salary * 12;
+    cout << "**********************************************************************************************\n";
+    cout << "Name:" <<name << endl;
+    cout << "Age:" << age << endl;
+    cout << "City:" <<city << endl;
+    cout << "Country:" <<country << endl;
+    cout << "Monthly Salary:" << month_salary << endl;
+    cout << "Yearly Salary:" << yearly_salary << endl;
+    cout << "Gander:" <<Gender << endl;
+    cout << "Marride:" <<Marrid << endl;
+    cout << "Fivorit Color: " << Color<<endl;
+    cout << "**********************************************************************************************";
+
+    return 0;
+}
+**************************************************************************
+16-
+#include <iostream>
+using namespace std;
+enum em_Gender {Male,Femal};
+enum em_Marrid {Single,Marrid};
+enum em_Color  {Red,Blue,Green};
+struct st_Address {
+    string Street_Name;
+    short Buliding_Number;
+};
+struct st_ContactInfo {
+    string Phon;
+    string Email;
+    st_Address Address;
+};
+struct st_Person {
+    string First_Name;
+    string Last_Name;
+    st_ContactInfo Contact_Info;
+    em_Gender Gender;
+    em_Marrid Marrid;
+    em_Color Coloer;
+
+};
+int main()
+{
+    st_Person Person1;
+    Person1.First_Name = "Mohamed";
+    Person1.Last_Name =  "Ali";
+    Person1.Contact_Info.Address.Street_Name = "Fisal_Street";
+    Person1.Contact_Info.Address.Buliding_Number = 100;
+    Person1.Contact_Info.Email = "mohamedali9998@gmail.com";
+    Person1.Contact_Info.Phon  = "01222571482";
+    Person1.Gender = em_Gender::Male;
+    Person1.Marrid = em_Marrid::Single;
+    Person1.Coloer = em_Color::Red;
+
+    cout << "FullName:" << Person1.First_Name << Person1.Last_Name<<endl;
+    cout << "Street Name:" << Person1.Contact_Info.Address.Street_Name<<endl;
+    cout << "Buliding Number:" << Person1.Contact_Info.Address.Buliding_Number<<endl;
+    cout << "Email:" << Person1.Contact_Info.Email << endl;
+    cout << "Phon number:" << Person1.Contact_Info.Phon<<endl;
+    cout << "Gender:" << Person1.Gender<<endl;
+    cout << "Color:" << Person1.Coloer<<endl;
+    cout << "Marrid:" << Person1.Marrid<<endl;
+    return 0;
+}
+
+**************************************************************************
+17-
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string str1 = "43.22";
+    int    num_int    = stoi(str1);
+    float  num_float  = stof(str1);
+    double num_double = stod(str1);
+    cout << "int_num:" << num_int << endl << "float_num:" << num_float << endl << "double_num:" << num_double << endl;
+    return 0;
+}
+**************************************************************************
+18-
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string str1;
+    int num = 10;
+    str1 = to_string(num);
+    cout << str1;
+    return 0;
+}
+**************************************************************************
+19-
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string str1;
+    float num = 10.123;
+    str1 = to_string(num);
+    cout << str1;
+    return 0;
+}
+**************************************************************************
+20-
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string str1;
+    double num = 10.123;
+    str1 = to_string(num);
+    cout << str1;
+    return 0;
+}
+**************************************************************************
+21-
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string str1;
+    int num_int;
+    float num = 10.123;
+    str1 = to_string(num);
+    num_int = (int)num;
+    cout << str1<<endl<<num_int;
+    return 0;
+}
+**************************************************************************
+22-
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string name = { 0 }, str1 = { 0 }, str2 = {0};
+    cout << "Enter your name:";
+    getline(cin, name);
+    cout << "Enter string 1:";
+    cin >> str1;
+    cout << "Enter string 2:";
+    cin >> str2;
+    cout << "*****************************************************************\n";
+    cout << "the Length of name is:" << name.length()<<endl;
+    cout << "Charcters of 0,2,4,6:" << "(" << name[0] << "," << name[2] << "," << name[4] << "," << name[6] << ")" << endl;
+    string str3 = str1 + str2;
+    cout << "Concatunation string 1+string 2:" << str3<<endl;
+    int Sum = stoi(str1) + stoi(str2);
+    cout << "Sum integars numbers:" << Sum<<endl;
+    return 0;
+}
+**************************************************************************
+23-
+
+#include <iostream>
+void Info_Card() {
+	std::cout << "*****************************\n";
+	std::cout << "Name:Mohamed Ali\n";
+	std::cout << "Age:21\n";
+	std::cout << "City:Giza\n";
+	std::cout << "Country:Eygpt\n";
+	std::cout << "*****************************\n";
+}
+void Print_Stars() {
+	std::cout << "\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+}
+void Ilove_Programing() {
+	std::cout << "\n";
+	std::cout << "I Love Programing\n\n";
+	std::cout << "I Want TBe Sinoir In thes Feald \n\n";
+	std::cout << "I Hope To Complete Thes Curse \n\n";
+}
+void Print_H() {
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*********\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+
+}
+int main()
+{
+	Info_Card();
+	Print_Stars();
+	Print_H();
+	Ilove_Programing();
+
+}
+**************************************************************************
+24-
+
+#include <iostream>
+void Info_Card() {
+	std::cout << "*****************************\n";
+	std::cout << "Name:Mohamed Ali\n";
+	std::cout << "Age:21\n";
+	std::cout << "City:Giza\n";
+	std::cout << "Country:Eygpt\n";
+	std::cout << "*****************************\n";
+}
+void Print_Stars() {
+	std::cout << "\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+	std::cout << "*****************************\n";
+}
+void Ilove_Programing() {
+	std::cout << "\n";
+	std::cout << "I Love Programing\n\n";
+	std::cout << "I Want TBe Sinoir In thes Feald \n\n";
+	std::cout << "I Hope To Complete Thes Curse \n\n";
+}
+void Print_H() {
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*********\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+	std::cout << "*       *\n";
+
+}
+int main()
+{
+	Info_Card();
+	Print_Stars();
+	Print_H();
+	Ilove_Programing();
+
+}
+**************************************************************************
+25-
+
+#include <iostream>
+using namespace std;
+
+void Sum_Por() {
+	short num1=0, num2 = 0;
+	cout << "Enter number 1:";
+	cin >> num1;
+	cout << "Enter number 2:";
+	cin >> num2;
+	cout << "********************************************\n";
+	cout << num1 + num2<<endl;
+
+}
+int Sum_Fun() {
+	short num1 = 0, num2 = 0;
+	cout << "Enter number 1:";
+	cin >> num1;
+	cout << "Enter number 2:";
+	cin >> num2;
+	cout << "********************************************\n";
+	return num1 + num2;
+
+}
+int main()
+{
+	Sum_Por();
+	int result = Sum_Fun();
+	cout << result;
+
+
+}
+**************************************************************************
+26-
+#include<cmath>
+#include <iostream>
+using namespace std;
+int z = 900;
+void fun() {
+	int z = 10;
+	cout << "Local Var Of Function IS :" << z << endl;
+
+}
+int main() {
+	int z = 200;
+	cout << "Local Var Od Main Function Is :" << z << endl;
+	fun();
+	cout << "Global Var Is:" << ::z << endl;
+	::z = 1000;
+	cout << "Global Var Is:" << ::z +10<< endl;
+
+
+}
+**************************************************************************
+27-
+#include<cmath>
+#include <iostream>
+using namespace std;
+void Swap(short &num1, short &num2) {
+	short result = 0;
+	result = num1;
+	num1 = num2;
+	num2 = result;
+}
+void  Print() {
+	short num1 = 0, num2 = 0;
+	cout << "Enter the number 1:";
+	cin >> num1;
+	cout << "Enter the number 2:";
+	cin >> num2;
+	Swap( num1, num2);
+	cout << "number 1:" << num1 << endl;
+	cout << "number 2:" << num2<<endl;
+}
+int main() {
+	Print();
+
+}
+**************************************************************************
+28-
+#include<cmath>
+#include <iostream>
+#include <string> 
+using namespace std;
+struct st_Info {
+	string Name   ;
+	string Phone  ;
+	short  Age    ;
+};
+void Read_Info(st_Info& Info) {
+	cout << "Enter your Name:";
+	getline(cin, Info.Name);
+	cout << "Enter your Age:";
+	cin >> Info.Age;
+	cout << "Enter your Phon:";
+	cin.ignore(1, '\n');
+	cin >> Info.Phone;
+}
+void Print_Info(st_Info Info) {
+	cout << "**************************************************\n";
+	cout << "Name:"  << Info.Name    << endl;
+	cout << "Age:"   << Info.Age     << endl;
+	cout << "Phone:" << Info.Phone   << endl;
+	cout << "**************************************************\n";
+}
+int main() {
+	
+	st_Info Person1;
+	Read_Info(Person1);
+	Print_Info(Person1);
+}
+
+**************************************************************************
+29-
+
+#include <iostream>
+#include <string>
+using namespace std;
+struct stIntegars {
+    unsigned short int age,
+        month_salary,
+        yearly_salary;
+};
+struct stStrings {
+    string name,
+        city,
+        country;
+};
+struct stChars {
+    unsigned char gender;
+    bool marrid;
+};
+struct stFull_Card {
+    stIntegars integars;
+    stStrings  strings;
+    stChars    chars;
+};
+void Read_Card(stFull_Card &Full_Card) {
+    cout << "Enter your name:";
+    getline(cin , Full_Card.strings.name);
+    cout << "Enter your age:";
+    cin >> Full_Card.integars.age;
+    cout << "Enter your City:";
+    cin >> Full_Card.strings.city;
+    cout << "Enter your Countery:";
+    cin >> Full_Card.strings.country;
+    cout << "Enter yout monthly Salary:";
+    cin >> Full_Card.integars.month_salary;
+    cout << "Enter your Gender (M ,F):";
+    cin >> Full_Card.chars.gender;
+    cout << "Are you Marrid (0,1):";
+    cin >> Full_Card.chars.marrid;
+    Full_Card.integars.yearly_salary = Full_Card.integars.month_salary * 12;
+}
+void Print_Card(stFull_Card Full_Card) {
+    cout << "**********************************************************************************************\n";
+    cout << "Name:" << Full_Card.strings.name << endl;
+    cout << "Age:" << Full_Card.integars.age << endl;
+    cout << "City:" << Full_Card.strings.city << endl;
+    cout << "Country:" << Full_Card.strings.country << endl;
+    cout << "Monthly Salary:" << Full_Card.integars.month_salary << endl;
+    cout << "Yearly Salary:" << Full_Card.integars.yearly_salary << endl;
+    cout << "Gander:" << Full_Card.chars.gender << endl;
+    cout << "Marride:" << Full_Card.chars.marrid << endl;
+    cout << "**********************************************************************************************";
+}
+int main()
+{   
+    stFull_Card Full_Card;
+    Read_Card(Full_Card);
+    Print_Card(Full_Card);
+  
+  
+    return 0;
+}
+**************************************************************************
+30-
+
+#include <iostream>
+#include <string>
+using namespace std;
+ struct st_Grade{
+     short Grade[3];
+ };
+ void Read_Grade(st_Grade& Grade) {
+     cout << "Enter Grade 1:";
+     cin >> Grade.Grade[0];
+     cout << "Enter Grade 2:";
+     cin >> Grade.Grade[1];
+     cout << "Enter Grade 3:";
+     cin >> Grade.Grade[2];
+ }
+ void Cal_AVG(st_Grade Grade) {
+     float AVG =  float (Grade.Grade[0] + Grade.Grade[1] + Grade.Grade[2]) / 3;
+     cout << "********************************************************************\n";
+     cout << "The AVG =" << AVG;
+ }
+int main()
+{   
+    st_Grade    Grade;
+    Read_Grade (Grade);
+    Cal_AVG    (Grade);
+
+    return 0;
+}
+**************************************************************************
+31-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+void Read_Grade_Data(short Grade[3]) {
+    cout << "Enter the Grade 1:";
+    cin >> Grade[0];
+    cout << "Enter the Grade 2:";
+    cin >> Grade[1];
+    cout << "Enter the Grade 3:";
+    cin >> Grade[2];
+}
+float Avg_Data(short Grade[3]) {
+    return  float(Grade[0] + Grade[1] + Grade[2]) / 3;
+}
+int main()
+{ 
+    short Grade[3];
+    Read_Grade_Data(Grade);
+    cout << "Avareg of Grades:" << Avg_Data(Grade);
+    return 0;
+}
+
+*************************************************************************32-
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+struct st_Info {
+    string FristName;
+    string LastName;
+    string Phone;
+    short Age;
+};
+void Read_Data(st_Info &Info) {
+    cout << "Enter your First Name:";
+    cin >> Info.FristName;
+    cout << "Enter your Last Name:";
+    cin >> Info.LastName;
+    cout << "Enter your Age:";
+    cin >> Info.Age;
+    cout << "Enter your Phone:";
+    cin.ignore(1, '\n');
+    cin >> Info.Phone;
+    cout << "***************************************************\n";
+}
+void Print_Data(st_Info Info) {
+    cout << "***************************************************\n";
+    cout << "Frist Name:" << Info.FristName << endl;
+    cout << "Last Name:"  << Info.LastName << endl;
+    cout << "Age Name:"   << Info.Age << endl;
+    cout << "Phone Name:" << Info.Phone << endl;
+    cout << "***************************************************\n";
+}
+
+void Read_All_Data(st_Info Info[100],int &Length) 
+{
+    cout << "Enter the Number of Student Do your Need To Reed:";
+    cin >> Length;
+    cout << "*******************************************\n";
+    for (int i = 0;i <= Length-1;i++) {
+
+        Read_Data(Info[i]);
+    }
+}
+
+void Print_All_Data(st_Info Info[100],int Length) {
+    for (int i = 0; i <= Length - 1;i++) {
+        Print_Data(Info[i]);
+    }
+
+}
+
+void All_Fun() {
+    int Length;
+    st_Info Info[2];
+    Read_All_Data(Info,Length);
+    Print_All_Data(Info,Length);
+
+}
+
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+33-
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_ScreenColor { Red = 1, Blue, Green, Yellow };
+void Color_Fun() {
+    int input=0;
+    en_ScreenColor Color;
+    cout << "1)Red\n";
+    cout << "2)Blue\n";
+    cout << "3)Green\n";
+    cout << "4)Yellow\n";
+    cout << "Enter Your Chose:";
+    cin >> input;
+    Color = (en_ScreenColor)input;
+    if (Color == en_ScreenColor::Red) {
+        system("color 4F");
+    }
+    else if (Color == en_ScreenColor::Blue) {
+        system("color 1F");
+    }
+    else if (Color == en_ScreenColor::Green) {
+        system("color 2F");
+    }
+    else if (Color == en_ScreenColor::Yellow) {
+        system("color 6F");
+    }
+    else {
+        cout << "Wrong number...Try Again";
+        Color_Fun();
+    }
+}
+int main()
+{
+    Color_Fun();
+    return 0;
+}
+
+*************************************************************************
+34-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_Day {Sun=1,Mon=2,Tue=3,Wed=4,Thr=5,Fri=6,Sat=7};
+void Show_Data(){
+    cout << "********************DAY WEEK ********************************\n";
+    cout << "1-Sunday\n";
+    cout << "2-Monday\n";
+    cout << "3-Tusday\n";
+    cout << "4-Wensday\n";
+    cout << "5-Thrusday\n";
+    cout << "6-Frieday\n";
+    cout << "7-Saterday\n";
+    cout << "*************************************************\n";
+    cout << "Pleas Enter The number:";
+}
+en_Day Read_Data() {
+    en_Day Day;
+    int num;
+    cin >> num;
+    Day = (en_Day)num;
+    return Day;
+}
+string Get_WeekDay(en_Day Day) {
+    switch (Day) {
+    case 1:
+        return "Sunday";
+        break;
+    case 2:
+        return "Monday";
+        break;
+    case 3:
+        return "Tuseday";
+        break;
+    case 4:
+        return "Wensday";
+        break;
+    case 5:
+        return "Thrusday";
+        break;
+    case 6:
+        return "Frieday";
+        break;
+    case 7:
+        return "Satday";
+        break;
+    default:
+        return "Wrong Number";
+    }
+
+
+}
+int main()
+{
+    Show_Data();
+    cout << "Day is:" << Get_WeekDay(Read_Data());
+    return 0;
+}
+*************************************************************************
+35-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+struct st_Info {
+    string FristName;
+    string LastName;
+    string Phone;
+    short Age;
+};
+void Read_Data(st_Info &Info) {
+    cout << "Enter your First Name:";
+    cin >> Info.FristName;
+    cout << "Enter your Last Name:";
+    cin >> Info.LastName;
+    cout << "Enter your Age:";
+    cin >> Info.Age;
+    cout << "Enter your Phone:";
+    cin.ignore(1, '\n');
+    cin >> Info.Phone;
+    cout << "***************************************************\n";
+}
+void Print_Data(st_Info Info) {
+    cout << "***************************************************\n";
+    cout << "Frist Name:" << Info.FristName << endl;
+    cout << "Last Name:"  << Info.LastName << endl;
+    cout << "Age Name:"   << Info.Age << endl;
+    cout << "Phone Name:" << Info.Phone << endl;
+    cout << "***************************************************\n";
+}
+
+void Read_All_Data(st_Info Info[100],int &Length) 
+{
+    cout << "Enter the Number of Student Do your Need To Reed:";
+    cin >> Length;
+    cout << "*******************************************\n";
+    for (int i = 0;i <= Length-1;i++) {
+
+        Read_Data(Info[i]);
+    }
+}
+
+void Print_All_Data(st_Info Info[100],int Length) {
+    for (int i = 0; i <= Length - 1;i++) {
+        cout << "\n\n";
+        cout << "Person Info " << i+1<<endl;
+        Print_Data(Info[i]);
+    }
+
+}
+
+void All_Fun() {
+    int Length;
+    st_Info Info[2];
+    Read_All_Data(Info,Length);
+    Print_All_Data(Info,Length);
+
+}
+
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+36-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void fun() {
+    for (char i = 'A';i <= 'Z';i++) {
+        for (char j = 'A'; j <= 'Z';j++) {
+            cout << i << j<<"\n";
+        }
+        cout << "-----------------------\n";
+    }
+
+
+ }
+int main()
+{ 
+    fun();
+    return 0;
+}
+*************************************************************************
+37-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void fun() {
+    for (int i = 10;i >=0;i--) {
+        for (int j = 0;j<=i;j++) {
+            cout <<"*";
+        }
+        cout << "\n";
+    }
+
+
+ }
+int main()
+{ 
+    fun();
+    return 0;
+}
+*************************************************************************
+38-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void fun() {
+    for (int i = 0;i <=10;i++) {
+        for (int j = 0;j<=i;j++) {
+            cout <<"*";
+        }
+        cout << "\n";
+    }
+
+
+ }
+int main()
+{ 
+    fun();
+    return 0;
+}
+*************************************************************************
+39-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void fun() {
+    for (int i = 10;i >0;i--) {
+        for (int j = 1;j<=i;j++) {
+            cout <<j;
+        }
+        cout << "\n";
+    }
+
+
+ }
+int main()
+{ 
+    fun();
+    return 0;
+}
+*************************************************************************
+40-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void fun() {
+    for (int i = 0;i <=10;i++) {
+        for (int j = 1;j<=i;j++) {
+            cout <<j;
+        }
+        cout << "\n";
+    }
+
+
+ }
+int main()
+{ 
+    fun();
+    return 0;
+}
+*************************************************************************
+41-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void fun() {
+    for (char i = 'A';i <= 'Z';i++) {
+        for (char j = 'A';j <= i;j++) {
+            cout <<j;
+        }
+        cout << "\n";
+    }
+
+
+ }
+int main()
+{ 
+    fun();
+    return 0;
+}
+*************************************************************************
+42-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void fun() {
+    for (int i = 0;i <= 10;i++) {
+        for (int j = i;j <= 10;j++) {
+            cout << j<<" ";
+        }
+        cout << "\n";
+    }
+     
+}
+int main()
+{
+    fun();
+    return 0;
+}
+
+*************************************************************************
+43-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;  
+int Number(int num){
+    cout << "Enter the number:";
+    cin >> num;
+    while (num < 0) {
+        cout << "Pleas Enter the Positive Number:";
+        cin >> num;
+    }
+    return num;
+
+
+}
+int main()
+{
+    cout<<" Your Number :"<<Number(-10);
+    return 0;
+}
+*************************************************************************
+44-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;  
+int Range(int From ,int To){
+    int num;
+    cout << "Enter the number Between " << From << " To " << To<<" : ";
+    cin >> num;
+    while (num < From || num > To) {
+        cout << "Plaes Enter the number Btween " << From <<  " To " << To<<" : ";
+        cin >> num;
+    }
+    return num;
+
+}
+int main()
+{
+    cout<<" Your Number :"<<Range(10,20);
+    return 0;
+}
+*************************************************************************
+45-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_num;
+en_num Read_Data() {
+    int num1 = 0;
+    en_num Num;
+    cout << "Enter the number:";
+    cin >> num1;
+    Num = (en_num)num1;
+    return Num;
+}
+void Print(en_num Num) {
+    int i = 1;
+    while (i <= Num) {
+        cout << i<<endl;
+        i++;
+    }
+}
+void All_Fun() {
+    Print(Read_Data());
+}
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+46-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_num;
+en_num Read_Data() {
+    int num1 = 0;
+    en_num Num;
+    cout << "Enter the number:";
+    cin >> num1;
+    Num = (en_num)num1;
+    return Num;
+}
+void Print(en_num Num) {
+    int i = Num;
+    while(i>=0){
+        cout << i << endl;
+        i--;
+    
+    }
+}
+void All_Fun() {
+    Print(Read_Data());
+}
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+47-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_num ;
+en_num Read_Data() {
+    int num;
+    en_num Num;
+    cout << "Enter The Number:";
+    cin >> num;
+    Num = (en_num)num;
+    return Num;
+}
+void Print_Data(en_num Num){
+    int Sum = 0;
+    int i = 0;
+    while (i <= Num) {
+        if (i % 2 != 0) {
+            cout << i << endl;
+            Sum += i;
+        }
+        i++;
+    }
+    
+    cout << "***********************\n";
+    cout << "tne Sum Odd Numbers From " << 0 << " to " << Num<<"="<<Sum;
+}
+void All_Fun() {
+    Print_Data(Read_Data());
+}
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+48-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_num ;
+en_num Read_Data() {
+    int num;
+    en_num Num;
+    cout << "Enter The Number:";
+    cin >> num;
+    Num = (en_num)num;
+    return Num;
+}
+void Print_Data(en_num Num){
+    int Sum = 0;
+    int i = 0;
+    while (i <= Num) {
+        if (i %2 == 0) {
+            cout << i << endl;
+            Sum += i;
+        }
+        i++;
+    }
+    
+    cout << "***********************\n";
+    cout << "tne Sum Odd Numbers From " << 0 << " to " << Num<<"="<<Sum;
+}
+void All_Fun() {
+    Print_Data(Read_Data());
+}
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+49-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum en_num;
+en_num Read_Data() {
+    int num;
+    en_num Num;
+    cout << "Enter The Number:";
+    cin >> num;
+    Num = (en_num)num;
+    return Num;
+}
+void Print_Data(en_num Num) {
+    int num = 0;
+    while (Num <0) {
+        cout << "Worn Number.... Try Again:";
+        cin >> num;
+        Num = (en_num)num;
+    }
+        int fact = 1;
+        int i = 1;
+        while (i <= Num) {
+            fact *= i;
+            i++;
+        }
+        cout << "Factorail:" << fact;
+  
+   
+}
+void All_Fun() {
+    Print_Data(Read_Data());
+}
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+50-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+void Read_Data(int& Power, int& Num) {
+    cout << "Enter The Number:";
+    cin >> Num;
+    cout << "Enter the Power:";
+    cin >> Power;
+}
+void Print_Data(void) {
+    int Num, Power;
+    Read_Data(Power, Num);
+    int result = 1;
+    int i = 0;
+    while (i < Power) {
+        result *= Num;
+        i++;
+    }
+    cout << "Result=" << result;
+}
+void All_Fun() {
+    Print_Data();
+}
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************51-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+void Print_Data(void) {
+    int i = 65;
+    while (i <= 90) {
+        cout << (char)i << endl;
+        i++;
+    }
+    cout << "************************************\n";
+    char j = 'a';
+    while (j <= 'z') {
+        cout << j << endl;
+        j++;
+    }
+}
+void All_Fun() {
+    Print_Data();
+}
+int main()
+{
+    All_Fun();
+    return 0;
+}
+*************************************************************************
+52-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int Reading_While(int From, int To) {
+    int num = 0;
+    cout << "Enter the number btween " << From << " and " << To << ":";
+    cin >> num;
+    while (num<From || num>To) {
+        cout << "Wrong Number..try Again:";
+        cin >> num;
+    }
+    return num;
+}
+int Reading_DoWhile(int From, int To) {
+    int num = 0;
+    do {
+        cout << "Enter the number btween " << From << " and " << To << ":";
+        cin >> num;
+    } while (num<From || num>To);
+    return num;
+}
+
+int main()
+{
+    cout << "Your Number is: " << Reading_While(10, 30);
+    cout << "Your Number is: " << Reading_DoWhile(10, 30);
+    
+    return 0;
+}
+*************************************************************************
+53-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+void Read_Data(int &num) {
+    cout << "Enter the number:";
+    cin >> num;
+}
+void Serch_Data(int num, int Arr[10]) {
+    int  count = 0;
+    for (int i = 0; i < 10; i++) {
+        if (Arr[i] == num) {
+            cout <<num<< " is found in possation "<<i+1;
+            break;
+        }
+        else {
+            count++;
+        }
+    
+    }
+    if (count == 10) {
+        cout << "Your Number is Not Found";
+    }
+}
+
+int main()
+{
+    int num = 0;
+    int Arr[10] = { 10,20,30,40,50,60,70,80,90,100 };
+    Read_Data(num);
+    Serch_Data(num, Arr);
+    return 0;
+}
+
+*************************************************************************
+54-
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+ 
+void Read_Data(int Arr[5]) {
+    for (int i = 0; i < 5; i++) {
+        cout << "Enter the number:";
+        cin >> Arr[i];
+    }
+}
+void Sum_Data( int Arr[5]) {
+    int sum = 0;
+    for (int i = 0; i < 5;i++) {
+        if (Arr[i]>50) {
+            cout << "The Number Grater Than 50 we con not Sum With Athoer number\n";
+            continue;
+        }
+        sum += Arr[i];
+    }
+    cout << "---------------------\n" << sum;
+}
+
+int main()
+{
+    int Arr[5];
+    Read_Data(Arr);
+    Sum_Data(Arr);
+    return 0;
+}

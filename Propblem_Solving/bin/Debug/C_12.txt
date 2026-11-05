@@ -1,0 +1,1570 @@
+1- Big O(n) Compare Between Two Algorithms
+
+#include <iostream>
+using namespace std;
+
+// هنا حتي بعد ما يلاقي الرقم هيفضل جواه اللوب لحد ما يخلصها ده غير ان فيه خطوتين زياده هنا 
+int FindNumberAlgorithm1(int arr[10], int Number) 
+{
+    int n = 10;
+    int pos = -1;
+    for (int i = 0; i <n;i++) 
+    {
+        if (arr[i] == Number) 
+        {
+            pos = i;
+
+        }
+    }
+    return pos;
+
+}
+
+// هنا ده احسن لانوا هيقف لما يلاقي الرقم 
+int FindNumberAlgorithm2(int arr[10], int Number) 
+{
+    int n = 10;
+    for (int i = 0; i < n;i++) 
+    {
+        if (arr[i] == Number)
+        {
+            return i;
+        }
+
+    }
+
+    return -1;
+}
+
+int main()
+{
+    int arr[10] = { 10,20,30,40,50,60,70,80,90,100 };
+
+    cout << FindNumberAlgorithm1(arr, 30) << endl;
+    cout << FindNumberAlgorithm2(arr, 30) << endl;
+
+}
+
+________________________________________________________________________________
+
+2- Stack With STL Lib 
+
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+
+int main()
+{
+	// Time Complexity is Big O (n)
+	stack <int> sNumber;
+	sNumber.push(10);
+	sNumber.push(20);
+	sNumber.push(30);
+	sNumber.push(40);
+	sNumber.push(50);
+	cout << "\nNumber Of Elements:" << sNumber.size() << endl;
+
+	while (!sNumber.empty()) 
+	{
+		//To Print The Top Emlenet in Each Cycle
+		cout << sNumber.top() << endl;
+
+		sNumber.pop();
+	}
+
+
+
+
+
+	return 0;
+
+}
+________________________________________________________________________________
+
+3- Stack With STL Lib (Swap)
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+
+int main()
+{
+	// Time Complexity is Big O (n)
+	stack <int> MyStack1;
+	MyStack1.push(10);
+	MyStack1.push(20);
+	MyStack1.push(30);
+	MyStack1.push(40);
+	MyStack1.push(50);
+
+	stack <int> MyStack2;
+	MyStack2.push(60);
+	MyStack2.push(70);
+	MyStack2.push(80);
+	MyStack2.push(90);
+	MyStack2.push(100);
+
+	MyStack1.swap(MyStack2);
+
+	cout << "Stack1:";
+
+	while (!MyStack1.empty()) 
+	{
+		cout << MyStack1.top() << " ";
+
+		MyStack1.pop();
+	}
+
+
+
+	cout << "\nStack2:";
+
+	while (!MyStack2.empty())
+	{
+		cout << MyStack2.top() << " ";
+
+		MyStack2.pop();
+
+	}
+
+	
+	return 0;
+
+}
+
+________________________________________________________________________________
+
+4-Queue 
+ 
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+int main()
+{
+	queue <int> MYQueue;
+
+	MYQueue.push(10);
+	MYQueue.push(20);
+	MYQueue.push(30);
+	MYQueue.push(40);
+	MYQueue.push(50);
+
+	cout << "Count:" << MYQueue.size()<<endl;//Number Of Elements
+	cout << "Front:" << MYQueue.front()<<endl;//Frist Elemnet
+	cout << "Count:" << MYQueue.back()<<endl;//Last Elemant
+
+	cout << "MyQueue:\n\n";
+
+	while (!MYQueue.empty()) 
+	{
+		cout << MYQueue.front()<<endl;
+
+		MYQueue.pop();
+	}
+	
+	
+
+
+	return 0;
+
+}
+________________________________________________________________________________
+
+5-Queue(Swap)
+
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+int main()
+{
+	queue <int> MYQueue;
+	queue <int> MYQueue1;
+
+	MYQueue.push(10);
+	MYQueue.push(20);
+	MYQueue.push(30);
+	MYQueue.push(40);
+	MYQueue.push(50);
+
+	MYQueue1.push(60);
+	MYQueue1.push(70);
+	MYQueue1.push(80);
+	MYQueue1.push(90);
+	MYQueue1.push(100);
+	cout << "MyQueue1:\n";
+
+	cout << "Count:" << MYQueue.size()<<endl;//Number Of Elements
+	cout << "Front:" << MYQueue.front()<<endl;//Frist Elemnet
+	cout << "Count:" << MYQueue.back()<<endl;//Last Elemant
+
+	cout << "\nMyQueue2:\n";
+
+	cout << "Count:" << MYQueue1.size() << endl;//Number Of Elements
+	cout << "Front:" << MYQueue1.front() << endl;//Frist Elemnet
+	cout << "Count:" << MYQueue1.back() << endl;//Last Elemant
+
+	MYQueue.swap(MYQueue1);
+
+	cout << "\nِAfter Swap:\n";
+
+	cout << "\nMyQueue1:";
+
+	while (!MYQueue.empty()) 
+	{
+		cout << MYQueue.front()<<" ";
+
+		MYQueue.pop();
+	}
+	
+	cout << "\nMyQueue2:";
+
+	while (!MYQueue1.empty())
+	{
+		cout << MYQueue1.front() << " ";
+
+		MYQueue1.pop();
+	}
+
+
+
+	
+
+
+	return 0;
+
+}
+
+________________________________________________________________________________
+
+6-Linked List 
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node
+{
+public:
+
+	int Value;
+	Node* Next;
+
+};
+
+int main()
+{
+	
+
+	Node* Node1 = NULL;//كأنه بيصفر المؤشر  ف بيشاور علي الصفر 
+	Node* Node2 = NULL;
+	Node* Node3 = NULL;
+	// لي هنا فيه اقواس عشان هنا لما بيحجز المكان في الهيب بيروج علي المكان بعد ما حجزوا ويشوف هل الماكان ده فيه قيم قديمة مخزنة فيه قبل كده ولو فيه يمسحها ممكن عادي تستغني عن الاقواس هنا عادي 
+	Node1 = new Node();
+	Node2 = new Node();
+	Node3 = new Node();
+
+	Node1->Value = 1;
+	Node2->Value = 2;
+	Node3->Value = 3;
+
+	Node1->Next = Node2;
+	Node2->Next = Node3;
+	Node3->Next = NULL;
+
+	Node* Head = Node1;
+
+	while (Head != NULL) 
+	{
+		cout << Head->Value<<endl;
+		Head = Head->Next;
+	}
+
+	return 0;
+
+}
+
+________________________________________________________________________________
+
+7,8,9,10- LinkedList(Insert At Beginning ,Find Node, Insert After , Insert At End)
+ 
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node
+{
+public:
+
+	int Value;
+	Node* Next;
+
+};
+
+//  هنا انتا احتجت للريفرانس عشان انتا هنا في حاله جواه بتغير في المؤشر نفسه الي هي  Head = New_Node 
+
+void InsertAtBiginning(Node* &Head, int Value) 
+{
+	Node* New_Node = new Node();
+
+	New_Node->Value = Value;
+	New_Node->Next = Head;
+
+	Head = New_Node;// خلي بالك هنا بردوا انتا هنا غيرت المؤشر نفسوا بمؤشر تاني ف استخدمت ال ريفرانس 
+
+
+}
+
+Node *Find(Node *Head,int Value) 
+{
+	while (Head != NULL) 
+	{
+		if (Head->Value == Value) 
+		{
+			return Head;
+		}
+		Head = Head->Next;
+
+	}
+	return NULL;
+}
+
+
+// هنا انتا لعبت في المكان الي المؤشر بيشاور عليها عشان كده انتا مستعملتش الريفرانس 
+
+void InsertAfter(Node* Prev_Node, int Value)
+{
+	Node* New_Node = new Node();
+
+	New_Node->Value = Value;
+
+	New_Node->Next = Prev_Node->Next;
+
+	Prev_Node->Next = New_Node;
+}
+
+//  هنا انتا احتجت للريفرانس عشان انتا هنا في حاله جواه بتغير في المؤشر نفسه الي هي  Head = New_Node 
+
+void InsertAtEnd( Node *&Head, int Value) 
+{
+	Node* New_Node = new Node();
+
+	New_Node->Value = Value;
+
+	New_Node->Next = NULL;
+
+	if (Head == NULL) 
+	{
+		Head = New_Node;
+		return;
+	}
+
+	Node* LastNode = Head;
+	while (LastNode->Next != NULL) 
+	{
+		LastNode = LastNode->Next;
+	}
+
+	LastNode->Next = New_Node;
+	return;
+
+}
+
+void Print(Node* Head) 
+{
+	while (Head != NULL) 
+	{
+		cout << Head->Value<<" ";
+		Head = Head->Next;
+	}
+}
+
+
+int main()
+{
+	Node* Head = NULL;
+
+	InsertAtBiginning(Head, 1);
+	InsertAtBiginning(Head, 2);
+	InsertAtBiginning(Head, 3);
+	InsertAtBiginning(Head, 4);
+	InsertAtBiginning(Head, 5);
+
+	Print(Head);
+
+	InsertAtEnd(Head, 400);
+
+	Print(Head);
+
+	delete Head;
+
+	system("pause>0");
+	return 0;
+
+}
+
+________________________________________________________________________________
+
+11- Delete Node
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node
+{
+public:
+
+	int Value;
+	Node* Next;
+
+};
+
+//  هنا انتا احتجت للريفرانس عشان انتا هنا في حاله جواه بتغير في المؤشر نفسه الي هي  Head = New_Node 
+
+void InsertAtBiginning(Node* &Head, int Value) 
+{
+	Node* New_Node = new Node();
+
+	New_Node->Value = Value;
+	New_Node->Next = Head;
+
+	Head = New_Node;// خلي بالك هنا بردوا انتا هنا غيرت المؤشر نفسوا بمؤشر تاني ف استخدمت ال ريفرانس 
+
+
+}
+
+
+void DeleteNode(Node* &Head, int Value) 
+{
+	Node* CurreuntNode = Head, * Prev = Head;
+	 
+	if (Head == NULL) return;
+
+	if (CurreuntNode->Value == Value) 
+	{
+		Head = CurreuntNode->Next;
+		delete CurreuntNode;
+		return;
+	}
+
+	while (CurreuntNode != NULL&&CurreuntNode->Value != Value) 
+	{
+		Prev = CurreuntNode;
+		CurreuntNode = CurreuntNode->Next;
+	}
+
+	if (CurreuntNode == NULL) return;
+
+	Prev->Next = CurreuntNode->Next;
+
+	delete CurreuntNode;
+
+
+}
+
+void Print(Node* Head) 
+{
+	while (Head != NULL) 
+	{
+		cout << Head->Value<<" ";
+		Head = Head->Next;
+	}
+}
+
+
+int main()
+{
+	Node* Head = NULL;
+
+	InsertAtBiginning(Head, 1);
+	InsertAtBiginning(Head, 2);
+	InsertAtBiginning(Head, 3);
+	InsertAtBiginning(Head, 4);
+	InsertAtBiginning(Head, 5);
+
+	Print(Head);
+
+
+	DeleteNode(Head, 4);
+
+	Print(Head);
+
+	delete Head;
+
+	system("pause>0");
+	return 0;
+
+}
+________________________________________________________________________________
+
+12,13- (Delete First Node,Delete Last Node )
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+class Node
+{
+public:
+
+	int Value;
+	Node* Next;
+
+};
+
+//  هنا انتا احتجت للريفرانس عشان انتا هنا في حاله جواه بتغير في المؤشر نفسه الي هي  Head = New_Node 
+
+void InsertAtBiginning(Node*& Head, int Value)
+{
+	Node* New_Node = new Node();
+
+	New_Node->Value = Value;
+	New_Node->Next = Head;
+
+	Head = New_Node;// خلي بالك هنا بردوا انتا هنا غيرت المؤشر نفسوا بمؤشر تاني ف استخدمت ال ريفرانس 
+
+
+}
+
+void DeleteNode(Node* &Head, int Value)
+{
+	Node* CurreuntNode = Head, * Prev = Head;
+
+	if (Head == NULL) return;
+
+	if (CurreuntNode->Value == Value)
+	{
+		Head = CurreuntNode->Next;
+		delete CurreuntNode;
+		return;
+	}
+
+	while (CurreuntNode != NULL && CurreuntNode->Value != Value)
+	{
+		Prev = CurreuntNode;
+		CurreuntNode = CurreuntNode->Next;
+	}
+
+	if (CurreuntNode == NULL) return;
+
+	Prev->Next = CurreuntNode->Next;
+
+	delete CurreuntNode;
+
+
+}
+
+void DeleteFirstNode(Node *&Head) 
+{
+	Node* FirstNode = Head;
+
+	if (Head == NULL) return;
+
+	Head = FirstNode->Next;
+
+	delete FirstNode;
+	return;
+	
+
+
+}
+
+void DeleteLastNode(Node* Head) 
+{
+	Node*Currunt= Head;
+
+	Node* Prev = Head;
+
+	if (Head == NULL) return;
+
+	if (Currunt->Next == NULL) 
+	{
+		Head = NULL;
+		delete Currunt;
+		return;
+	}
+
+
+	while (Currunt->Next != NULL&&Currunt!=NULL)
+	{
+		Prev = Currunt;
+
+		Currunt = Currunt->Next;
+	}
+
+	Prev->Next=NULL;
+
+	delete Currunt;
+}
+
+void Print(Node* Head)
+{
+	while (Head != NULL)
+	{
+		cout << Head->Value << " ";
+		Head = Head->Next;
+	}
+}
+
+
+int main()
+{
+	Node* Head = NULL;
+
+	InsertAtBiginning(Head, 1);
+	InsertAtBiginning(Head, 2);
+	InsertAtBiginning(Head, 3);
+	InsertAtBiginning(Head, 4);
+	InsertAtBiginning(Head, 5);
+
+
+	DeleteLastNode(Head);
+
+	Print(Head);
+
+	delete Head;
+
+	system("pause>0");
+	return 0;
+
+}
+
+
+________________________________________________________________________________
+
+14-Linked List Insert At The Beginning (String)
+
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node 
+{
+public:
+	string Data;
+	Node* Next;
+
+};
+
+string ReadString() 
+{
+	string Name = "";
+	cout << "Enter The Name?";
+	getline(cin, Name);
+	return Name;
+}
+
+void InsertAtBeginning(Node *&Head, string Value ) 
+{
+	Node* Node1 = new Node();
+
+	Node1->Data = Value;
+	Node1->Next = Head;
+	Head = Node1;
+
+}
+
+void Print(Node *Head)
+{
+	while (Head != NULL) 
+	{
+		cout<<endl<< Head->Data<<endl;
+		Head = Head->Next;
+	}
+}
+
+int main()
+{
+
+	Node* Head = NULL;
+
+	InsertAtBeginning(Head, ReadString());
+	InsertAtBeginning(Head, ReadString());
+	InsertAtBeginning(Head, ReadString());
+	InsertAtBeginning(Head, ReadString());
+
+	Print(Head);
+
+	delete Head;
+
+	system("pause>0");
+	return 0;
+
+}
+________________________________________________________________________________
+
+15- Double Linked List (Implementation)
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node 
+{
+public:
+	int Value;
+	Node* Next;
+	Node* Prev;
+};
+
+
+int main()
+{
+
+	Node* Head;
+
+	Node* Node1 = NULL;
+	Node* Node2 = NULL;
+	Node* Node3 = NULL;
+
+	Node1 = new Node();
+	Node2 = new Node();
+	Node3 = new Node();
+
+	Node1->Value = 1;
+	Node2->Value = 2;
+	Node3->Value = 3;
+
+	Node1->Next = Node2;
+	Node1->Prev = NULL;
+
+	Node2->Next = Node3;
+	Node2->Prev = Node1;
+
+	Node3->Next = NULL;
+	Node3->Prev = Node2;
+
+    Head = Node1;
+
+	while(Head!=NULL)
+	{
+		cout << Head->Value<<" ";
+		Head = Head->Next;
+	}
+
+	system("pause>0");
+	return 0;
+
+}
+________________________________________________________________________________
+
+16- Double Linked List (Insert At Beginning)
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node 
+{
+public:
+	int Value;
+	Node* Next;
+	Node* Prev;
+};
+
+/*
+   Why do we need this 'if' condition?
+   -----------------------------------
+   Since this is a Doubly Linked List, each node has two pointers:
+   1. 'Next' (points forward)
+   2. 'Prev' (points backward)
+
+   Example scenario:
+   Imagine the list has two nodes: [20] <-> [30], and 'Head' points to [20].
+   We want to insert a new node [10] at the beginning.
+
+   Without this 'if' condition, the following happens:
+   - NewNode->Next = Head;  -> Node [10] correctly points forward to [20].
+   - Head = NewNode;        -> 'Head' now points to [10].
+
+   BUT, what about the backward link from [20] to [10]?
+   Node [20] (the old Head) its 'Prev' pointer will still point to NULL.
+   The backward link is broken!
+
+   Therefore, this condition tells the program:
+   "If the list is not empty (the old Head exists), go to that old Head
+   and update its 'Prev' pointer to point backward to the 'NewNode'.
+   This ensures both directions are fully linked."
+*/
+void InsertAtBeginning(Node*& Head, int Value) 
+{
+	Node *NewNode = new Node();
+
+	NewNode->Value = Value;
+
+	NewNode->Prev = NULL;
+
+	NewNode->Next = Head;
+
+	if (Head != NULL)
+	{
+		Head->Prev = NewNode;
+	}
+
+	Head = NewNode;
+}
+
+void PrintNodeDetalis(Node *Head) 
+{
+	if (Head->Prev != NULL)
+		cout << Head->Prev->Value;
+	else
+		cout << "NULL";
+
+	cout << "<-->" << Head->Value << "<-->";
+
+	if (Head->Next!= NULL)
+		cout << Head->Next->Value;
+	else
+		cout << "NULL";
+}
+
+
+void PrintListDetalis(Node* Head) 
+{
+	while(Head!=NULL)
+	{
+		cout << "\n\n";
+
+		PrintNodeDetalis(Head);
+		Head = Head->Next;
+	}
+}
+
+void PrintList(Node* head)
+
+{
+	cout << "NULL <--> ";
+	while (head != NULL) {
+		cout << head->Value << " <--> ";
+		head = head->Next;
+	}
+	cout << "NULL";
+
+}
+
+int main()
+{
+
+	Node* Head = NULL;
+
+	InsertAtBeginning(Head, 5);
+	InsertAtBeginning(Head, 4);
+	InsertAtBeginning(Head, 3);
+	InsertAtBeginning(Head, 2);
+	InsertAtBeginning(Head, 1);
+
+	PrintList(Head);
+
+	PrintListDetalis(Head);
+
+	system("pause>0");
+	return 0;
+
+}
+________________________________________________________________________________
+
+17- Double Linked List (Find Node)
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node 
+{
+public:
+	int Value;
+	Node* Next;
+	Node* Prev;
+};
+
+/*
+   Why do we need this 'if' condition?
+   -----------------------------------
+   Since this is a Doubly Linked List, each node has two pointers:
+   1. 'Next' (points forward)
+   2. 'Prev' (points backward)
+
+   Example scenario:
+   Imagine the list has two nodes: [20] <-> [30], and 'Head' points to [20].
+   We want to insert a new node [10] at the beginning.
+
+   Without this 'if' condition, the following happens:
+   - NewNode->Next = Head;  -> Node [10] correctly points forward to [20].
+   - Head = NewNode;        -> 'Head' now points to [10].
+
+   BUT, what about the backward link from [20] to [10]?
+   Node [20] (the old Head) its 'Prev' pointer will still point to NULL.
+   The backward link is broken!
+
+   Therefore, this condition tells the program:
+   "If the list is not empty (the old Head exists), go to that old Head
+   and update its 'Prev' pointer to point backward to the 'NewNode'.
+   This ensures both directions are fully linked."
+*/
+void InsertAtBeginning(Node*& Head, int Value) 
+{
+	Node *NewNode = new Node();
+
+	NewNode->Value = Value;
+
+	NewNode->Prev = NULL;
+
+	NewNode->Next = Head;
+
+	if (Head != NULL)
+	{
+		Head->Prev = NewNode;
+	}
+
+	Head = NewNode;
+}
+
+void PrintNodeDetalis(Node *Head) 
+{
+	if (Head->Prev != NULL)
+		cout << Head->Prev->Value;
+	else
+		cout << "NULL";
+
+	cout << "<-->" << Head->Value << "<-->";
+
+	if (Head->Next!= NULL)
+		cout << Head->Next->Value;
+	else
+		cout << "NULL";
+}
+
+Node *FindNode(Node *Head,int Value)
+{
+
+	while (Head!=NULL) 
+	{
+		if (Head->Value == Value) return Head;
+
+		Head = Head->Next;
+	}
+	return NULL;
+
+}
+
+void PrintListDetalis(Node* Head) 
+{
+	while(Head!=NULL)
+	{
+		cout << "\n\n";
+
+		PrintNodeDetalis(Head);
+		Head = Head->Next;
+	}
+}
+
+void PrintList(Node* head)
+
+{
+	cout << "NULL <--> ";
+	while (head != NULL) {
+		cout << head->Value << " <--> ";
+		head = head->Next;
+	}
+	cout << "NULL";
+
+}
+
+int main()
+{
+
+	Node* Head = NULL;
+
+	InsertAtBeginning(Head, 5);
+	InsertAtBeginning(Head, 4);
+	InsertAtBeginning(Head, 3);
+	InsertAtBeginning(Head, 2);
+	InsertAtBeginning(Head, 1);
+
+	PrintList(Head);
+
+	PrintListDetalis(Head);
+
+	Node *N = FindNode(Head, 1);
+
+	if(N!=NULL)
+	{
+		cout << "\n\nFound Value:" << N->Value;
+	}
+
+	system("pause>0");
+	return 0;
+
+}
+
+________________________________________________________________________________
+
+18- Double Linked List (Insert After)
+
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node 
+{
+public:
+	int Value;
+	Node* Next;
+	Node* Prev;
+};
+
+/*
+   Why do we need this 'if' condition?
+   -----------------------------------
+   Since this is a Doubly Linked List, each node has two pointers:
+   1. 'Next' (points forward)
+   2. 'Prev' (points backward)
+
+   Example scenario:
+   Imagine the list has two nodes: [20] <-> [30], and 'Head' points to [20].
+   We want to insert a new node [10] at the beginning.
+
+   Without this 'if' condition, the following happens:
+   - NewNode->Next = Head;  -> Node [10] correctly points forward to [20].
+   - Head = NewNode;        -> 'Head' now points to [10].
+
+   BUT, what about the backward link from [20] to [10]?
+   Node [20] (the old Head) its 'Prev' pointer will still point to NULL.
+   The backward link is broken!
+
+   Therefore, this condition tells the program:
+   "If the list is not empty (the old Head exists), go to that old Head
+   and update its 'Prev' pointer to point backward to the 'NewNode'.
+   This ensures both directions are fully linked."
+*/
+void InsertAtBeginning(Node*& Head, int Value) 
+{
+	Node *NewNode = new Node();
+
+	NewNode->Value = Value;
+
+	NewNode->Prev = NULL;
+
+	NewNode->Next = Head;
+
+	if (Head != NULL)
+	{
+		Head->Prev = NewNode;
+	}
+
+	Head = NewNode;
+}
+
+void PrintNodeDetalis(Node *Head) 
+{
+	if (Head->Prev != NULL)
+		cout << Head->Prev->Value;
+	else
+		cout << "NULL";
+
+	cout << "<-->" << Head->Value << "<-->";
+
+	if (Head->Next!= NULL)
+		cout << Head->Next->Value;
+	else
+		cout << "NULL";
+}
+
+Node *FindNode(Node *Head,int Value)
+{
+
+	while (Head!=NULL) 
+	{
+		if (Head->Value == Value) return Head;
+
+		Head = Head->Next;
+	}
+	return NULL;
+
+}
+
+void PrintListDetalis(Node* Head) 
+{
+	while(Head!=NULL)
+	{
+		cout << "\n\n";
+
+		PrintNodeDetalis(Head);
+		Head = Head->Next;
+	}
+}
+
+void PrintList(Node* head)
+
+{
+	cout << "NULL <--> ";
+	while (head != NULL) {
+		cout << head->Value << " <--> ";
+		head = head->Next;
+	}
+	cout << "NULL";
+
+}
+
+void Insertafter(Node* Head, int Value)
+{
+	if (Head == NULL)
+	{
+		return;
+	}
+	Node* CurrunNode = Head;
+
+	Node* NewNode = new Node();
+
+	NewNode->Value = Value;
+
+	NewNode->Next = CurrunNode->Next;
+
+	NewNode->Prev =CurrunNode;
+
+	if (CurrunNode->Next != NULL) 
+	{
+		CurrunNode->Next->Prev = NewNode;
+	}
+
+	CurrunNode->Next = NewNode;
+
+
+
+}
+
+void DeleteHead(Node*& Head) 
+{
+	while (Head != NULL) 
+	{
+		Node* Temp = Head;
+		Head = Head->Next;
+		delete Head;
+	}
+}
+
+int main()
+{
+
+	Node* Head = NULL;
+
+	InsertAtBeginning(Head, 5);
+	InsertAtBeginning(Head, 4);
+	InsertAtBeginning(Head, 3);
+	InsertAtBeginning(Head, 2);
+	InsertAtBeginning(Head, 1);
+
+	PrintListDetalis(Head);
+
+	Node *N = FindNode(Head, 1);
+
+	Insertafter(N, 3);
+	cout << "\n";
+	PrintList(Head);
+
+	if(N!=NULL)
+	{
+		cout << "\n\nFound Value:" << N->Value;
+	}
+
+	DeleteHead(Head);
+
+	system("pause>0");
+	return 0;
+
+}
+
+________________________________________________________________________________
+
+19- Double Linked List (Insert At End)
+
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+
+class Node 
+{
+public:
+	int Value;
+	Node* Next;
+	Node* Prev;
+};
+
+/*
+   Why do we need this 'if' condition?
+   -----------------------------------
+   Since this is a Doubly Linked List, each node has two pointers:
+   1. 'Next' (points forward)
+   2. 'Prev' (points backward)
+
+   Example scenario:
+   Imagine the list has two nodes: [20] <-> [30], and 'Head' points to [20].
+   We want to insert a new node [10] at the beginning.
+
+   Without this 'if' condition, the following happens:
+   - NewNode->Next = Head;  -> Node [10] correctly points forward to [20].
+   - Head = NewNode;        -> 'Head' now points to [10].
+
+   BUT, what about the backward link from [20] to [10]?
+   Node [20] (the old Head) its 'Prev' pointer will still point to NULL.
+   The backward link is broken!
+
+   Therefore, this condition tells the program:
+   "If the list is not empty (the old Head exists), go to that old Head
+   and update its 'Prev' pointer to point backward to the 'NewNode'.
+   This ensures both directions are fully linked."
+*/
+void InsertAtBeginning(Node*& Head, int Value) 
+{
+	Node *NewNode = new Node();
+
+	NewNode->Value = Value;
+
+	NewNode->Prev = NULL;
+
+	NewNode->Next = Head;
+
+	if (Head != NULL)
+	{
+		Head->Prev = NewNode;
+	}
+
+	Head = NewNode;
+}
+
+void PrintNodeDetalis(Node *Head) 
+{
+	if (Head->Prev != NULL)
+		cout << Head->Prev->Value;
+	else
+		cout << "NULL";
+
+	cout << "<-->" << Head->Value << "<-->";
+
+	if (Head->Next!= NULL)
+		cout << Head->Next->Value;
+	else
+		cout << "NULL";
+}
+
+Node *FindNode(Node *Head,int Value)
+{
+
+	while (Head!=NULL) 
+	{
+		if (Head->Value == Value) return Head;
+
+		Head = Head->Next;
+	}
+	return NULL;
+
+}
+
+void PrintListDetalis(Node* Head) 
+{
+	while(Head!=NULL)
+	{
+		cout << "\n\n";
+
+		PrintNodeDetalis(Head);
+		Head = Head->Next;
+	}
+}
+
+void PrintList(Node* head)
+
+{
+	cout << "NULL <--> ";
+	while (head != NULL) {
+		cout << head->Value << " <--> ";
+		head = head->Next;
+	}
+	cout << "NULL";
+
+}
+
+void Insertafter(Node* Head, int Value)
+{
+	if (Head == NULL)
+	{
+		return;
+	}
+	Node* CurrunNode = Head;
+
+	Node* NewNode = new Node();
+
+	NewNode->Value = Value;
+
+	NewNode->Next = CurrunNode->Next;
+
+	NewNode->Prev =CurrunNode;
+
+	if (CurrunNode->Next != NULL) 
+	{
+		CurrunNode->Next->Prev = NewNode;
+	}
+
+	CurrunNode->Next = NewNode;
+
+
+
+}
+
+void DeleteList(Node*& Head) 
+{
+	while (Head != NULL) 
+	{
+		Node* Temp = Head;
+		Head = Head->Next;
+		delete Head;
+	}
+}
+
+void InsertAtEnd(Node *Head, int Value)
+{
+	Node* NewNode = new Node();
+
+	NewNode->Value = Value;
+
+	NewNode->Next = NULL;
+
+	if (Head == NULL)
+	{
+		NewNode->Prev = NULL;
+		Head = NewNode;
+
+	}
+	else
+	{
+
+		Node* LastNode = Head;
+
+		while (LastNode != NULL && LastNode->Next != NULL)
+		{
+			LastNode = LastNode->Next;
+		}
+
+		LastNode->Next = NewNode;
+
+		NewNode->Prev = LastNode;
+
+	}
+}
+
+int main()
+{
+
+	Node* Head = NULL;
+
+	InsertAtBeginning(Head, 5);
+	InsertAtBeginning(Head, 4);
+	InsertAtBeginning(Head, 3);
+	InsertAtBeginning(Head, 2);
+	InsertAtBeginning(Head, 1);
+
+	InsertAtEnd(Head, 20);
+
+	cout << "\n";
+	PrintList(Head);
+
+	PrintListDetalis(Head);
+
+	DeleteList(Head);
+
+	system("pause>0");
+	return 0;
+
+}
+________________________________________________________________________________
+
+20- Double Linked List (Delete Node)
+
+
+void DeleteNode(Node *&Head, Node *&NodeToDelete) 
+{
+	if (Head == NULL || NodeToDelete == NULL) 
+	{
+		return;
+	}
+	if (Head==NodeToDelete) 
+	{
+		Head = NodeToDelete->Next;
+	}
+	if (NodeToDelete->Next != NULL) 
+	{
+		NodeToDelete->Next->Prev = NodeToDelete->Prev;
+	}
+	if (NodeToDelete->Prev != NULL) 
+	{
+		NodeToDelete->Prev->Next = NodeToDelete->Next;
+	}
+
+	delete NodeToDelete;
+	
+
+}
+
+________________________________________________________________________________
+
+21- Double Linked List (Delete First Node)
+
+void DeleteFirstNode(Node *&Head) 
+{
+	if (Head == NULL) { return;}
+
+	Node* CurrunNode = Head;
+
+	Head = Head->Next;
+
+	if (Head != NULL) { Head->Prev = NULL; }
+	
+
+	delete CurrunNode;
+}
+
+________________________________________________________________________________
+
+22- Double Linked List (Delete Last Node)
+
+
+void DeleteLastNode(Node*& Head)
+{
+	if (Head == NULL)return;
+
+
+	if (Head->Next == NULL)
+	{
+		delete Head;
+		Head = NULL;
+		return;
+	}
+
+	Node* CuurunNode = Head;
+
+	// Find Pre Last Node 
+	while (CuurunNode->Next->Next != NULL) { CuurunNode = CuurunNode->Next; }
+
+	Node*Temp= CuurunNode->Next;
+
+	CuurunNode->Next = NULL;
+
+	delete Temp;
+}
+
+________________________________________________________________________________
+
+23-Map
+
+#include <iostream>
+#include <map>
+using namespace std;
+
+
+int main()
+{
+	map<string, int> SturdentsGrades;
+
+	SturdentsGrades["M1"] = 10;
+	SturdentsGrades["M2"] = 20;
+	SturdentsGrades["M3"] = 30;
+	SturdentsGrades["M4"] = 40;
+
+	for (const auto& Pair : SturdentsGrades) 
+	{
+		cout << "Student:" << Pair.first << "\tGrad:" << Pair.second<<endl;
+	}// Pair.first= First Factor String , Pair.Sacounde=Scounde Factor Int 
+
+	string StudentName = "M3";
+	
+	if (SturdentsGrades.find(StudentName) != SturdentsGrades.end())
+	{
+		cout << "Yes Found:-)\n";
+		cout << "Student:" << StudentName << "\tGrade:" << SturdentsGrades[StudentName] << endl;
+	}
+	else
+		cout << "No Not Found:-(";
+
+
+
+	
+
+	system("pause>0");
+	return 0;
+
+}
+
+________________________________________________________________________________
+
+24-Union 
+
+#include <iostream>
+#include <map>
+using namespace std;
+
+union MyUnion 
+{
+	int   IntValue;
+	float FloatValue;
+	char  CharValue;
+};
+
+int main()
+{
+	MyUnion M;
+
+	M.IntValue = 33;
+	cout << "Int Value    =  " << M.IntValue<<endl;
+
+
+	M.FloatValue = 33.2;
+	cout << "Float Value  =  " << M.FloatValue << endl;
+
+
+	M.CharValue = 'C';
+	cout << "Char Value   =  " << M.CharValue << endl;
+
+	
+
+	system("pause>0");
+	return 0;
+
+}
+
+
+
+
+

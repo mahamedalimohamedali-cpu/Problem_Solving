@@ -1,0 +1,2378 @@
+1- Multiplication Table From 1 To 10 
+
+#include <iostream>
+using namespace std;
+void Print_Hader() {
+    cout << "\n\n\t\t\tMultiplication Table From 1 TO 10 \n\n";
+    for (int i = 1; i <= 10;i++) {
+
+        cout << "\t" << i;
+    }
+    cout << "\n______________________________________________________________________________________________\n";
+
+}
+string Colum_Separat(int i) {
+    if (i < 10) 
+        return "   |";
+    else 
+        return "  |";
+    
+}
+void Print_Multiplication_Table() {
+    Print_Hader();
+    for (int i = 1;i <= 10;i++) {
+        cout << i << Colum_Separat(i)<<"\t";
+        for (int j = 1;j <= 10;j++) {
+            cout << i * j<<"\t";
+        }
+        cout << endl;
+    }
+
+}
+
+int main()
+{
+    Print_Multiplication_Table();
+
+}
+
+*************************************************************************
+2- Print Prime Number From 1 To N
+
+#include <iostream>
+using namespace std;
+enum en_NumberType { Prime = 1, Not_Prime = 2 };
+
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+
+ en_NumberType Check_NumberType(int Number) {
+
+	 int M = round(Number / 2);
+	 for (int i = 2;i <= M;i++) {
+		 if (Number % i == 0)
+			 return en_NumberType::Not_Prime;
+	 }
+	 return en_NumberType::Prime;
+ }
+ 
+ void Print_Prime(int Num) {
+	 cout << "\n";
+	 cout << "Prime Numbers From " << 1 << " To " << Num;
+	 cout << " Are:" << endl;
+		 for (int i = 1; i <=Num;i++) {
+			 if (Check_NumberType(i)==en_NumberType::Prime) {
+				 cout << i << endl;
+			 }		 
+	 }
+ 
+ }
+
+int main()
+{
+	Print_Prime(Read_PositivNumber("Enter the Number?"));
+}
+*************************************************************************
+3- Perfect Number 
+
+#include <iostream>
+using namespace std;
+
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+
+ bool IsPerfectNUmber( int Number){
+	 int Sum = 0;
+	 for (int i = 1; i < Number ; i++) {
+		 if (Number % i == 0) {
+			 Sum += i;
+		 }
+	 }
+
+	 return Number == Sum;
+
+}
+ 
+ void Print_PerfectNumber(int Num) {
+	 if (IsPerfectNUmber(Num))
+		 cout << Num << " is Perfect Number";
+	 else
+		 cout << Num << " is Not Perfect Number";
+ 
+ }
+
+int main()
+{
+	Print_PerfectNumber(Read_PositivNumber("Enter the Number?"));
+}
+*************************************************************************
+4- Perfent Number From 1 to N 
+
+
+#include <iostream>
+using namespace std;
+
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+
+ bool IsPerfectNUmber( int Number){
+	 int Sum = 0;
+	 for (int i = 1; i < Number ; i++) {
+		 if (Number % i == 0) {
+			 Sum += i;
+		 }
+	 }
+
+	 return Number == Sum;
+
+}
+ 
+ void Print_PerfectNumberFrom1ToN(int Num) {
+	 cout << "\n";
+	 cout << "The Perfect Numbers From 1 To " << Num << endl;
+	 cout << "Are: "<<endl;
+	 for (int i = 0; i <= Num;i++) {
+		 if (IsPerfectNUmber(i))
+			 cout << i << endl;
+
+	 }
+ }
+
+int main()
+{
+	Print_PerfectNumberFrom1ToN(Read_PositivNumber("Enter the Number?"));
+}
+*************************************************************************
+5-Print Digits In a Reversed Order 
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+void Print_Revers_Number(int Number) {
+	int Remainder = 0;
+	while (Number > 0) {
+		Remainder = Number % 10;
+		Number = Number / 10;
+		cout << Remainder << endl;
+	}
+ }
+
+int main()
+{
+	Print_Revers_Number(Read_PositivNumber("Enter the Number?"));
+}
+*************************************************************************
+6- Sum Of Digits 
+ 
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int Sumof_Digits(int Number) {
+	int Remainder = 0;
+	int  Sum = 0;
+	while (Number > 0) {
+		Remainder = Number % 10;
+		Number = Number / 10;
+		Sum += Remainder;
+	}
+	return Sum;
+ }
+
+int main()
+{
+	cout << "Sum of Digits:" << Sumof_Digits(Read_PositivNumber("Enter the Number?"));
+}
+*************************************************************************
+7- Revers Number 
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int  Print_Revers_Number(int Number) {
+	int Remainder = 0;
+	int Number2 = 0;
+	while (Number > 0) {
+		Remainder = Number % 10;
+		Number = Number / 10;
+		Number2 = Number2 * 10 + Remainder;
+	}
+	return Number2;
+}
+
+int main()
+{
+	 cout<<Print_Revers_Number(Read_PositivNumber("Enter the Number?"));
+}
+*************************************************************************
+8- Digit Frequency Case1
+
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number < 0);
+	return Number;
+}
+int CounterDigitFrequency(int Number, int DigitFrequency) {
+	int Remainder = 0;
+	int Counter = 0;
+	while (Number > 0) {
+		Remainder = Number % 10;
+		Number = Number / 10;
+		if (DigitFrequency == Remainder)
+			Counter++;
+	}
+	return Counter;
+}
+
+
+
+int main()
+{
+	int Num = Read_PositivNumber("Enter the Number?");
+	short DigitFrequency = Read_PositivNumber("Enter the Number It Repet?");
+	cout << "Number " <<DigitFrequency<<" is Repeted " << CounterDigitFrequency(Num, DigitFrequency) << " Times ";
+}
+*************************************************************************
+9- Digit Frequency Case 2
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number < 0);
+	return Number;
+}
+int CounterDigitFrequency(int Number, int DigitFrequency) {
+	int Remainder = 0;
+	int Counter = 0;
+	while (Number > 0) {
+		Remainder = Number % 10;
+		Number = Number / 10;
+		if (DigitFrequency == Remainder)
+			Counter++;
+	}
+	return Counter;
+}
+void Print_AllDigitFrequency(int Number) {
+	int DigitFrequency = 0;
+	for( int  i =0 ; i < 10 ; i++){
+		DigitFrequency = CounterDigitFrequency(Number, i);
+		if (DigitFrequency > 0) {
+
+			cout << "Number " << i << " Repeted: " << DigitFrequency<<endl;
+		}
+	
+	
+	}
+
+
+}
+
+
+
+int main()
+{
+	int Num = Read_PositivNumber("Enter the Number?");
+	Print_AllDigitFrequency(Num);
+}
+*************************************************************************
+10-Print Digits in Order 
+
+ #include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int Print_Revers_Number(int Number) {
+	int Remainder = 0;
+	int Num2 = 0;
+	while (Number > 0) {
+		Remainder = Number % 10;
+		Number = Number / 10;
+		Num2 = Num2 * 10 + Remainder;
+	}
+	return Num2;
+}
+ void Print_Frorwerd_Numbers( int Num){
+	 int Remainder = 0;
+	 while (Num > 0) {
+		 Remainder = Num % 10;
+		 Num = Num / 10;
+		 cout << Remainder << endl;
+	 }
+ 
+ }
+
+int main()
+{
+	Print_Frorwerd_Numbers(Print_Revers_Number(Read_PositivNumber("Enter the Number?")));
+}
+*************************************************************************
+11-Palindrome Number 
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int Print_Revers_Number(int Number) {
+	int Remainder = 0;
+	int Num2 = 0;
+	while (Number > 0) {
+		Remainder = Number % 10;
+		Number = Number / 10;
+		Num2 = Num2 * 10 + Remainder;
+	}
+	return Num2;
+}
+
+bool IsPalindrome(int Num) {
+	return Num == Print_Revers_Number(Num);
+}
+
+int main()
+{
+	if (IsPalindrome(Read_PositivNumber("Enter the Number?"))) {
+		cout << "Yes ,Palindrome Number....";
+		system("color 2F");
+	}
+	else {
+		cout << "No , It Is Not Palindrome Number....";
+		system("color 4F");
+	}
+}
+*************************************************************************
+12-Inverten Number Pattern
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+void NumberPattern(int Number) {
+
+	for (int i = Number; i >=1;i--) {
+		for (int j = 1;j<=i;j++) {
+			cout <<i;
+		}
+		cout << endl;
+	}
+
+}
+
+int main()
+{
+	NumberPattern(Read_PositivNumber("Enter The Number?"));
+}
+*************************************************************************
+13-Number Pattern 
+
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+void NumberPattern(int Number) {
+
+	for (int i = 1; i <= Number;i++) {
+		for (int j = 1;j <= i;j++) {
+			cout << i;
+		}
+		cout << endl;
+	}
+
+}
+
+int main()
+{
+	NumberPattern(Read_PositivNumber("Enter The Number?"));
+}
+*************************************************************************
+14-Inverted letter Pattern
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+void InvertedletterPattern(int Number) {
+
+	for (int i = 65 + Number - 1; i >= 65;i--) {// Loop1:i= 65 + 3 - 1 --> 67 //Loop2:i= 66
+		for (int j = 1;j <= Number  - (65 + Number - 1 - i);j++) { //Loop1: 3 - (65 + 3 - 1 - 67) --> 3 //Loop2: 3 - ( 65 + 3 - 1 - 66)-->2
+			cout << char(i);
+		}
+		cout << endl;
+	}
+
+}
+
+int main()
+{
+	InvertedletterPattern(Read_PositivNumber("Enter The Number?"));
+}
+*************************************************************************
+15- letter Pattern
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+void letterPattern(int Number) {
+
+	for (int i = 65 ; i <= 65 + Number - 1;i++) {
+		for (int j = 1;j <= i - 65 + 1;j++) { 
+			cout << char(i);
+		}
+		cout << endl;
+	}
+
+}
+
+int main()
+{
+   letterPattern(Read_PositivNumber("Enter The Number?"));
+}
+*************************************************************************
+16- Print All From AAA To ZZZ
+
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+void PrintAllFromAAAToZZZ() {
+	string word = "";
+	for (int i = 65 ; i <=90;i++) {
+		cout << "--------------------------------------------\n";
+		for (int j = 65;j <=90;j++) { 
+			for (int k = 65;k <= 90;k++) {
+				word = word + char(i);
+				word = word + char(j);
+				word = word + char(k);
+				cout << word << endl;
+				word = "";
+			}
+		}
+		
+	}
+
+}
+
+int main()
+{
+	PrintAllFromAAAToZZZ();
+}
+*************************************************************************
+17-Guess a 3-Letter Password 
+
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+string Read_Passworde(string Massage) {
+	string Passworde = "";
+	cout << Massage << endl;
+	cin >> Passworde;
+	return Passworde;
+}
+bool Guessa3_LetterPassword(string Password) {
+	string word = "";
+	int Counter = 0;
+	int eqaul = 0;
+	for (int i = 65 ; i <=90;i++) {
+		for (int j = 65;j <=90;j++) { 
+			for (int k = 65;k <= 90;k++) {
+				word = word + char(i);
+				word = word + char(j);
+				word = word + char(k);
+				Counter++;
+				cout << "Trail" << "[" << Counter << "]:" << word << endl;
+				if (Password == word) {
+					cout << "Passworde is :" << Password << endl;
+					cout << "Number of Trails is :" << Counter;
+					return 1;
+				}
+				word = "";
+			}
+			
+		}
+		
+		
+	}
+}
+
+
+int main()
+{
+	Guessa3_LetterPassword(Read_Passworde("Enter The Password?"));
+
+}
+*************************************************************************
+18- Guessa 4-Numbers Password
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+int Read_Passworde(string Massage) {
+	int Passworde = 0;
+	cout << Massage << endl;
+	cin >> Passworde;
+	return Passworde;
+}
+bool Guessa4_NumbersPassword(int Password) {
+	string word = "";
+	int Counter = 0;
+	
+	for (int i = 0; i < 10;i++) {
+		for (int j = 0;j < 10;j++) {
+			for (int k = 0;k < 10;k++) {
+				for( int h =0 ; h <10;h++){
+				word = word + to_string(i);
+				word = word + to_string(j);
+				word = word + to_string(k);
+				word = word + to_string(h);
+				Counter++;
+				cout << "Trail" << "[" << Counter << "]:" << word << endl;
+				if (to_string(Password) == word) {
+					cout << "Passworde is :" << Password << endl;
+					cout << "Number of Trails is :" << Counter;
+					return 1;
+				}
+				word = "";
+			}
+			}
+
+		}
+
+
+	}
+}
+
+
+int main()
+{
+	Guessa4_NumbersPassword(Read_Passworde("Enter The Password?"));
+
+}
+*************************************************************************
+19-Encrypt/Decrypt Text 
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+string Read_Passworde(string Massage) {
+	string Name = "";
+	cout << Massage << endl;
+	cin >> Name;
+	return Name;
+}
+ string Encrypt(string Name,short Key) {
+	int Num_Name = Name.length();
+	for (int i = 0;i <= Num_Name;i++){
+		Name[i] = char((int)Name[i] + Key);
+	}
+	return Name;
+}
+ string Decrypt(string Name,short Key) {
+	 int Num_Name = Name.length();
+	 for (int i = 0;i <= Num_Name;i++) {
+		 Name[i] = char((int)Name[i] - Key);
+	 }
+	 return Name;
+	
+ }
+
+
+
+
+int main()
+{
+	short Key = 2;
+	string Name = Read_Passworde("Enter your Name?");
+	string Encrypt_Name = Encrypt(Name,Key);
+	string Dencrypt_Name =Decrypt(Encrypt_Name,Key);
+	cout << "Name After Encryption :" << Encrypt_Name<<endl;
+	cout << "Name After Dencryption :" << Dencrypt_Name<<endl;
+
+}
+*************************************************************************
+20- Random 3 Numbers From 1 To 10
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Randome_Number(int From ,int To){
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+
+	cout << Randome_Number(1, 20) << endl;
+	cout << Randome_Number(1, 20) << endl;
+	cout << Randome_Number(1, 20) << endl;
+}
+*************************************************************************
+21- Random small Letter ,Capital Letter ,Special C , and Digit in Order
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+enum en_Random { smallLetter=1, CapitalLetter=2, SpecialC=3 , DigitinOrder=4};
+int Randome_Number(int From ,int To){
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+char Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random Random) {
+	if (Random == en_Random::DigitinOrder) {
+		Random = (en_Random)Randome_Number(48, 57);
+		return Random;
+	}
+	else if (Random == en_Random::smallLetter) {
+		Random = (en_Random)Randome_Number(65, 90);
+		return Random;
+	}
+	else if (Random == en_Random::CapitalLetter) {
+		Random = (en_Random)Randome_Number(97, 122);
+		  return Random;
+	}
+	else if (Random == en_Random::SpecialC) {
+		Random = (en_Random)Randome_Number(32, 47);
+		return Random;
+	}
+
+
+
+	
+}
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	cout<<Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random::smallLetter)<<endl;
+	cout<<Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random::CapitalLetter)<<endl;
+	cout<<Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random::SpecialC)<<endl;
+	cout<<Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random::DigitinOrder)<<endl;
+	
+	
+}
+*************************************************************************
+22- Generate Keys 
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+enum en_Random { smallLetter=1, CapitalLetter=2, SpecialC=3 , DigitinOrder=4};
+int Randome_Number(int From ,int To){
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+
+char Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random Random) {
+	if (Random == en_Random::DigitinOrder) {
+		Random = (en_Random)Randome_Number(48, 57);
+		return Random;
+	}
+	else if (Random == en_Random::smallLetter) {
+		Random = (en_Random)Randome_Number(97, 122);
+		return Random;
+	}
+	else if (Random == en_Random::CapitalLetter) {
+		Random = (en_Random)Randome_Number(65, 90);
+		  return Random;
+	}
+	else if (Random == en_Random::SpecialC) {
+		Random = (en_Random)Randome_Number(32, 47);
+		return Random;
+	}
+
+
+
+	
+}
+string GenerateWord(en_Random Random, short Length) {
+	string Word = "";
+	for (int i = 0; i < Length;i++) {
+	  
+		Word = Word + Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random::CapitalLetter);
+	
+	}
+	return Word;
+}
+string GenerateKey() {
+	string Key = "";
+	Key = GenerateWord(en_Random::CapitalLetter, 4)+"-";
+	Key += GenerateWord(en_Random::CapitalLetter, 4)+"-";
+	Key += GenerateWord(en_Random::CapitalLetter, 4)+"-";
+	Key += GenerateWord(en_Random::CapitalLetter, 4);
+	return Key;
+}
+void GenerateKeys(short Number) {
+	for (int i = 0; i < Number; i++) {
+	
+		cout << "Key" << "[" << i+1 << "]:"<<GenerateKey()<<endl;
+	}
+
+}
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	GenerateKeys(Read_PositivNumber("Enter The Number?"));
+	
+}
+*************************************************************************
+23-Repeated Elements Count In Array
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+
+
+
+void Read_Arr(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		cout << "Element[" << i + 1 << "]:";
+		cin >> arr[i];
+	}
+}
+void Print_Arr(int arr[100], int arrLength) {
+	cout << "\nOriganal Arr :";
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i]<<" ";
+	}
+	cout << endl;
+}
+int Times_Repaeted(int Number_Check, int arr[100], int arrLength) {
+	int counter = 0;
+	for (int i = 0; i < arrLength;i++) {
+		if (Number_Check == arr[i]) {
+			counter++;
+		}
+
+	}
+	return counter;
+}
+
+int main()
+{ 
+	int Arr[100], Length = 0;
+	Read_Arr(Arr, Length);
+	int Number_Check = Read_PositivNumber("Enter the Number Will Be Check?");
+	Print_Arr(Arr, Length);
+	cout << "Number " << Number_Check<<" is Repeted "<< Times_Repaeted(Number_Check, Arr, Length)<<" Times ";
+
+}
+*************************************************************************
+24-Fill Array  With Random Numbers From 1 To 100
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	cout << "\nOriganal Arr :";
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Length = 0;
+	FillArrayWithRandomNumbers(Arr, Length);
+	Print_Arr(Arr, Length);
+
+}
+*************************************************************************
+25- Max of Random Array 
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	cout << "\nOriganal Arr :";
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+int Print_MaxofRandomArray(int arr[100], int arrLength) {
+	int Max_Number = 0;
+	
+	for (int i = 0; i < arrLength;i++) {
+		if (Max_Number < arr[i]) {
+			Max_Number = arr[i];
+		}
+	}
+	return Max_Number;
+
+}
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Length = 0;
+	FillArrayWithRandomNumbers(Arr, Length);
+	Print_Arr(Arr, Length);
+	cout << "Max Number is :" << Print_MaxofRandomArray(Arr, Length);
+
+}
+*************************************************************************
+26-Min Of Random Array 
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	cout << "\nOriganal Arr :";
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+int Print_MinofRandomArray(int arr[100], int arrLength) {
+	int Min_Number = arr[0];
+	
+	for (int i = 0; i < arrLength;i++) {
+		if (Min_Number > arr[i]) {
+			Min_Number = arr[i];
+		}
+	}
+	return Min_Number;
+
+}
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Length = 0;
+	FillArrayWithRandomNumbers(Arr, Length);
+	Print_Arr(Arr, Length);
+	cout << "Min Number is :" << Print_MinofRandomArray(Arr, Length);
+
+}
+*************************************************************************
+27-Sum Of Random Numbers Of Array
+
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	cout << "\nOriganal Arr :";
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+int SumofRandomArray(int arr[100], int arrLength) {
+	int Sum = 0;
+	
+	for (int i = 0; i < arrLength;i++) {
+		Sum += arr[i];
+	}
+	return Sum;
+
+}
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Length = 0;
+	FillArrayWithRandomNumbers(Arr, Length);
+	Print_Arr(Arr, Length);
+	cout << "Sum of Number is :" << SumofRandomArray(Arr, Length);
+
+}
+
+*************************************************************************
+28- Average of Random Array 
+
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	cout << "\nOriganal Arr :";
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+int SumofRandomArray(int arr[100], int arrLength) {
+	int Sum = 0;
+	for (int i = 0; i < arrLength;i++) {
+		Sum += arr[i];
+	}
+	
+	return Sum;
+}
+float AverageofRandomArray(int arr[100], int arrLength) {
+   
+   return	(float)SumofRandomArray(arr, arrLength)/ arrLength;
+}
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Length = 0;
+	FillArrayWithRandomNumbers(Arr, Length);
+	Print_Arr(Arr, Length);
+	cout << "Averagw of Number is :" << AverageofRandomArray(Arr, Length);
+
+}
+*************************************************************************
+29- Copy Array 
+
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+
+
+void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+void Copy_Array(int Copied_arr[100],int arr[100], int arrLength) {
+	for (int i = 0; i < arrLength; i++) {
+		Copied_arr[i] = arr[i];
+	}
+}
+
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Length = 0, Arr2[100];
+	FillArrayWithRandomNumbers(Arr, Length);
+	cout << "\nOriganal Arr :";
+	Print_Arr(Arr , Length);
+	Copy_Array(Arr2,Arr, Length);
+	cout << "\nCopied Arr   :";
+	Print_Arr(Arr2 , Length);
+
+
+
+}
+
+*************************************************************************
+30-Copy Only Prime Numbers 
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+enum en_NumberType { Prime = 1, Not_Prime = 2 };
+en_NumberType Check_NumberType(int Number) {
+
+	int M = round(Number / 2);
+	for (int i = 2;i <= M;i++) {
+		if (Number % i == 0)
+			return en_NumberType::Not_Prime;
+	}
+	return en_NumberType::Prime;
+}
+void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth ) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+void Copy_ArrayPrimeNumbers(int Copied_arr[100],int arr[100], int arrLength , int &Length2) {
+	int Counter = 0;
+	for (int i = 0; i < arrLength;i++) {
+		if (Check_NumberType(arr[i]) == en_NumberType::Prime) {
+			Copied_arr[Counter] = arr[i];
+			Counter++;
+		}
+	}
+	Length2 = --Counter;
+}
+
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Arr2[100], Length = 0,Length2=0;
+	FillArrayWithRandomNumbers(Arr, Length);
+	cout << "\nOriganal Arr :";
+	Print_Arr(Arr , Length);
+	Copy_ArrayPrimeNumbers(Arr2,Arr, Length,Length2);
+	cout << "\nJust Prime   :";
+	Print_Arr(Arr2 , Length2);
+
+
+
+}
+*************************************************************************
+31-Sum of 2 Arrays to A third one 
+
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100] ,int& arrLrngth) {
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+
+void Print_Arr(int arr[100], int arrLength) {
+	
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+void SumOfTwoArrays(int arr[100], int arr2[100],int arr3[100], int arrLrngth) {
+	
+	for (int i = 0; i < arrLrngth;i++) {
+		arr3[i] = arr[i] + arr2[i];
+	}
+
+
+}
+
+
+int main()
+{ 
+	srand((unsigned)time(NULL));
+	int Arr[100], Arr2[100],Arr3[200], Length = Read_PositivNumber("Enter the number Of Elemnets");
+	FillArrayWithRandomNumbers(Arr,Length);
+	FillArrayWithRandomNumbers(Arr2,Length);
+	SumOfTwoArrays(Arr, Arr2, Arr3, Length);
+	cout << "\nArr1:\n";
+	Print_Arr(Arr, Length);
+	cout << "\nArr2:\n";
+	Print_Arr(Arr2, Length);
+	cout << "\nSum of Two Arrays is :\n";
+	Print_Arr(Arr3, Length);
+
+
+
+
+}
+*************************************************************************
+32-Shuffle Ordered Array
+
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+ void Swap(int& A, int& B) {
+	int Temp = A;
+	A = B;
+	B = Temp;
+
+}
+void FillArrayWithRandomNumbers(int arr[100], int arrLrngth) {
+	for (int i = 1; i <=arrLrngth; i++) {
+		arr[i] = i;
+	}
+}
+void ShuffleOrderedArray(int Arr[100], int arrLength) {
+
+	for (int i = 1; i <= arrLength;i++) {
+		Swap(Arr[Randome_Number(1, arrLength)], Arr[Randome_Number(1, arrLength)]);
+	}
+}
+void Print_Array(int Arr[100], int arrLength) {
+	for (int i = 1; i <= arrLength;i++) {
+		cout << Arr[i] << " ";
+	}
+
+}
+int main()
+{ 
+	int Arr[100];
+	srand((unsigned)time(NULL));
+	int  arrLength = Read_PositivNumber("Enter the Number Of Elements?");
+	FillArrayWithRandomNumbers(Arr, arrLength);
+	cout << "\nArray Befor Shuffle:\n";
+	Print_Array(Arr, arrLength);
+	ShuffleOrderedArray(Arr, arrLength);
+	cout << "\nArray After Shuffle:\n";
+	Print_Array(Arr, arrLength);
+	
+
+
+
+
+}
+*************************************************************************
+33-Copy Array In Revers Order 
+
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+using namespace std;
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+ int Randome_Number(int From, int To) {
+	 int rand_number = rand() % (To - From + 1) + From;
+	 return rand_number;
+ }
+ void FillArrayWithRandomNumbers(int arr[100], int &arrLrngth) {
+	 cout << "Enter the Number Of elements?\n";
+	 cin >> arrLrngth;
+	 for (int i = 0; i <arrLrngth; i++) {
+		 arr[i] = Randome_Number(1, 100);
+	 }
+ }
+void CopyArrayInReversOrder(int Arr[100], int Arr2[100], int arrLength) {
+	for (int i = 0; i<arrLength; i++){
+		Arr2[i] = Arr[arrLength - 1 - i];
+	}
+}
+void Print_Array(int Arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << Arr[i] << " ";
+	}
+
+}
+int main()
+{ 
+	int Arr[100],Arr2[100], arrLength = 0;
+	srand((unsigned)time(NULL));
+	FillArrayWithRandomNumbers(Arr, arrLength);
+	cout << "\nArray Befor Copy:\n";
+	Print_Array(Arr, arrLength);
+	CopyArrayInReversOrder(Arr,Arr2,arrLength);
+	cout << "\nArray After Copy Revers :\n";
+	Print_Array(Arr2,arrLength);
+
+}
+*************************************************************************
+34-Fill Array With Keys 
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+enum en_Random { smallLetter = 1, CapitalLetter = 2, SpecialC = 3, DigitinOrder = 4 };
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+int Read_PositivNumber(string Massage) {
+	int Number = 0;
+	do {
+		cout << Massage << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+
+char Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random Random) {
+	if (Random == en_Random::DigitinOrder) {
+		Random = (en_Random)Randome_Number(48, 57);
+		return Random;
+	}
+	else if (Random == en_Random::smallLetter) {
+		Random = (en_Random)Randome_Number(97, 122);
+		return Random;
+	}
+	else if (Random == en_Random::CapitalLetter) {
+		Random = (en_Random)Randome_Number(65, 90);
+		return Random;
+	}
+	else if (Random == en_Random::SpecialC) {
+		Random = (en_Random)Randome_Number(32, 47);
+		return Random;
+	}
+}
+string GenerateWord(en_Random Random, short Length) {
+	string Word = "";
+	for (int i = 0; i < Length;i++) {
+
+		Word = Word + Print_Random_sLetter_CLetter_SpC_DigitOrder(en_Random::CapitalLetter);
+
+	}
+	return Word;
+}
+string GenerateKey() {
+	string Key = "";
+	Key = GenerateWord(en_Random::CapitalLetter, 4) + "-";
+	Key += GenerateWord(en_Random::CapitalLetter, 4) + "-";
+	Key += GenerateWord(en_Random::CapitalLetter, 4) + "-";
+	Key += GenerateWord(en_Random::CapitalLetter, 4);
+	return Key;
+}
+
+void Genrat_KeysInArray(string Arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		Arr[i] = GenerateKey();
+	}
+}
+void PrintString_Array(string Arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout <<"Array[" <<i+1<<"]:" << Arr[i] <<endl;
+	}
+
+}
+int main()
+{
+	srand((unsigned)time(NULL));
+	string Arr[100];
+	int arrLength = Read_PositivNumber("Enter the Number Of Element?");
+	Genrat_KeysInArray(Arr, arrLength);
+	PrintString_Array(Arr, arrLength);
+	
+}
+*************************************************************************
+35- Return Number Index In array 
+
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int Read_Number(string Massage) {
+	int Number = 0;
+	cout << Massage << endl;
+	cin >> Number;
+	return Number;
+}
+
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+int FindNumberPosstionInarray(int arr[100], int arrLength,int Number){
+
+	for (int i = 0; i < arrLength;i++) {
+		if (Number == arr[i]) {
+			return i;
+		}
+	}
+	return -1;
+}
+void Print_Array(int Arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << Arr[i] << " ";
+	}
+
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr[100], arrLength = 0;
+	FillArrayWithRandomNumbers(arr, arrLength);
+	Print_Array(arr, arrLength);
+	cout << endl;
+	int Number = Read_Number("Enter the number Of Elements?");
+	int Index = FindNumberPosstionInarray(arr, arrLength, Number);
+	cout << "Number You Looking For :" << Number<<endl;
+	if (Index == -1) {
+		cout << "Soryy Number " << Number << " Not Found:-(";
+	}
+	else {
+		cout << "Number " << Number << " is Found In Posstion :" << Index<<endl;
+		cout << "Number " << Number << " is Found In Order :" << Index+1<<endl;
+	}
+}
+*************************************************************************
+36- Check Number In Array 
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int Read_Number(string Massage) {
+	int Number = 0;
+	cout << Massage << endl;
+	cin >> Number;
+	return Number;
+}
+
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+int FindNumberPosstionInarray(int arr[100], int arrLength,int Number){
+
+	for (int i = 0; i < arrLength;i++) {
+		if (Number == arr[i]) {
+			return i;
+		}
+	}
+	return -1;
+}
+void Print_Array(int Arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << Arr[i] << " ";
+	}
+
+}
+bool IsNumberInArray(int arr[100], int arrLength, int Number) {
+	return FindNumberPosstionInarray(arr, arrLength, Number) != -1;
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	int arr[100], arrLength = 0;
+
+	FillArrayWithRandomNumbers(arr, arrLength);
+
+	Print_Array(arr, arrLength);
+
+	cout << endl;
+
+	int Number = Read_Number("Enter the number Will Be Serch ?");
+
+	cout << "Number You Looking For :" << Number<<endl;
+
+	if (IsNumberInArray(arr, arrLength, Number)){
+
+		cout << "Yes Number " << Number << " Found:-)";
+
+		system("color 2F");
+
+	}
+	else {
+		cout << "Soryy Number " << Number << " Not Found:-(";
+
+		system("color 4F");
+	}
+}
+*************************************************************************
+37- Add Array And Element Simi Dynamic (Importanat)
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Read_Number() {
+	int Number;
+	cout << " Pleas Enter Number?\n";
+	cin >> Number;
+	return Number;
+}
+void AddElementInArray(int arr[100], int &arrLength, int Number) {
+	arrLength++;
+	arr[arrLength - 1] = Number;
+}
+void UserInputInArray(int arr[100], int &arrLength) {
+	bool AddMore = true;
+	do {
+		AddElementInArray(arr, arrLength, Read_Number());
+		cout << "Do you Want Add Element? [0]No , [1]Yes?\n";
+		cin >> AddMore;
+	    }while (AddMore);
+}
+void Print_Array(int arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+
+}
+
+
+int main()
+{
+	int arr[100], arrLength = 0;
+	UserInputInArray(arr, arrLength);
+	cout << "Number of Element In Array :"<<arrLength<<endl;
+	cout << "Element in Array:";
+	Print_Array(arr, arrLength);
+}
+*************************************************************************
+38- Add Array And Element Simi Dynamic With Structur
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+struct st_Student {
+	string Name;
+	float Grade;
+	int Age;
+};
+st_Student Read_Data() {
+	st_Student Student;
+	cout << "Pleas Enter Your Name?\n";
+	cin >> Student.Name;
+	cout << "Pleas Enter Your Age?\n";
+	cin >> Student.Age;
+	cout << "Pleas Enter Your Grade?\n";
+	cin >> Student.Grade;
+	return Student;
+}
+void AddElementInArray(st_Student arr[100], int &arrLength, st_Student Student) {
+	arrLength++;
+	arr[arrLength - 1] = Student;
+}
+void UserInputInArray( st_Student arr[100], int &arrLength) {
+	bool AddMore = true;
+	do {
+		AddElementInArray(arr, arrLength, Read_Data());
+		cout << "Do you Want Add Element? [0]No , [1]Yes?\n";
+		cin >> AddMore;
+	    }while (AddMore);
+}
+void Print_Array(st_Student arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << "Name:"  << arr[i].Name<<endl;
+		cout << "Age:"   << arr[i].Age<<endl;
+		cout << "Grade:" << arr[i].Grade<<endl;
+		cout << "-----------------------------------\n";
+	}
+
+}
+
+
+int main()
+{
+	st_Student arr[100];
+	int arrLength = 0;
+	UserInputInArray(arr, arrLength);
+	cout << "Number of Students In DataBase:"<<arrLength<<endl;
+	cout << "\t\tElement in Array:"<<endl;
+	Print_Array(arr, arrLength);
+}
+*************************************************************************
+39- Resolve Pronlem 28/2 Copy Array Using AddArrayElement
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+void AddElementInArray(int arr[100], int& arrLength, int Number) {
+	arrLength++;
+	arr[arrLength - 1] = Number;
+}
+void Print_Array(int arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+
+}
+void Copy_ArrayUsingAddArrayElement(int Copied_arr[100], int arr_Sorce[100], int arrLength_Sorce,int &arrLengthCopide) {
+	for (int i = 0; i < arrLength_Sorce; i++) {
+		AddElementInArray(Copied_arr,arrLengthCopide,arr_Sorce[i]);
+	}
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr_Sorce[100], Copide_arr[100], arrLength_Sorce = 0, arrLength_Copide = 0;
+	FillArrayWithRandomNumbers(arr_Sorce, arrLength_Sorce);
+	cout << "\nOreginal Aeray:";
+	Print_Array(arr_Sorce, arrLength_Sorce);
+	Copy_ArrayUsingAddArrayElement(Copide_arr, arr_Sorce, arrLength_Sorce, arrLength_Copide);
+	cout << "\nCopide Array  :";
+	Print_Array(Copide_arr, arrLength_Copide);
+
+	
+}
+*************************************************************************
+40- Copy Odd Numbers to Anew Array
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+void AddElementInArray(int arr[100], int& arrLength, int Number) {
+	arrLength++;
+	arr[arrLength - 1] = Number;
+}
+void Print_Array(int arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+
+}
+void Copy_ArrayUsingAddArrayElement(int Copied_arr[100], int arr_Sorce[100], int arrLength_Sorce,int &arrLengthCopide) {
+	for (int i = 0; i < arrLength_Sorce; i++) {
+		 if (arr_Sorce[i]%2!=0)
+		AddElementInArray(Copied_arr,arrLengthCopide,arr_Sorce[i]);
+	}
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr_Sorce[100], Copide_arr[100], arrLength_Sorce = 0, arrLength_Copide = 0;
+	FillArrayWithRandomNumbers(arr_Sorce, arrLength_Sorce);
+	cout << "\nOreginal Aeray:";
+	Print_Array(arr_Sorce, arrLength_Sorce);
+	Copy_ArrayUsingAddArrayElement(Copide_arr, arr_Sorce, arrLength_Sorce, arrLength_Copide);
+	cout << "\nOdd Numbers  :";
+	Print_Array(Copide_arr, arrLength_Copide);
+
+	
+}
+*************************************************************************
+41-Copy Prime Numbers to a New Array
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+enum en_NumberType { Prime = 1, Not_Prime = 2 };
+en_NumberType Check_NumberType(int Number) {
+
+	int M = round(Number / 2);
+	for (int i = 2;i <= M;i++) {
+		if (Number % i == 0)
+			return en_NumberType::Not_Prime;
+	}
+	return en_NumberType::Prime;
+}
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+void AddElementInArray(int arr[100], int& arrLength, int Number) {
+	arrLength++;
+	arr[arrLength - 1] = Number;
+}
+void Print_Array(int arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+
+}
+void Copy_ArrayUsingAddArrayElement(int Copied_arr[100], int arr_Sorce[100], int arrLength_Sorce,int &arrLengthCopide) {
+	for (int i = 0; i < arrLength_Sorce; i++) {
+		 if (Check_NumberType(arr_Sorce[i]) ==en_NumberType::Prime)
+		AddElementInArray(Copied_arr,arrLengthCopide,arr_Sorce[i]);
+	}
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr_Sorce[100], Copide_arr[100], arrLength_Sorce = 0, arrLength_Copide = 0;
+	FillArrayWithRandomNumbers(arr_Sorce, arrLength_Sorce);
+	cout << "\nOreginal Aeray:";
+	Print_Array(arr_Sorce, arrLength_Sorce);
+	Copy_ArrayUsingAddArrayElement(Copide_arr, arr_Sorce, arrLength_Sorce, arrLength_Copide);
+	cout << "\nJust Prime Numbers  :";
+	Print_Array(Copide_arr, arrLength_Copide);
+
+	
+}
+
+*************************************************************************
+42-Copy Distinct Number To Array
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+void FillArray(int arr[100]) {
+	int Lenght = 10;
+	arr[0] = 10;
+	arr[1] = 10;
+	arr[2] = 10;
+	arr[3] = 50;
+	arr[4] = 50;
+	arr[5] = 50;
+	arr[6] = 70;
+	arr[7] = 70;
+	arr[8] = 90;
+	arr[9] = 90;
+
+}
+int FindNumberPosstionInarray(int arr[100], int arrLength, int Number) {
+
+	for (int i = 0; i < arrLength;i++) {
+		if (Number == arr[i]) {
+			return i;
+		}
+	}
+	return -1;
+}
+bool IsNumberInArray(int arr[100], int arrLength, int Number) {
+	return FindNumberPosstionInarray(arr, arrLength, Number) != -1;
+}
+void AddElementInArray(int arr[100], int& arrLength, int Number) {
+	arrLength++;
+	arr[arrLength - 1] = Number;
+}
+void Print_Array(int arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+
+}
+void Copy_DistinctNumberToArray(int Copied_arr[100], int arr_Sorce[100], int arrLength_Sorce,int &arrLengthCopide) {
+	for (int i = 0; i < arrLength_Sorce; i++){
+		if (!IsNumberInArray(Copied_arr, arrLengthCopide, arr_Sorce[i])) {
+			AddElementInArray(Copied_arr, arrLengthCopide, arr_Sorce[i]);
+		}
+		}
+	}
+
+
+int main()
+{
+	int arr_Sorce[100], Copide_arr[100], arrLength_Sorce = 10, arrLength_Copide = 0;
+	FillArray(arr_Sorce);
+	cout << "\nOreginal Array :";
+	Print_Array(arr_Sorce, arrLength_Sorce);
+	Copy_DistinctNumberToArray(Copide_arr, arr_Sorce, arrLength_Sorce, arrLength_Copide);
+	cout << "\n Copied Non Repeted Array :";
+	Print_Array(Copide_arr, arrLength_Copide);
+
+}
+
+*************************************************************************
+43-Is Palindrome Array
+
+ #include <iostream>
+#include <cstdlib>
+using namespace std;
+int Read_Number() {
+	int Number;
+	cout << " Pleas Enter Number?\n";
+	cin >> Number;
+	return Number;
+}
+void AddElementInArray(int arr[100], int& arrLength, int Number) {
+	arrLength++;
+	arr[arrLength - 1] = Number;
+}
+void UserInputInArray(int arr[100], int& arrLength) {
+	bool AddMore = true;
+	do {
+		AddElementInArray(arr, arrLength, Read_Number());
+		cout << "Do you Want Add Element? [0]No , [1]Yes?\n";
+		cin >> AddMore;
+	} while (AddMore);
+}
+void Print_Array(int arr[100], int arrLength) {
+	for (int i = 0; i < arrLength;i++) {
+		cout << arr[i] << " ";
+	}
+
+}
+
+
+bool IsPalindrome_Array(int arr[100],int Length){
+	for (int i = 0; i <Length;i++){
+		if (arr[i] != arr[Length - 1 - i]){
+			return false;
+		}		
+	}
+	return true;
+}
+
+int main()
+{
+	int arr[100], Length = 0;
+	UserInputInArray(arr,Length);
+	Print_Array(arr, Length);
+	cout << endl;
+	if (IsPalindrome_Array(arr,Length)) {
+		cout << "Yes,Array is Palindrome";
+		system("color 2F");
+	}
+	else {
+		cout << "No,Array is Not Palindrome";
+		system("color 4F");
+	}
+	
+
+}
+*************************************************************************
+44- Counter Odd Number In Array
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+	int CounterOddRandomNumbers(int arr[100], int arrLength) {
+		int Counter = 0;
+		for (int i = 0; i < arrLength;i++) {
+			if (arr[i] % 2 != 0) {
+				Counter++;
+			}
+		}
+		return Counter;
+
+	}
+
+	void Print_Array(int Arr[100], int arrLength) {
+		for (int i = 0; i < arrLength;i++) {
+			cout << Arr[i] << " ";
+		}
+
+	}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr[100], arrLength = 0;
+	FillArrayWithRandomNumbers(arr, arrLength);
+	cout << "\nOreginal Array:";
+	Print_Array(arr, arrLength);
+	cout << "\nNumber Of Odd Numbers Is:" << CounterOddRandomNumbers(arr, arrLength);
+
+}
+*************************************************************************
+45-Count Even Numbers in Array 
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(1, 100);
+	}
+}
+	int CounterEvenRandomNumbers(int arr[100], int arrLength) {
+		int Counter = 0;
+		for (int i = 0; i < arrLength;i++) {
+			if (arr[i] % 2 == 0) {
+				Counter++;
+			}
+		}
+		return Counter;
+
+	}
+
+	void Print_Array(int Arr[100], int arrLength) {
+		for (int i = 0; i < arrLength;i++) {
+			cout << Arr[i] << " ";
+		}
+
+	}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr[100], arrLength = 0;
+	FillArrayWithRandomNumbers(arr, arrLength);
+	cout << "\nOreginal Array:";
+	Print_Array(arr, arrLength);
+	cout << "\nNumber Of Even Numbers Is:" << CounterEvenRandomNumbers(arr, arrLength);
+
+}
+*************************************************************************
+46- Count Positive Numbers in Array
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(-100, 100);
+	}
+}
+	int CounterPositiveRandomNumbers(int arr[100], int arrLength) {
+		int Counter = 0;
+		for (int i = 0; i < arrLength;i++) {
+			if (arr[i] > 0) {
+				Counter++;
+			}
+		}
+		return Counter;
+
+	}
+
+	void Print_Array(int Arr[100], int arrLength) {
+		for (int i = 0; i < arrLength;i++) {
+			cout << Arr[i] << " ";
+		}
+
+	}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr[100], arrLength = 0;
+	FillArrayWithRandomNumbers(arr, arrLength);
+	cout << "\nOreginal Array:";
+	Print_Array(arr, arrLength);
+	cout << "\nNumber Of Positive Numbers Is:" << CounterPositiveRandomNumbers(arr, arrLength);
+
+}
+*************************************************************************
+47-Count Negative Numbers in Array
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Randome_Number(int From, int To) {
+	int rand_number = rand() % (To - From + 1) + From;
+	return rand_number;
+}
+void FillArrayWithRandomNumbers(int arr[100], int& arrLrngth) {
+	cout << "Enter the Number Of Elements?\n";
+	cin >> arrLrngth;
+	for (int i = 0; i < arrLrngth; i++) {
+		arr[i] = Randome_Number(-100, 100);
+	}
+}
+	int CounterNegativRandomNumbers(int arr[100], int arrLength) {
+		int Counter = 0;
+		for (int i = 0; i < arrLength;i++) {
+			if (arr[i] < 0) {
+				Counter++;
+			}
+		}
+		return Counter;
+
+	}
+
+	void Print_Array(int Arr[100], int arrLength) {
+		for (int i = 0; i < arrLength;i++) {
+			cout << Arr[i] << " ";
+		}
+
+	}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr[100], arrLength = 0;
+	FillArrayWithRandomNumbers(arr, arrLength);
+	cout << "\nOreginal Array:";
+	Print_Array(arr, arrLength);
+	cout << "\nNumber Of Negative Numbers Is:" << CounterNegativRandomNumbers(arr, arrLength);
+
+}
+*************************************************************************
+48-MyABS
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int Read_Number() {
+	int Number;
+	cout << "Enter The Number?\n";
+	cin >> Number;
+	return Number;
+}
+int MyABS(int Number) {
+	if (Number < 0)
+		return Number * -1;
+	else
+		return Number;
+
+
+}
+int main()
+{
+	int Number = Read_Number();
+	cout << "Absolute Value Of " << Number<<":" << MyABS(Number);
+
+}
+*************************************************************************
+49-MyRound
+
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+float Read_Number() {
+	float Number;
+	cout << "Enter The Number?\n";
+	cin >> Number;
+	return Number;
+}
+float FractionPart(float Number) {
+	return Number - int(Number);
+}
+float MyRound(float Number) {
+	
+	int Integer_Number = (int)Number;
+	float Fraction = FractionPart(Number);
+		if (abs(Fraction)>= 0.5) {
+			if (Number > 0)
+				return ++Integer_Number;
+			else
+				return --Integer_Number;
+		}
+		else {
+			return Integer_Number;
+		}
+
+	
+}
+int main()
+{
+	float Number = Read_Number();
+	cout << MyRound(Number);
+
+}
+*************************************************************************
+50-MyFloor
+
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+float Read_Number() {
+	float Number;
+	cout << "Enter The Number?\n";
+	cin >> Number;
+	return Number;
+}
+int MyFloor(float Number) {
+	if (Number > 0)
+		return Number;
+	else
+		return Number - 1;
+ }
+int main()
+{
+	cout << MyFloor(Read_Number());
+
+}
+*************************************************************************
+51-MyCail
+
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+float Read_Number() {
+	float Number;
+	cout << "Enter The Number?\n";
+	cin >> Number;
+	return Number;
+}
+float FractionPart(float Number) {
+	return Number - int(Number);
+}
+int MYCail(float Number) {
+	if (FractionPart(Number) > 0)
+		if (Number > 0)
+			return Number + 1;
+		else
+			return Number;
+	else
+		return Number;
+}
+int main()
+{
+
+	cout << MYCail(Read_Number());
+
+}
+*************************************************************************
+52-MySqrt
+
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+int Read_Number() {
+	int Number;
+	cout << "Enter The Number?\n";
+	cin >> Number;
+	return Number;
+}
+
+int MySqrt(int Number) {
+	return pow(Number,0.5);
+}
+int main()
+{
+
+	cout << MySqrt(Read_Number());
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

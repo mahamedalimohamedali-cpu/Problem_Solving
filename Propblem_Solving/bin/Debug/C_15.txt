@@ -1,0 +1,1343 @@
+1- Creat Data Base 
+
+create database DB1;
+Or 
+CREATE DATABASE DB1;
+
+___________________________________________________________________________________
+2- Create DataBase If Not Exist 
+
+if NOT EXISTs (SELECT *FROM sys.databases WHERE name ='DB1')
+BEGIN 
+CREATE DATABASE DB1;
+END
+
+_____________________________________________________________________________________
+
+3- Switch DataBase 
+
+USE DB1;
+
+_____________________________________________________________________________________
+
+4- Drop DataBase 
+
+DROP DATABASE DB1;
+
+
+_____________________________________________________________________________________
+
+5- Drop Database IF EXISTS
+
+if  EXISTS (SELECT *FROM sys.databases WHERE name ='DB1')
+BEGIN 
+DROP DATABASE DB1;
+END
+
+_____________________________________________________________________________________
+
+6- Create Table
+
+CREATE TABLE Student(
+StudentID int NOT NULL,
+FIRST_NAME nvarchar (50) NOT NULL,
+LAST_NAME nvarchar (50) NOT NULL,
+BIRTHDATE nvarchar (10) NOT NULL,
+PRIMARY KEY (StudentID),
+);
+
+
+
+_____________________________________________________________________________________
+
+7- Drop Table 
+
+DROP TABLE tablename;
+
+_____________________________________________________________________________________
+
+8- Alter Table ADD Column 
+
+ALTER TABLE PERSON
+
+ADD  LINE char(10) NOT NULL;
+
+you can Add Multible Columns Like This :
+
+ALTER TABLE PERSON
+ADD  LINE1 char(10) NOT NULL,Line2 char (20) NOT NULL,
+Line3 int NOT NULL;
+
+ _____________________________________________________________________________________
+
+9- Rename Column
+
+exec sp_rename 'PERSON.Line2','Mohamed','COLUMN';
+
+
+_____________________________________________________________________________________
+
+10-Rename Table 
+
+exec sp_rename 'PERSON','Table1';
+
+
+_____________________________________________________________________________________
+
+11-Modify Table 
+
+ALTER TABLE Table1
+ALTER COLUMN NAME nVARCHAR(12) ;
+
+_____________________________________________________________________________________
+
+12-Delete Column 
+ 
+ALTER TABLE Table1
+DROP COLUMN NAME;
+
+
+_____________________________________________________________________________________
+
+13-Simple Programme 
+
+
+
+--IF NOT EXISTS (SELECT *FROM sys.databases WHERE name ='DBTEST')
+--BEGIN 
+--CREATE DATABASE DBTEST
+--END
+
+--USE DBTEST
+
+--IF NOT EXISTS (SELECT *FROM sys.tables WHERE name ='TABLETEST')
+--BEGIN 
+--CREATE TABLE TABLETEST
+--(
+--ID int NOT NULL,
+--FIRSTNAME nvarchar(50) NOT NULL,
+--LASTNAME nvarchar (50) NOT NULL,
+--BIRTHDATE datetime2  NOT NULL,
+--PRIMARY KEY (ID)
+--);
+--END
+
+--IF NOT EXISTS (SELECT *FROM sys.columns WHERE name = 'SALARY')
+--BEGIN
+--ALTER TABLE TABLETEST
+--ADD SALARY smallmoney NOT NULL;
+--END
+
+--exec sp_rename 'mO.LASTNAME','FIRSTNAME','COLUMN';
+
+
+--ALTER TABLE mO
+--ALTER COLUMN FIRSTNAME nvarchar(10)
+
+--ALTER TABLE mO
+--DROP COLUMN FIRSTNAME
+
+DROP TABLE mO ;
+DROP TABLE TABLETEST;
+
+
+_____________________________________________________________________________________
+
+14-Simple Programme 
+
+
+--IF NOT EXISTS(SELECT *FROM sys.databases WHERE name='MOHAMED_ALI')
+--BEGIN
+--CREATE DATABASE MOHAMED_ALI;
+--END
+
+--USE MOHAMED_ALI;
+
+--IF EXISTS(SELECT *FROM sys.databases WHERE name='DB')
+--BEGIN 
+--DROP DATABASE DB;
+--END
+
+--IF NOT EXISTS (SELECT *FROM sys.tables WHERE name ='EMPLOYEE')
+--BEGIN 
+--CREATE TABLE EMPLOYEE
+--(
+--ID INT NOT NULL,
+--FIRSTNAME NVARCHAR(20) NOT NULL,
+--LASTNAME NVARCHAR(20) NOT NULL,
+--PHONENUMBER NVARCHAR(15) NULL
+--);
+--END
+
+----DROP TABLE EMPLOYEE;
+
+--IF NOT EXISTS (SELECT *FROM sys.columns  WHERE name ='GENDER')
+--BEGIN 
+--ALTER TABLE EMPLOYEE
+--ADD GENDER VARCHAR(1) NOT NULL;
+--END
+
+--IF  EXISTS (SELECT *FROM sys.columns  WHERE name ='LASTNAME')
+--BEGIN
+--exec sp_rename 'EMPLOYEE.LASTNAME','HH','COLUMN';
+--END
+
+--USE DBR
+--IF  EXISTS (SELECT *FROM sys.tables WHERE name ='Table1')
+--BEGIN
+--exec sp_rename 'Table1','Mo';
+--END
+
+
+--IF  EXISTS (SELECT *FROM sys.columns WHERE name='LINE')
+--BEGIN 
+--ALTER TABLE Mo
+--ALTER COLUMN LINE CHAR(1) NOT NULL;
+--END
+
+--IF  EXISTS (SELECT *FROM sys.columns WHERE name='Line3')
+--BEGIN
+--ALTER TABLE Mo
+--DROP COLUMN Line3;
+--END
+
+--USE MOHAMED_ALI
+
+
+--BACKUP DATABASE MOHAMED_ALI
+--TO DISK='C:\MOHAMED_ALI.bak'
+
+--WITH DIFFERENTIAL
+
+--DROP DATABASE MOHAMED_ALI;
+
+
+--Restore  DATABASE MOHAMED_ALI
+--FROM DISK='C:\MOHAMED_ALI.bak'
+
+
+
+_____________________________________________________________________________________
+
+15-SELECT INTO STATMENT 
+
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name ='EMPLOYEES')
+BEGIN 
+CREATE DATABASE EMPLOYEES;
+END
+
+USE EMPLOYEES;
+
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name ='Employees')
+BEGIN
+CREATE TABLE Employees
+(
+ID INT NOT NULL,
+NAME NVARCHAR(100) NOT NULL,
+PHONE NVARCHAR(10),
+SALARY smallmoney,
+PRIMARY KEY (ID),
+);
+END 
+SELECT * FROM Employees;
+
+--Way One 
+insert Into  Employees
+values 
+(1,'EMP1','1020675083',1000);
+
+--Way Two
+insert Into  Employees
+values 
+(2,'EMP2','1020675083',1000),
+(3,'EMP3','1020675083',2000),
+(4,'EMP4','1020675083',3000),
+(5,'EMP5','1020675083',4000),
+(6,'EMP6','1020675083',5000);
+
+--Way Three
+insert Into  Employees (ID,NAME)
+values 
+(7,'EMP7');
+
+insert Into  Employees (ID,NAME,PHONE)
+values 
+(8,'EMP8','97812313');
+
+SELECT * FROM Employees;
+
+_____________________________________________________________________________________
+
+16-UPDATE STATMENT 
+
+-this will show all data in the table
+select * from Employees;
+
+-- this will update one filed at a time
+Update Employees 
+set Name ='Mohammed Abu-Hadhoud' 
+where ID=2;
+
+-- this will update multiple fields at a time.
+Update Employees 
+set Name ='Mohammed Abu-Hadhoud' ,  Salary=5000
+where ID=2;
+
+-- this will increase the salary by 200 for all employees that their salaries are less than 500
+update Employees 
+set Salary = Salary+ 200
+where  Salary < 500 ;
+
+-- this will increase the salary by 10% for all employees that their salaries are less than or equal 1000
+update Employees 
+set Salary = Salary *1.1 
+where  Salary <= 1000;
+
+
+
+
+
+___________________________________________________________________________________
+
+17- BackUp
+
+BACKUP DATABASE MyDatabase1
+TO DISK = 'C:\MyDatabase1_backup.bak';
+
+
+___________________________________________________________________________________
+
+18- DIFFERENTIAL BACKUP
+
+BACKUP DATABASE MyDatabase1
+TO DISK = 'C:\MyDatabase1_backup.bak'
+WITH DIFFERENTIAL;
+___________________________________________________________________________________
+
+19- RESTORE 
+
+RESTORE  DATABASE MyDatabase1
+
+FROM DISK = 'C:\MyDatabase1.bak';
+
+
+___________________________________________________________________________________
+
+20- Simple Programme
+
+update Employees
+set SALARY=SALARY*1.2
+
+where SALARY <=2000 AND GENDER='F';
+
+select *FROM Employees;
+ 
+___________________________________________________________________________________
+
+21- Delete 
+
+delete from Employees
+where ID <4;
+Select *from Employees;
+ 
+___________________________________________________________________________________
+
+22-Select Into Statement
+
+SELECT *
+INTO EmployeesCopy1
+FROM Employees;
+
+select *from EmployeesCopy1;
+
+SELECT ID,NAME
+INTO EmployeesCopy2
+FROM Employees;
+
+select *from EmployeesCopy2;
+
+SELECT *
+INTO EmployeesCopy3
+FROM Employees
+WHERE 5=9;
+
+select *from EmployeesCopy3;
+
+___________________________________________________________________________________
+
+23-Select Into Statement
+
+USE EMPLOYEES;
+
+--CREATE TABLE PERSONS
+--(
+--ID INT NOT NULL,
+--NAME NVARCHAR(100) NOT NULL,
+--AGE INT NOT NULL,
+--PRIMARY KEY(ID)
+--)
+
+--insert into PERSONS
+--values 
+--(1,'Mohamed ali',20),
+--(2,'Ahmed ali',21),
+--(3,'Mohamed Hassan',22);
+
+--CREATE TABLE OLDPERSONS
+--(
+--ID INT NOT NULL,
+--NAME NVARCHAR(100) NOT NULL,
+--AGE INT NOT NULL,
+--PRIMARY KEY(ID)
+--)
+
+
+select *from PERSONS;
+
+___________________________________________________________________________________
+
+24- Identity Field (Auto Increment)
+
+USE EMPLOYEES;
+
+CREATE TABLE DEP 
+(
+ID INT Identity (1,1) NOT NULL,
+NAME NVARCHAR (20)  NOT NULL,
+PRIMARY KEY(ID)
+);
+
+insert into DEP 
+values 
+('Mohamed'),
+('Mohamed'),
+('Mohamed');
+
+select *from DEP;
+delete from DEP ;
+
+___________________________________________________________________________________
+
+25-Delete vs Truncate statement
+
+USE EMPLOYEES;
+
+CREATE TABLE DEP 
+(
+ID INT Identity (1,1) NOT NULL,
+NAME NVARCHAR (20)  NOT NULL,
+PRIMARY KEY(ID)
+);
+
+insert into DEP 
+values 
+('Mohamed'),
+('Mohamed'),
+('Mohamed');
+
+select *from DEP;
+truncate TABLE DEP;
+
+___________________________________________________________________________________
+
+26-Foreign Key Constraint
+
+USE EMPLOYEES;
+
+--CREATE TABLE CUSTOMAR
+--(
+--ID INT identity(1,1) NOT NULL,
+--FISTNAME  NVARCHAR(20) NOT NULL,
+--LASTNAME  NVARCHAR(20) NOT NULL,
+--PRIMARY KEY (ID),
+--);
+
+
+--CREATE TABLE OREDER
+--(
+--Order_ID int identity(1,1)  NOt NULL,
+--Name nvarchar(20) not null,
+--cost smallmoney not null,
+--customar_id int  references  CUSTOMAR(ID),
+--PRIMARY KEY (Order_ID),
+--);
+
+--insert into CUSTOMAR
+--values 
+--('Mohamed','ali'),
+--('ahmed','ali');
+
+--insert into OREDER
+--values 
+--('phone',1000,1),
+--('mmas',200,1);
+
+--select *from OREDER;
+
+--DROP  TABLE CUSTOMAR;
+--DROP  TABLE OREDER;
+
+--or another way 
+
+--CREATE TABLE CUSTOMAR
+--(
+--ID INT identity(1,1) NOT NULL,
+--FISTNAME  NVARCHAR(20) NOT NULL,
+--LASTNAME  NVARCHAR(20) NOT NULL,
+--PRIMARY KEY (ID),
+--);
+
+
+--CREATE TABLE OREDER
+--(
+--Order_ID int identity(1,1)  NOt NULL,
+--Name nvarchar(20) not null,
+--cost smallmoney not null,
+--customar_id int  NOT NULL,
+--PRIMARY KEY (Order_ID),
+--);
+
+--ALTER TABLE OREDER
+--ADD FOREIGN KEY(customar_id) references CUSTOMAR(ID);
+
+___________________________________________________________________________________
+
+27-Select 
+
+USE HR_Database;
+
+select *from Employees;
+--same select *from Employees;
+select Employees.* from Employees;
+
+select ID,FirstName, LastName, Gendor from Employees;
+
+Select *from Departments;
+Select *from Countries;
+
+
+___________________________________________________________________________________
+
+28- Select Distinct 
+
+Select *From Employees;
+
+Select Distinct *From Employees;--زيها زي الي فوق مش هتفرق هنا لانو بيتأكد علي مستوي الصف كلوا 
+
+Select Distinct FirstName From Employees;
+
+Select Distinct FirstName,DepartmentID From Employees;
+
+Select Distinct DepartmentID From Employees;
+
+___________________________________________________________________________________
+
+29-Where Statement + AND , OR, NOT
+
+Select *from Employees 
+Where MonthlySalary<=500;
+
+
+--Same 
+Select *from Employees 
+Where (MonthlySalary<=500 and Gendor='F')--or (MonthlySalary<=500 and Gendor='M');
+
+Select Distinct FirstName,MonthlySalary,Gendor from Employees
+Where MonthlySalary<=500 and Gendor='F';
+
+
+Select *from Employees 
+Where Not MonthlySalary<=500;
+
+Select *from Employees 
+Where  MonthlySalary<=500 or Gendor='F';
+
+Select *from Employees 
+Where DepartmentID=1 and DepartmentID=2;--return Nothing
+
+Select *from Employees 
+Where DepartmentID=1 or DepartmentID=2;
+
+
+Select *from Employees 
+Where  ExitDate is NULL;
+
+Select *from Employees 
+Where  NOT ExitDate is NULL;
+
+--Same
+Select *from Employees 
+Where   ExitDate is NOT NULL;
+
+___________________________________________________________________________________
+
+30-"In" Operator
+
+select Departments.Name from Departments
+where
+ID  Not in (select Distinct DepartmentID from Employees where MonthlySalary<=210);
+
+select Departments.Name from Departments
+where
+ID   in (select Distinct DepartmentID from Employees where MonthlySalary<=210);
+
+
+
+select *from Employees
+where DepartmentID in(1,2,3,4,6);
+
+
+
+select Countries.Name from Countries
+where
+ID  in (select  CountryID from Employees where   MonthlySalary<=210);
+
+___________________________________________________________________________________
+
+31-Sorting : Order By
+
+USE HR_Database;
+
+
+--Select *From Employees
+--Order By MonthlySalary;
+
+
+--Select FirstName,MonthlySalary From Employees
+--where DepartmentID=1
+--Order By MonthlySalary;
+
+--Select FirstName,MonthlySalary From Employees
+--where DepartmentID=1
+--Order By FirstName ,MonthlySalary;
+
+--Select FirstName,MonthlySalary From Employees
+--where DepartmentID=1
+--Order By FirstName Desc ,MonthlySalary Asc;
+
+--Select FirstName,MonthlySalary,ExitDate From Employees
+--where DepartmentID=1 And ExitDate is Not NUll
+--Order By ExitDate;
+___________________________________________________________________________________
+
+32-Select Top Statement
+
+--Select top 10 *from Employees ;
+
+--Select top 10 percent *from Employees 
+--where MonthlySalary>2900;
+
+----Select Distinct Top 3  FirstName , MonthlySalary From Employees
+----Order By MonthlySalary Desc;
+
+----Select Distinct Top 3  ID,FirstName , MonthlySalary From Employees
+----Order By MonthlySalary ASC;
+
+--select ID , FirstName, MonthlySalary from Employees where MonthlySalary In
+--(
+--	select  distinct  top 3 MonthlySalary from employees
+--	order by MonthlySalary Desc
+--)
+
+--Order By MonthlySalary Desc
+
+--select ID , FirstName, MonthlySalary from Employees where MonthlySalary In
+--(
+--	select  distinct  top 3 MonthlySalary from employees
+--	order by MonthlySalary ASC
+--)
+
+--Order By MonthlySalary ASC
+
+___________________________________________________________________________________
+
+33-Select As
+
+select A=10*2, B=3/1;
+
+select A=10*2, B=3/1 From Employees;
+
+
+
+Select ID,FullName= FirstName+' '+LastName,MonthlySalary From Employees
+where DepartmentID=1
+Order By MonthlySalary Asc;
+
+Select ID , FullName= FirstName+' '+LastName,MonthlySalary,YearlySalary =MonthlySalary*12 From Employees;
+
+Select ID , FullName= FirstName+' '+LastName,MonthlySalary,
+YearlySalary =MonthlySalary*12 ,
+BonusPerc,
+YearlyBouss=BonusPerc*12
+From Employees;
+
+Select ID,FullName= FirstName+' '+LastName ,Age =DateDiff(Year,DateOfBirth,getdate()) From Employees
+
+where DateDiff(Year,DateOfBirth,getdate())<=30;
+
+
+Select ID, FirstName + ' ' + LastName as FullName From Employees;
+
+___________________________________________________________________________________
+
+34-Between 
+
+
+select FirstName +' '+LastName as FullName  from Employees
+where MonthlySalary Between 500 and 1000;
+
+
+___________________________________________________________________________________
+
+35-The SQL COUNT(), AVG() and SUM() Functions
+
+-- select TotalCount=Count(MonthlySalary),
+--        TotalMax=Max(MonthlySalary),
+--		TotalAVG=AVG(MonthlySalary),
+--	    TotalMin=Min(MonthlySalary),
+--		TotalSum=Sum(MonthlySalary)
+-- from Employees
+
+
+
+--select FirstName ,MonthlySalary From Employees
+--Where MonthlySalary = (Select Max(MonthlySalary) From Employees);
+
+
+-- select TotalCount=Count(MonthlySalary),
+--        TotalMax=Max(MonthlySalary),
+--		TotalAVG=AVG(MonthlySalary),
+--	    TotalMin=Min(MonthlySalary),
+--		TotalSum=Sum(MonthlySalary)
+--from Employees where DepartmentID=1;
+
+--select ResinedEmployees = Count(ExitDate) From Employees;
+--select TotalEmployees   = Count(MonthlySalary) From Employees;
+
+___________________________________________________________________________________
+
+36-Group By 
+
+-- select DepartmentId, TotalCount=Count(MonthlySalary),
+ --       TotalMax=Max(MonthlySalary),
+	--	TotalAVG=AVG(MonthlySalary),
+	--    TotalMin=Min(MonthlySalary),
+	--	TotalSum=Sum(MonthlySalary)
+ --from Employees
+ --Group By DepartmentID
+ --Order By DepartmentID;
+
+___________________________________________________________________________________
+
+37-Having
+
+--  select DepartmentId, TotalCount=Count(MonthlySalary),
+--        TotalMax=Max(MonthlySalary),
+--		TotalAVG=AVG(MonthlySalary),
+--	    TotalMin=Min(MonthlySalary),
+--		TotalSum=Sum(MonthlySalary)
+-- from Employees
+-- Group By DepartmentID
+-- Having Count(MonthlySalary)>120
+-- Order By DepartmentID;
+
+-- Same Solution With Another Way 
+--Select  * From 
+--(
+--select DepartmentId, TotalCount=Count(MonthlySalary),
+--        TotalMax=Max(MonthlySalary),
+--		TotalAVG=AVG(MonthlySalary),
+--	    TotalMin=Min(MonthlySalary),
+--		TotalSum=Sum(MonthlySalary)
+-- from Employees
+-- Group By DepartmentID
+--) R1
+
+--where R1.TotalCount>120
+--Order By DepartmentID;
+
+Another Exsampel For This Case 
+
+ Select *
+ From 
+ (
+ Select FirstName + LastName as FullName  From Employees
+ )r1
+ Where r1.FullName='HadleyLe';
+
+
+___________________________________________________________________________________
+
+38-Like
+
+-- Retrieves employees whose first name starts with the letter 'a'
+Select ID,FirstName,LastName From Employees
+where FirstName Like 'a%';
+
+-- Retrieves employees whose first name ends with the letter 'a'
+Select ID,FirstName,LastName From Employees
+where FirstName Like '%a';
+
+-- Retrieves employees whose first name contains the substring 'tell' anywhere inside it
+Select ID,FirstName,LastName From Employees
+where FirstName Like '%tell%';
+
+-- Retrieves employees whose first name starts and ends with the letter 'a'
+Select ID,FirstName,LastName From Employees
+where FirstName Like 'a%a';
+
+-- Retrieves employees whose first name has 'a' as the second character
+Select ID,FirstName,LastName From Employees
+where FirstName Like '_a%';
+
+-- Retrieves employees whose first name has 'a' as the third character
+Select ID,FirstName,LastName From Employees
+where FirstName Like '__a%';
+
+-- Retrieves employees whose first name starts with 'a' and has at least 3 characters in total
+Select ID,FirstName,LastName From Employees
+where FirstName Like 'a__%'
+
+-- Retrieves employees whose first name either starts with 'a' OR has 'b' as the third character
+Select ID,FirstName,LastName From Employees
+where FirstName Like 'a%' or FirstName Like '__b%';
+
+
+
+___________________________________________________________________________________
+
+39-WildCards
+
+-- Updates the first name to 'Mohammed' and last name to 'Ali' for the employee with ID 285
+Update Employees
+Set FirstName ='Mohammed' , LastName='Ali'
+where ID =285;
+
+-- Updates the first name to 'Mohammad' and last name to 'Maher' for the employee with ID 286
+Update Employees
+Set FirstName ='Mohammad' , LastName='Maher'
+where ID =286;
+
+-- Retrieves employees whose first name matches either 'Mohammed' or 'Mohammad' using a character set wildcard
+Select Id,FirstName,LastName From Employees
+where FirstName like 'Mohamm[ae]d';
+
+-- Retrieves employees whose first name does NOT match 'Mohammed' or 'Mohammad' using a negated character set wildcard
+Select Id,FirstName,LastName From Employees
+where FirstName Not like 'Mohamm[ae]d';
+
+-- Retrieves employees whose first name starts with any of the characters 'a', 'b', or 'c'
+Select Id,FirstName,LastName From Employees
+where FirstName  like '[abc]%';
+
+-- Retrieves employees whose first name starts with any letter from 'A' to 'L', ordered alphabetically by first name
+Select Id,FirstName,LastName From Employees
+where FirstName  like '[A-L]%'
+Order By FirstName;
+
+
+___________________________________________________________________________________
+
+40-Inner Join 
+
+--Select Employees.ID ,Employees.FirstName,Employees.LastName, Departments.Name
+--From Employees
+--Join Departments
+--ON Employees.DepartmentID=Departments.ID;
+
+
+--Select Employees.ID ,Employees.FirstName,Employees.LastName, Departments.Name
+--From Employees
+--Join Departments
+--ON Employees.DepartmentID=Departments.ID
+--where Departments.Name='IT'
+--Order By Employees.ID;
+
+
+
+--Select Employees.ID ,Employees.FirstName,Employees.LastName,
+--Countries.Name as CountryName,Departments.Name as DeptName
+--From Employees
+--Join Countries
+--On Employees.CountryID=Countries.ID
+--Join Departments 
+--On Employees.DepartmentID=Departments.ID
+--where Countries.Name='USA' and Departments.Name='IT'
+--Order By Employees.ID;
+
+
+--Select Customers.CustomerID , Customers.Name , Orders.Amount,Orders.OrderID
+--From Customers
+--Join Orders
+--On Customers.CustomerID=Orders.OrderID
+--Order By Orders.Amount;
+
+
+___________________________________________________________________________________
+
+41-All Joins
+
+--Select Customers.CustomerID, Customers.Name, Orders.Amount
+--From Customers 
+--Join Orders
+--ON Customers.CustomerID=Orders.CustomerID;
+
+
+--Select Customers.CustomerID, Customers.Name, Orders.Amount
+--,Orders.OrderID
+--From Customers 
+--LEFT Join Orders
+--ON Customers.CustomerID=Orders.CustomerID;
+
+
+--Select Customers.CustomerID, Customers.Name, Orders.Amount
+--,Orders.OrderID
+--From Customers 
+--RIGHT Join Orders
+--ON Customers.CustomerID=Orders.CustomerID;
+
+
+--Select Customers.CustomerID, Customers.Name, Orders.Amount
+--,Orders.OrderID
+--From Customers 
+--FULL Join Orders
+--ON Customers.CustomerID=Orders.CustomerID;
+
+
+
+--Select *From Orders;
+--Select *From Customer
+
+
+--Select  DeptID= Departments.ID, Departments.Name , NumberOfEMP=COUNT(Employees.MonthlySalary)
+--From Employees
+--Join Departments ON Employees.DepartmentID=Departments.ID
+--Group By Departments.Name,Departments.ID
+--Order By Departments.ID;
+
+
+--Select  DeptID= Departments.ID, Departments.Name , TotalSalaries=SUm(Employees.MonthlySalary)
+--From Employees
+--Join Departments ON Employees.DepartmentID=Departments.ID
+--Group By Departments.Name,Departments.ID
+--Order By SUM(Employees.MonthlySalary) Desc;
+
+
+--Select Customers.Name, 
+--TotalOrders=SUM(Orders.Amount)
+--From Customers
+--Join Orders
+--ON Customers.CustomerID=Orders.CustomerID
+--Group By Customers.Name;
+
+
+--Add New Amount Of Old Customer 
+--Select * From Orders
+
+--Insert into Orders(OrderID,Amount,CustomerID)
+--Values(5,300,3);
+
+
+___________________________________________________________________________________
+
+42-Viwse
+
+Create View ResiginEmployees as 
+Select * From Employees
+Where ExitDate Is not null;
+
+Create rjierier as 
+Select * From Employees
+
+
+
+
+___________________________________________________________________________________
+
+43-Exists
+
+--select X='yes'
+--where  exists 
+--   ( 
+--	select * from Orders
+--	where customerID= 3 and Amount < 600
+--	)
+
+
+--select * from Customers T1
+--where 
+--  exists 
+--   ( 
+--	select * from Orders
+--	where customerID= T1.CustomerID and Amount < 600
+--	)
+
+----More optimized and faster
+--select * from Customers T1
+--where 
+--  exists 
+--   ( 
+--	select top 1 * from Orders
+--	where customerID= T1.CustomerID and Amount < 600
+--	)
+
+
+----More optimized and faster
+--select * from Customers T1
+--where 
+--  exists 
+--   ( 
+--	select top 1 R='Y'  from Orders
+--	where customerID= T1.CustomerID and Amount < 600
+--)
+
+___________________________________________________________________________________
+
+44-Union 
+
+--Select * From Departments
+--Union 
+--Select * From Departments;
+
+
+
+--Select * From Departments
+--Union ALL
+--Select * From Departments;
+
+--Select * From ActivEmployees
+--Union ALL
+--Select *From ResiginEmployees;
+
+--Same Resulte 
+--Select * From ActivEmployees
+--Union 
+--Select *From ResiginEmployees;
+
+___________________________________________________________________________________
+
+45-Case
+
+--Create View ShortCut as
+--select ID 
+--,NewNamee=
+--Case 
+--When FirstName='Mohammed' Then 'Ahmed'
+--When FirstName =FirstName then FirstName
+--End
+--,LastName
+--,GengoreTitle=
+--Case 
+--When Gendor='M' Then 'Male'
+--When Gendor='F' Then 'Female'
+--End,
+--Active =
+--Case 
+--When ExitDate Is NULL Then 'Active'
+--When ExitDate Is Not NULL Then 'Resigend'
+--End,
+--MonthlySalary,
+--Salary=
+--Case 
+--When Gendor ='M' Then MonthlySalary*1.1
+--When Gendor ='F' Then MonthlySalary*1.15
+--End
+--From Employee ___________________________________________________________________________________
+
+46-Constraints Primary Key 
+
+----Create Table Persons 
+----(
+----ID int NOT NULL Primary Key,
+----FirstName nvarChar(20) Not NULL,
+----LastName nvarChar(20) Not NULL
+----)
+
+
+----Create Table Persons
+----(
+----ID int NOT NULL,
+----FirstName nvarChar(20) Not NULL,
+----LastName nvarChar(20) Not NULL
+----Primary Key(ID)
+----)
+
+----Create Table Persons
+----(
+----ID int NOT NULL,
+----FirstName nvarChar(20) Not NULL,
+----LastName nvarChar(20) Not NULL
+----Constraint PK_Person Primary Key(ID,LastName)
+----)
+
+--Create Table Persons
+--(
+--ID int NOT NULL,
+--FirstName nvarChar(20) Not NULL,
+--LastName nvarChar(20) Not NULL
+--)
+
+--Alter Table  Persons 
+--Add Primary Key(ID);
+
+--Alter Table Persons 
+--Drop Constraint PK__Persons__3214EC27C6716249
+
+
+--Alter Table Persons 
+--Add Constraint PK_Person Primary Key (ID)
+
+--Alter Table Persons 
+--Drop Constraint PK_Person
+
+--Alter Table Persons 
+--Add Constraint PK_Person Primary Key (ID,LastName)
+
+----To Get Name Of Primary Key If You Dont Naming It 
+--SELECT name 
+--FROM sys.key_constraints 
+--WHERE type = 'PK' AND parent_object_id = OBJECT_ID('Persons');
+
+___________________________________________________________________________________
+
+47-Constraints Foreign Key
+
+
+--Create Table Products
+--(
+--ProductID  int NOt Null,
+--NumberOfOrders int Not NULL,
+--Name nvarChar(20) Not NULL,
+--PersonID int FOREIGN KEY REFERENCES Persons(ID)
+--);
+
+
+--Create Table Products
+--(
+--ProductID  int NOt Null,
+--NumberOfOrders int Not NULL,
+--Name nvarChar(20) Not NULL,
+--PersonID int NOt NULL,
+--Constraint FK_Persons FOREIGN KEY(PersonID) 
+--REFERENCES Persons(ID)
+--);
+
+--Alter Table Products
+--Drop Constraint FK__Products__Person__03F0984C;
+
+--Alter Table Products 
+--Add Foreign Key (PersonID) References Persons(ID);
+
+--Alter Table Products 
+--Add Constraint FK_PresonsID  
+--Foreign Key (PersonID) References Persons(ID);
+
+--To Get Name Of Forgein Key If You Dont Nameing
+--SELECT name 
+--FROM sys.foreign_keys 
+--WHERE parent_object_id = OBJECT_ID('Products');
+ 
+___________________________________________________________________________________
+
+48-Not NULL Constraints
+
+--CREATE TABLE Persons (
+--   ID int NOT NULL,
+--    LastName varchar(255) NOT NULL,
+--   FirstName varchar(255) NOT NULL,
+--   Age int
+--);
+
+--ALTER TABLE Persons
+--ALTER COLUMN Age int NOT NUL
+
+
+
+___________________________________________________________________________________
+
+49-Default Constraint 
+
+----Create Table Persons
+----(
+----ID Int Not NULL,
+----FirstName nvarChar(20) NOt NULL,
+----LastName nvarChar(20) NOT NULL,
+----Constraint PK_ID Primary Key(ID),
+----City nvarchar(100)  Default 'Cairo',
+----)
+
+
+----Insert Into Persons (ID,FirstName,LastName)
+----Values 
+----(1,'Mohamed','Ali');
+
+--Select *From Persons;
+
+
+--Create Table Persons
+--(
+--ID Int Not NULL,
+--FirstName nvarChar(20) NOt NULL,
+--LastName nvarChar(20) NOT NULL,
+--Constraint PK_ID Primary Key(ID),
+--City nvarchar(100) Constraint df_City   Default 'Cairo',
+--)
+
+--Insert Into Persons (ID,FirstName,LastName)
+--Values 
+--(1,'Mohamed','Ali');
+
+
+--Create Table Orders 
+--(
+--ID int Not NULL,
+--Name nvarChar(50) Not NULL,
+--OrderDate Date Default GetDate()
+--Constraint PK_Orders Primary Key(ID)
+--)
+
+--Insert Into Orders(ID,Name)
+--Values 
+--(1,'mmnsa');
+
+--Select *from Orders;
+
+
+--Alter Table Orders 
+--Add Constraint df_Name Default 'Mohamed' For Name
+
+
+--Alter Table Orders
+--Drop Constraint df_Name
+
+
+
+___________________________________________________________________________________
+
+50-Check Constraint 
+
+----Create Table Persons
+----(
+----ID int Not NUll,
+----FirstName nvarChar(20) Not NUll,
+----LastNamr nvarChar(20)  Default 'Ali',
+----Constraint PK_Persons Primary Key(ID),
+----Age int NOt NULL Check (Age>=18),
+----);
+
+----Insert Into Persons  (ID,FirstName,Age)
+----Values 
+----(3,'Ahmed',18),
+----(4,'Hassan',18);
+
+
+--Create Table Persons
+--(
+--ID int Not NUll ,
+--FirstName nvarChar(20) Not NUll,
+--LastNamr nvarChar(20)  Default 'Ali',
+--Constraint PK_Persons Primary Key(ID),
+--Age int NOt NULL, 
+--Constraint CHK_Persons  Check (Age>=18 and FirstName ='Mohamed')
+--);
+
+--Insert Into Persons  (ID,FirstName,Age)
+--Values 
+--(3,'Ahmed',13),
+--(4,'Mohamed',10);
+
+
+--Select *From Persons;
+
+--Alter Table Persons 
+--Drop Constraint CHK_Persons ;
+
+
+
+___________________________________________________________________________________
+
+51-Unique Constraint 
+
+--Create Table Persons
+--(
+--ID int Unique ,
+--FirstName nvarChar(20) NOt NULL,
+--LastName nvarChar(20) NOt NULL,
+--)
+
+
+
+--Create Table Persons
+--(
+--ID int ,
+--FirstName nvarChar(20) NOt NULL,
+--LastName nvarChar(20) NOt NULL,
+--Constraint UC_Persons Unique (ID,LastName)
+--)
+
+
+
+--Create Table Persons
+--(
+--ID int,
+--FirstName nvarChar(20) NOt NULL,
+--LastName nvarChar(20) NOt NULL,
+--)
+
+--Alter table Persons 
+--Add Unique (ID);
+
+
+--Create Table Persons
+--(
+--ID int,
+--FirstName nvarChar(20) NOt NULL,
+--LastName nvarChar(20) NOt NULL,
+--)
+
+--Create Table Persons
+--(
+--ID int,
+--FirstName nvarChar(20) NOt NULL,
+--LastName nvarChar(20) NOt NULL,
+--)
+--Alter Table Persons 
+--Add Constraint UC_Persons Unique (ID,LastName);
+
+--Alter Table Persons 
+--Drop Constraint UC_Persons ;
+
+
+
+
+___________________________________________________________________________________
+
+52-SQL Index
+
+Create Table Persons
+(
+ID int Not NULL Primary Key,
+FirstName nVarChar (20) Not NULL,
+LastName nVarChar (20) Not NULL,
+)
+
+--Create Index idn_LastName 
+--ON Persons(LastName);
+
+--Drop Index Persons.idn_LastName
+
+--Create Index idn_LastName 
+--ON Persons(LastName);
+
+--Create Index idn_FullName 
+--ON Persons(LastName,FirstName);
+
+--Drop Index Persons.idn_LastName,Persons.idn_FullName
+
+
+
+
+
+
+
+
